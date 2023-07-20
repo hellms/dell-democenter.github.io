@@ -34,10 +34,16 @@ Get-PPDMactivities -PredefinedFilter ASSET_JOBS
 
 Review the state of System jobs with the *Get-PPDMactivities* function
 ```Powershell
-Get-PPDMactivities -PredefinedFilter SYSTEM_JOBS | ft
+Get-PPDMactivities -PredefinedFilter SYSTEM_JOBS 
 ```
+
+![image](https://github.com/dell-democenter/dell-democenter.github.io/assets/8255007/0e276da6-78f1-4615-a645-f1324f46c5e5)
+
+
+From one of the last outputs, select a specific ID to view:
 Review the PPDM Components state
 ```Powershell
+
 ```
 
 
