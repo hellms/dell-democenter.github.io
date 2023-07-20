@@ -24,15 +24,16 @@ The Default will filter last 24hrs, the switch -days can specify duration in day
 ```Powershell
 Get-PPDMactivities -PredefinedFilter PROTECTION_JOBS | ft
 ```
+![image](https://github.com/dell-democenter/dell-democenter.github.io/assets/8255007/113b95a6-97b4-4528-9afe-debbf4329742)
 
 Review the state of Asset jobs with the *Get-PPDMactivities* function
 ```Powershell
-Get-PPDMactivities -PredefinedFilter ASSET_JOBS
+Get-PPDMactivities -PredefinedFilter ASSET_JOBS | ft
 ```
 
 Review the state of System jobs with the *Get-PPDMactivities* function
 ```Powershell
-Get-PPDMactivities -PredefinedFilter SYSTEM_JOBS
+Get-PPDMactivities -PredefinedFilter SYSTEM_JOBS | ft
 ```
 Review the PPDM Components state
 ```Powershell
