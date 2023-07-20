@@ -1,7 +1,7 @@
 # Prerequisites
 We need to prepare Host to install the Powershell Modules from Powershell Gallery.
 ## Start a Powershell Session:
-Click on the start Button (Windows Icon) in the lower lect of the screen
+Click on the start Button (Windows Icon) in the lower lect of the screen  
 ![image](https://github.com/dell-democenter/dell-democenter.github.io/assets/8255007/af061171-7837-4325-938e-17874a5a9ad7)
 
 Type *Powershell*
