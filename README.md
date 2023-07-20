@@ -5,11 +5,12 @@ This Guide runs the Dell DPS *PPDM Advanced Lab HOL-0419-02* by using Powershell
 ## Getting Started
 
 Book a session with the [PowerProtect Data Manager - Advanced](https://democenter.dell.com/hol/HOL-0419-02)   
-Once Signes in to the Session, we need to prepare the install the Powershell Modules
+Once Provisioned, sign in to the session.  
+We need to prepare to the install the Powershell Modules
 
 Follow the Guide [Module 0](./Module_0.md) for more information 
 
-
+## Index
 
 Module | Title | Link
 ------:|---------------------|---
