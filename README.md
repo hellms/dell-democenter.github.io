@@ -13,7 +13,7 @@ Follow the Guide [Module 0](./Module_0.md) for more information
 
 Module | Title | Link
 ------:|---------------------|---
-0 | Prerequisite | [Module ](Module_0.md)
+0 | Prerequisite | [Module 0](Module_0.md)
 1 | Overview of PowerProtect User Interface | [Module 1](Module_1.md)
 
 
