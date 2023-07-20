@@ -10,13 +10,6 @@ use *admin* and *Password123!* for connection
 ![image](https://github.com/dell-democenter/dell-democenter.github.io/assets/8255007/29fc50fe-4b30-459d-9644-7e8f4434b125)
 
 
-## Review the Components
-Review the PPDM Components state
-```Powershell
-Get-PPDMcomponents | ft
-```
-![image](https://github.com/dell-democenter/dell-democenter.github.io/assets/8255007/486887d7-5d49-4bf4-a000-99274118d5f8)
-
 
 ## Review the Job State
 Review the state of Protection jobs with the *Get-PPDMactivities* function
@@ -46,7 +39,12 @@ Review the PPDM Components state
 Get-PPDMactivities -id 492bbaf1-06a9-4114-b935-4e16fd12c10a
 ```
 
+## Review the Components ( similar to Support --> System Health View)
+Review the PPDM Components state
+```Powershell
+Get-PPDMcomponents | ft
+```
+![image](https://github.com/dell-democenter/dell-democenter.github.io/assets/8255007/486887d7-5d49-4bf4-a000-99274118d5f8)
 
 
 
-Get-PPDMactivities -days 1 | ft
