@@ -1,4 +1,6 @@
 # Prerequisites
+
+
 We need to prepare Host to install the Powershell Modules from Powershell Gallery.
 ## Start a Powershell Session:
 Click on the start Button (Windows Icon) in the lower lect of the screen  
@@ -25,3 +27,4 @@ And hit enter
 Powershell should now run with TLS 1.2   
 ![image](https://github.com/dell-democenter/dell-democenter.github.io/assets/8255007/cf012473-bd0b-4909-8a34-9efd5dbdf949)
 
+Install the PPDM-pwsh Powershell Module from the Powershell Gallery using the Command
