@@ -21,4 +21,7 @@ Paste the following intio the opowershell window:
     [Net.ServicePointManager]::SecurityProtocol -bor
     [Net.SecurityProtocolType]::Tls12
 ```
-And hit enter
+And hit enter  
+Powershell should now run with TLS 1.2   
+![image](https://github.com/dell-democenter/dell-democenter.github.io/assets/8255007/cf012473-bd0b-4909-8a34-9efd5dbdf949)
+
