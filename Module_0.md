@@ -17,6 +17,8 @@ Powershell windows soul open.
 To access the PowerShell Gallery, you must use Transport Layer Security (TLS) 1.2 or higher. Use the following command to enable TLS 1.2 in your PowerShell session.  
 
 Paste the following intio the opowershell window:  
+* Hint: Use the CheckBoy on the right to copy the Code to ClipBoard
+![image](https://github.com/dell-democenter/dell-democenter.github.io/assets/8255007/d7f97659-2a81-41d1-b69b-f60ac28df222)
 
 ```Powershell
 [Net.ServicePointManager]::SecurityProtocol =
