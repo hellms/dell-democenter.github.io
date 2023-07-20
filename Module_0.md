@@ -10,7 +10,7 @@ Type *Powershell*
 ![image](https://github.com/dell-democenter/dell-democenter.github.io/assets/8255007/af11bd07-7294-4b30-8a4e-dba1717bbd51)
 
 Click on the Powershell icon.
-Powershell windows soul open.  
+Powershell windows should open.  
 
 ![image](https://github.com/dell-democenter/dell-democenter.github.io/assets/8255007/5746bdca-92c4-4dd0-bc23-5a76f0fa2b4e)
 
@@ -34,7 +34,7 @@ Install the PPDM-pwsh Powershell Module from the Powershell Gallery using the Co
 Install-Module PPDM-pwsh -force
 ```
 
-Sho it is installed using:
+Show the Module is installed using:
 ```Powershell
 Get-Module -ListAvailable PPDM-pwsh
 ```
