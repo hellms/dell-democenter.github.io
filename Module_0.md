@@ -4,7 +4,7 @@ We need to prepare Host to install the Powershell Modules from Powershell Galler
 Click on the start Button (Windows Icon) in the lower lect of the screen  
 ![image](https://github.com/dell-democenter/dell-democenter.github.io/assets/8255007/af061171-7837-4325-938e-17874a5a9ad7)
 
-Type *Powershell*
+Type *Powershell*  
 ![image](https://github.com/dell-democenter/dell-democenter.github.io/assets/8255007/af11bd07-7294-4b30-8a4e-dba1717bbd51)
 
 Click on the Powershell icon.
