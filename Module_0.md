@@ -32,10 +32,11 @@ Install the PPDM-pwsh Powershell Module from the Powershell Gallery using the Co
 Install-Module PPDM-pwsh -force
 ```
 
-Sho it is instralled using:
+Sho it is installed using:
 ```Powershell
 Get-Module -ListAvailable PPDM-pwsh
 ```
+*Note: The Version might already be a newer one
 
 To see all commands the Module provides, type 
 ```Powershell
