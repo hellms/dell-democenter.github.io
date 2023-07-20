@@ -28,8 +28,9 @@ Get-PPDMactivities -PredefinedFilter PROTECTION_JOBS | ft
 
 Review the state of Asset jobs with the *Get-PPDMactivities* function
 ```Powershell
-Get-PPDMactivities -PredefinedFilter ASSET_JOBS | ft
+Get-PPDMactivities -PredefinedFilter ASSET_JOBS 
 ```
+![image](https://github.com/dell-democenter/dell-democenter.github.io/assets/8255007/f63f36ca-4f99-4cef-8de4-113f4339ebf4)  
 
 Review the state of System jobs with the *Get-PPDMactivities* function
 ```Powershell
