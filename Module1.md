@@ -43,7 +43,7 @@ Get-PPDMactivities -PredefinedFilter SYSTEM_JOBS
 From one of the last outputs, select a specific ID to view:
 Review the PPDM Components state
 ```Powershell
-
+Get-PPDMactivities -id 492bbaf1-06a9-4114-b935-4e16fd12c10a
 ```
 
 
