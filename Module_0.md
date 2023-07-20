@@ -8,12 +8,13 @@ Type *Powershell*
 ![image](https://github.com/dell-democenter/dell-democenter.github.io/assets/8255007/af11bd07-7294-4b30-8a4e-dba1717bbd51)
 
 Click on the Powershell icon.
-Powershell windows soul open.
+Powershell windows soul open.  
+
 ![image](https://github.com/dell-democenter/dell-democenter.github.io/assets/8255007/5746bdca-92c4-4dd0-bc23-5a76f0fa2b4e)
 
-To access the PowerShell Gallery, you must use Transport Layer Security (TLS) 1.2 or higher. Use the following command to enable TLS 1.2 in your PowerShell session.
+To access the PowerShell Gallery, you must use Transport Layer Security (TLS) 1.2 or higher. Use the following command to enable TLS 1.2 in your PowerShell session.  
 
-Paste the following intio the opowershell window:
+Paste the following intio the opowershell window:  
 
 ```Powershell
 [Net.ServicePointManager]::SecurityProtocol =
