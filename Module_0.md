@@ -34,5 +34,10 @@ Install-Module PPDM-pwsh -force
 
 Sho it is instralled using:
 ```Powershell
-Get-Module PPDM-pwsh
+Get-Module -ListAvailable PPDM-pwsh
+```
+
+To see all commands the Module provides, type 
+```Powershell
+Get-Command -Module PPDM-pwsh
 ```
