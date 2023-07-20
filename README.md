@@ -10,12 +10,7 @@ We need to prepare to the install the Powershell Modules
 
 Follow the Guide [Module 0](./Module_0.md) for more information 
 The Module will guide you to the Commands by Copy and Pasting them from the Page to Powershell.  
-*Hint: The Powershell Code is always in a Codebox, and you will find an icon on the right that copies the Code to the Clipboard, e.g.:   
 
-```Powershell
-Example-Box,  click the icon ------> 
-```
-To copy code to Clipboard, click on the icon, and a green checkmark will appear 
 ## Index
 
 Module | Title | Link
