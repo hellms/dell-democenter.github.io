@@ -1,4 +1,4 @@
-# Dell Democenter DPS Advanced Rubooks using PowerShell for HOL-0419-02
+# Dell Democenter DPS Advanced Runbooks using PowerShell for HOL-0419-02
 
 This Guide runs the Dell DPS *PPDM Advanced Lab HOL-0419-02* by using Powershell
 
