@@ -47,4 +47,4 @@ Get-PPDMcomponents | ft
 ![image](https://github.com/dell-democenter/dell-democenter.github.io/assets/8255007/486887d7-5d49-4bf4-a000-99274118d5f8)
 
 
- [<<Module 0](./Module_0.md) This Conclides Module 1
+ [<<Module 0](./Module_0.md) This Concludes Module 1 [Module 2](./Module_2.md)
