@@ -27,4 +27,12 @@ And hit enter
 Powershell should now run with TLS 1.2   
 ![image](https://github.com/dell-democenter/dell-democenter.github.io/assets/8255007/cf012473-bd0b-4909-8a34-9efd5dbdf949)
 
-Install the PPDM-pwsh Powershell Module from the Powershell Gallery using the Command
+Install the PPDM-pwsh Powershell Module from the Powershell Gallery using the Command *Install-Module*   
+```Powershell
+Install-Module PPDM-pwsh -force
+```
+
+Sho it is instralled using:
+```Powershell
+Get-Module PPDM-pwsh
+```
