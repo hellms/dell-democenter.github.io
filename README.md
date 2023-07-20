@@ -12,14 +12,10 @@ Follow the Guide [Module 0](./Module_0.md) for more information
 
 *Hint: in each Codebox you will find an icon on the right, e.g.:   
 
-![image](https://github.com/dell-democenter/dell-democenter.github.io/assets/8255007/2f69922b-283c-4007-bb2f-0cecade18c87)
-
-To copy code to Clipboard, click on the icon, and a green checkmark will appear:    
-
 ```Powershell
-Example-Box, must not click ------>
+Example-Box,  click the icon ------> 
 ```
-
+To copy code to Clipboard, click on the icon, and a green checkmark will appear 
 ## Index
 
 Module | Title | Link
