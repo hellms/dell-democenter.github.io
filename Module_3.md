@@ -23,6 +23,7 @@ To Create new vCenter Credntials in ppdm, run the command
 
 ```Powershell
 $CREDS=New-PPDMcredentials -type VCENTER -name testcreds
+$CREDS
 ```
 
 with the Credentials <administrator@vsphere.local> / Password123!
@@ -35,3 +36,5 @@ Get-PPDMcertificates -newhost vcsa-7.demo.local -port 443 | Approve-PPDMcertific
 ```
 
 ![Approve Certificates](image-7.png)
+
+Now we  would be ready to add the new 
