@@ -66,3 +66,35 @@ Get-PPDMactivities -id 1ff60683-41e4-4389-8db7-38a549bc8ba4
 ```
 
 ![Get-PPDMactivities](image-12.png)
+
+### SET THRESHOLD LIMITS
+
+Get the VM Backup Threshold Settings 
+
+```Powershell
+Get-PPDMvm_backup_setting
+```
+
+Change the Settings:
+
+Review the Properties
+
+```Powershell
+$VMsettings=Get-PPDMvm_backup_setting
+$VMsettings.properties
+
+```
+
+Adjust the Values and review
+
+```Powershell
+$VMsettings.properties[0].value=10
+$VMsettings.properties[1].value=5
+$VMsettings.properties
+```
+
+Apply the Settings
+
+```Powershell
+Set-PPDMvm_backup_setting -vm_backup_setting $VMsettings
+```
