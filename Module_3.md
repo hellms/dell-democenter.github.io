@@ -36,4 +36,4 @@ Get-PPDMcertificates -newhost vcsa-7.demo.local -port 443 | Approve-PPDMcertific
 
 ![Approve Certificates](image-7.png)
 
-Now we  would be ready to add the new 
+Now we  would be ready to add the vCenter as an PPDM Inventory ( Asset ) Source
