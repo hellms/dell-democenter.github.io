@@ -49,7 +49,8 @@ To disable MFA (Bypass) for a local user, we need to provide the accountname
 Get-PPDMidentity_providers -type local | Set-PPDMmfa_bypass_accounts -accountname admin
 ```
 
-![Alt text](image.png)
+![Alt text](image.png) 
+ 
 List the Account bypass for local user admin  
 
 ```Powershell
