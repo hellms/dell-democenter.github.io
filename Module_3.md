@@ -75,16 +75,16 @@ Get the VM Backup Threshold Settings
 Get-PPDMvm_backup_setting
 ```
 
-Change the Settings:
+![Alt text](image-14.png)
 
-Review the Properties
+Review the Properties before we chage:
 
 ```Powershell
 $VMsettings=Get-PPDMvm_backup_setting
 $VMsettings.properties
-
 ```
 
+![Alt text](image-13.png)
 Adjust the Values and review
 
 ```Powershell
@@ -93,8 +93,13 @@ $VMsettings.properties[1].value=5
 $VMsettings.properties
 ```
 
+![Alt text](image-15.png)
 Apply the Settings
 
 ```Powershell
 Set-PPDMvm_backup_setting -vm_backup_setting $VMsettings
 ```
+
+![Alt text](image-16.png)
+
+## LESSON 2 - PROTECT VIRTUAL MACHINES USING PROTECT VIRTUAL MACHINES USING TRANSPARENT SNAPSHOT DATA MOVER(CRASH CONSISTENT)
