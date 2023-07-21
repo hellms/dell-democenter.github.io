@@ -27,8 +27,7 @@ $CREDS
 ```
 
 with the Credentials <administrator@vsphere.local> / Password123!
-![new creds](image-8.png)
-
+![New Cred](image-9.png)
 To approve tghe Certificate ( also good for refreshing Certs) use the following Powershell Code
 
 ```Powershell
