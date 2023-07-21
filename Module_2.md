@@ -35,7 +35,8 @@ Get-PPDMmfa_bypass_accounts
 ```
 
 ![Alt text](image-5.png)
-From above we can see that user admin is already bypassed. we van Remove the MFA Bypass using:
+
+From above we can see that user admin is already bypassed. We can Remove the MFA Bypass using:
 
 ```Powershell
 Get-PPDMmfa_bypass_accounts -filter 'selector eq "local" and subject eq "admin"' |  Remove-PPDMmfa_bypass_accounts
@@ -43,14 +44,14 @@ Get-PPDMmfa_bypass_accounts -filter 'selector eq "local" and subject eq "admin"'
 
 ![Alt text](image-2.png)
 
-To disable MFA (Bypass) for a local user, we need to provide the accountname 
+To disable MFA (Bypass) for a local user, we need to provide the accountname  
 
 ```Powershell
 Get-PPDMidentity_providers -type local | Set-PPDMmfa_bypass_accounts -accountname admin
 ```
 
 ![Alt text](image.png) 
- 
+
 List the Account bypass for local user admin  
 
 ```Powershell
