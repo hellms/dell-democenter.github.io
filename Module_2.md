@@ -28,7 +28,22 @@ Get-PPDMidentity_providers -type local
 
 ![image](https://github.com/dell-democenter/dell-democenter.github.io/assets/8255007/c6347849-ecca-46db-b111-9cb9258e621f)
 
-To disable MFA for a local user, we need to provide the accountname 
+Check for any Bypassed user Account
+
+```Powershell
+Get-PPDMmfa_bypass_accounts
+```
+
+![Alt text](image-5.png)
+From above we can see that user admin is already bypassed. we van Remove the MFA Bypass using:
+
+```Powershell
+Get-PPDMmfa_bypass_accounts -filter 'selector eq "local" and subject eq "admin"' |  Remove-PPDMmfa_bypass_accounts
+```
+
+![Alt text](image-2.png)
+
+To disable MFA (Bypass) for a local user, we need to provide the accountname 
 
 ```Powershell
 Get-PPDMidentity_providers -type local | Set-PPDMmfa_bypass_accounts -accountname admin
@@ -42,13 +57,6 @@ Get-PPDMmfa_bypass_accounts -filter 'selector eq "local" and subject eq "admin"'
 ```
 
 ![Alt text](image-1.png)
-Remove the BypPass for an account
-
-```Powershell
-Get-PPDMmfa_bypass_accounts -filter 'selector eq "local" and subject eq "admin"' |  Remove-PPDMmfa_bypass_accounts
-```
-
-![Alt text](image-2.png)
 
  [<<Module 1](./Module_1.md) This Concludes Module 2
 
