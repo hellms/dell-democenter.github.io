@@ -55,3 +55,5 @@ Start an icremental discovery using the function *Start-PPDMdiscoveries*
 ```Powershell
 Get-PPDMinventory_sources -Type VCENTER -filter 'address eq "vcsa-7.demo.local"' | Start-PPDMdiscoveries -level DataCopies -start inventory-sources
 ```
+
+![vCenter Discoveries](image-11.png)
