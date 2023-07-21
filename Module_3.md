@@ -42,4 +42,6 @@ Now we  would be ready to add the new vCenter
 Add-PPDMinventory_sources -Hostname vcsa-7.demo.local -port 443 -Type VCENTER -isHostingvCenter -ID $CREDS.id -Name "DEMO VCENTER"
 ```
 
-This command is expected to fail as the Inventory already exists.
+This command is expected to fail as the Inventory already exists
+
+![Alt text](image-10.png)
