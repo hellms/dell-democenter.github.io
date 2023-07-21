@@ -25,7 +25,7 @@ To Create new vCenter Credntials in ppdm, run the command
 $CREDS=New-PPDMcredentials -type VCENTER -name testcreds
 ```
 
-with the Credentials administrator@vsphere.local / Password123!
+with the Credentials <administrator@vsphere.local> / Password123!
 
 To approve tghe Certificate ( also good for refreshing Certs) use the following Powershell Code
 
