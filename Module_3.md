@@ -36,4 +36,10 @@ Get-PPDMcertificates -newhost vcsa-7.demo.local -port 443 | Approve-PPDMcertific
 
 ![Approve Certificates](image-7.png)
 
-Now we  would be ready to add the vCenter as an PPDM Inventory ( Asset ) Source
+Now we  would be ready to add the new vCenter
+
+```Powershell
+Add-PPDMinventory_sources -Hostname vcsa-7.demo.local -port 443 -Type VCENTER -isHostingvCenter -ID $CREDS.id -Name "DEMO VCENTER"
+```
+
+This command is expected to fail as the Inventory already exists.
