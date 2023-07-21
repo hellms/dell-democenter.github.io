@@ -8,3 +8,7 @@ As a vCenter i already preconfigured in the Environemnt, we can only look at the
 ```Powershell
 Get-PPDMinventory_sources -Type VCENTER -filter 'address eq "vcsa-7.demo.local"'
 ```
+
+You should see the vCenter configuration now:
+
+![Alt text](image-6.png)
