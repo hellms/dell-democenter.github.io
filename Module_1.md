@@ -60,10 +60,14 @@ Review the PPDM Activity Metrics
 Get-PPDMactivity_metrics
 ```
 
+![Alt text](image-4.png)
+
 Review the PPDM State Metrics
 
 ```Powershell
 Get-PPDMactivity_metrics -states
 ```
+
+![Alt text](image-3.png)
 
  [<<Module 0](./Module_0.md) This Concludes Module 1 [Module 2](./Module_2.md)
