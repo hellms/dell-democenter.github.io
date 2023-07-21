@@ -12,3 +12,15 @@ Get-PPDMinventory_sources -Type VCENTER -filter 'address eq "vcsa-7.demo.local"'
 You should see the vCenter configuration now:
 
 ![Alt text](image-6.png)
+
+The Normal Process of onboarding a vCenter from Powershell would be
+
+- Creating a vCenter Credential in PPDM
+- Approving the Certificate
+- Adding the vCenter
+
+To approve tghe Certificate ( also good for refreshing Certs) use the following Powershell Code
+
+```Powershell
+Get-PPDMcertificates -newhost vcsa-7.demo.local -port 443 | Approve-PPDMcertificates
+```
