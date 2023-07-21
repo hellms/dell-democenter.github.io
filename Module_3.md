@@ -57,3 +57,11 @@ Get-PPDMinventory_sources -Type VCENTER -filter 'address eq "vcsa-7.demo.local"'
 ```
 
 ![vCenter Discoveries](image-11.png)
+
+With the Knowledge from Module 1, we can now review the discovery activity:
+
+```Powershell
+Get-PPDMactivities -id
+```
+
+![Get-PPDMactivities](image-12.png)
