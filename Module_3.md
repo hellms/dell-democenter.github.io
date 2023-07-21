@@ -19,8 +19,18 @@ The Normal Process of onboarding a vCenter from Powershell would be
 - Approving the Certificate
 - Adding the vCenter
 
+To Create new vCenter Credntials in ppdm, run the command
+
+```Powershell
+$CREDS=New-PPDMcredentials -type VCENTER -name testcreds
+```
+
+with the Credentials administrator@vsphere.local / Password123!
+
 To approve tghe Certificate ( also good for refreshing Certs) use the following Powershell Code
 
 ```Powershell
 Get-PPDMcertificates -newhost vcsa-7.demo.local -port 443 | Approve-PPDMcertificates
 ```
+
+![Approve Certificates](image-7.png)
