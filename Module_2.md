@@ -28,7 +28,7 @@ Get-PPDMidentity_providers -type local
 
 ![image](https://github.com/dell-democenter/dell-democenter.github.io/assets/8255007/c6347849-ecca-46db-b111-9cb9258e621f)
 
-Check for any Bypassed user Account
+Check for any Bypassed (mfa disabled) user Account
 
 ```Powershell
 Get-PPDMmfa_bypass_accounts
