@@ -103,7 +103,27 @@ Set-PPDMvm_backup_setting -vm_backup_setting $VMsettings
 ![Alt text](image-16.png)
 
 ## LESSON 2 - PROTECT VIRTUAL MACHINES USING PROTECT VIRTUAL MACHINES USING TRANSPARENT SNAPSHOT DATA MOVER(CRASH CONSISTENT)
-We use a Helper Program
+
+We use a Helper Fuction *New-PPDMBackupSchedul* to Create a Stage0 Backu Schedule Object that we will use in the Protection Policy
+
 ```Powershell
-New-PPDMBackupSchedule -hourly -CreateCopyIntervalHrs 8 -RetentionUnit DAY -RetentionInterval 2
+$Schedule=New-PPDMBackupSchedule -hourly -CreateCopyIntervalHrs 8 -RetentionUnit DAY -RetentionInterval 2
+```
+
+Also, we want to Create a ServiceLevelAgreement that we link to the Policy:
+
+```Powershell
+$SLA=New-PPDMBackupService_Level_Agreements -NAME PLATINUM -RecoverPointObjective -RecoverPointUnit HOURS -RecoverPointInterval 24 -DeletionCompliance -ComplianceWindow -ComplianceWindowCopyType ALL
+```
+
+In addition, we need to identify the StorageSystem to backup to.
+
+```Powershell
+$StorageSystem=Get-PPDMStorage_systems -Type DATA_DOMAIN_SYSTEM -Filter {name eq "ddve-01.demo.local"}
+```
+
+Once we identified and created the Ressources alligned to the Policy, we create the Policy with
+
+```Powershell
+New-PPDMVMBackupPolicy -Schedule $Schedule -Name Linux -backupMode FSS -StorageSystemID $StorageSystem.id -SLAId $SLA.id
 ```
