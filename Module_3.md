@@ -150,10 +150,16 @@ View the Running Jobs
 Get-PPDMactivities -PredefinedFilter ASSET_JOBS -pagesize 2
 ```
 
+![Alt text](image-20.png)
+
 ```Powershell
 Get-PPDMactivities -PredefinedFilter SYSTEM_JOBS -pageSize 2
 ```
 
+![Alt text](image-22.png)
+
 ```Powershell
 Get-PPDMactivities -PredefinedFilter PROTECTION_JOBS -pageSize 2
 ```
+
+![Alt text](image-21.png)
