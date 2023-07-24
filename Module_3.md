@@ -127,3 +127,4 @@ Once we identified and created the Ressources alligned to the Policy, we create 
 ```Powershell
 New-PPDMVMBackupPolicy -Schedule $Schedule -Name Linux -backupMode FSS -StorageSystemID $StorageSystem.id -SLAId $SLA.id
 ```
+![Alt text](image-18.png)
