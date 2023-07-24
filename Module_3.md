@@ -139,7 +139,21 @@ $Asset=Get-PPDMassets -type VMWARE_VIRTUAL_MACHINE -filter 'name eq "LINUX-01"'
 Copying the Policy Id from the Previously create Policy, we can run
 
 ```Powershell
-
+Add-PPDMProtection_policy_assignment -AssetID $Asset.id -ID 1c522005-ea7b-4309-8527-b02542bbd281
 ```
 
 ![Alt text](image-19.png)
+
+View the Running Jobs
+
+```Powershell
+Get-PPDMactivities -PredefinedFilter ASSET_JOBS -pagesize 2
+```
+
+```Powershell
+Get-PPDMactivities -PredefinedFilter SYSTEM_JOBS -pageSize 2
+```
+
+```Powershell
+Get-PPDMactivities -PredefinedFilter PROTECTION_JOBS -pageSize 2
+```
