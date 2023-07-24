@@ -169,19 +169,19 @@ There are Several ways to start a Protection Policy. For an AdHoc Protection, we
 So first, we re-read the existing $Asset, as it now contains the Protection policy after Assignment
 
 ```Powershell
-
+$Asset=$Asset | Get-PPDMassets
 ```
 
 Next, we get the Protection Policy Object, whicht includes the Details of Stage0
 
 ```Powershell
-
+$Policy=Get-PPDMprotection_policies -id $Asset.protectionPolicy.id
 ```
 
 Finally, we start the Asset Protection for the Asset ID
 
 ```Powershell
-
+Start-PPDMprotection -PolicyObject $Policy -AssetIDs $Asset.id
 ```
 
 ![Alt text](image-27.png)
@@ -189,7 +189,7 @@ Finally, we start the Asset Protection for the Asset ID
 View the Latest Asset Jobs
 
 ```Powershell
-
+Get-PPDMactivities -PredefinedFilter ASSET_JOBS -pageSize 1
 ```
 
 ![Alt text](image-28.png)
