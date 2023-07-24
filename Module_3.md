@@ -125,7 +125,7 @@ $StorageSystem=Get-PPDMStorage_systems -Type DATA_DOMAIN_SYSTEM -Filter {name eq
 Once we identified and created the Ressources alligned to the Policy, we create the Policy with
 
 ```Powershell
-New-PPDMVMBackupPolicy -Schedule $Schedule -Name Linux -backupMode FSS -StorageSystemID $StorageSystem.id -SLAId $SLA.id
+New-PPDMVMBackupPolicy -Schedule $Schedule -Name "Linux VM" -Description "Protect Linux VM" -backupMode FSS -StorageSystemID $StorageSystem.id -SLAId $SLA.id
 ```
 
 ![Alt text](image-18.png)  
