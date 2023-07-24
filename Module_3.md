@@ -128,7 +128,7 @@ Once we identified and created the Ressources alligned to the Policy, we create 
 New-PPDMVMBackupPolicy -Schedule $Schedule -Name "Linux VM" -Description "Protect Linux VM" -backupMode FSS -StorageSystemID $StorageSystem.id -SLAId $SLA.id
 ```
 
-![Alt text](image-18.png)  
+![Alt text](image-23.png)
 
 Now we need to Assign the Asset(s) to the Protection Policy. Therefore, we filter an asset query to the VM LINUX-01:
 
@@ -150,16 +150,16 @@ View the Running Jobs
 Get-PPDMactivities -PredefinedFilter ASSET_JOBS -pagesize 2
 ```
 
-![Alt text](image-20.png)
+![Alt text](image-24.png)
 
 ```Powershell
 Get-PPDMactivities -PredefinedFilter SYSTEM_JOBS -pageSize 2
 ```
 
-![Alt text](image-22.png)
+![Alt text](image-25.png)
 
 ```Powershell
 Get-PPDMactivities -PredefinedFilter PROTECTION_JOBS -pageSize 2
 ```
 
-![Alt text](image-21.png)
+![Alt text](image-26.png)
