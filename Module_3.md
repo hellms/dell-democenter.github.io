@@ -127,4 +127,17 @@ Once we identified and created the Ressources alligned to the Policy, we create 
 ```Powershell
 New-PPDMVMBackupPolicy -Schedule $Schedule -Name Linux -backupMode FSS -StorageSystemID $StorageSystem.id -SLAId $SLA.id
 ```
-![Alt text](image-18.png)
+
+![Alt text](image-18.png)  
+
+Now we need to Assign the Asset(s) to the Protection Policy. Therefore, we filter an asset query to the VM LINUX-01:
+
+```Powershell
+$Asset=Get-PPDMassets -type VMWARE_VIRTUAL_MACHINE -filter 'name eq "LINUX-01"'
+```
+
+Copying the Policy Id from the Previously create Policy, we can run
+
+```Powershell
+
+```
