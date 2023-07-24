@@ -141,3 +141,5 @@ Copying the Policy Id from the Previously create Policy, we can run
 ```Powershell
 
 ```
+
+![Alt text](image-19.png)
