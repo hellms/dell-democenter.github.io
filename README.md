@@ -18,4 +18,5 @@ Module | Title | Link
 0 | Prerequisite | [Module 0](Module_0.md)
 1 | Overview of PowerProtect User Interface | [Module 1](Module_1.md)
 2 | MULTI FACTOR AUTHENTICATION USING RSA | [Module 2](Module_2.md)
-
+3 | LESSON 1 - DISCOVER VIRTUAL MACHINES | [Module 3 Lesson 1](./Module_3_1.md)
+3 | LESSON 2 - PROTECT VIRTUAL MACHINES USING PROTECT VIRTUAL MACHINES USING TRANSPARENT SNAPSHOT DATA MOVER(CRASH CONSISTENT) | [Module 3 Lesson 2](./Module_3_2.md)
