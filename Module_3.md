@@ -163,3 +163,33 @@ Get-PPDMactivities -PredefinedFilter PROTECTION_JOBS -pageSize 2
 ```
 
 ![Alt text](image-26.png)
+
+There are Several ways to start a Protection Policy. For an AdHoc Protection, we would select  and individual Asset and start the Protection with the given Stage0 defaults of the Policy.
+
+So first, we re-read the existing $Asset, as it now contains the Protection policy after Assignment
+
+```Powershell
+
+```
+
+Next, we get the Protection Policy Object, whicht includes the Details of Stage0
+
+```Powershell
+
+```
+
+Finally, we start the Asset Protection for the Asset ID
+
+```Powershell
+
+```
+
+![Alt text](image-27.png)
+
+View the Latest Asset Jobs
+
+```Powershell
+
+```
+
+![Alt text](image-28.png)
