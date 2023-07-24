@@ -103,7 +103,7 @@ Set-PPDMvm_backup_setting -vm_backup_setting $VMsettings
 ![Alt text](image-16.png)
 
 ## LESSON 2 - PROTECT VIRTUAL MACHINES USING PROTECT VIRTUAL MACHINES USING TRANSPARENT SNAPSHOT DATA MOVER(CRASH CONSISTENT)
-
+We use a Helper Program
 ```Powershell
 New-PPDMBackupSchedule -hourly -CreateCopyIntervalHrs 8 -RetentionUnit DAY -RetentionInterval 2
 ```
