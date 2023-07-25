@@ -8,7 +8,7 @@ $RestoreHost="esxi03-7.demo.local"
 $OriginalVM="LINUX-01"
 ```
 
-Read out Target Datacenter nventory Source
+Read out the Target Datacenter Inventory Source
 
 ```Powershell
 $InventorySource=Get-PPDMinventory_sources -Type VCENTER -filter "`'name eq `"$vcenterName`"`'"
@@ -36,6 +36,15 @@ $Asset=Get-PPDMassets -filter "`'name eq `"$OriginalVM`"`'"
 
 ```Powershell
 $LatestCopy=Get-PPDMlatest_copies -assetID $Asset.id
+```
+
+```Powershell
+Restore-PPDMVMAsset -INSTANT_ACCESS -CopyObject $LatestCopy `
+-NewVMName INSTANT_1 `
+-InventorySourceId $InventorySource.id `
+-dataCenterMoref $Datacenter.moref `
+-hostMoref $HostMorefs.moref `
+-Description "from Powershell"
 ```
 
 
