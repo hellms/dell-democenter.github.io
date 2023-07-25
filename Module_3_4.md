@@ -12,7 +12,7 @@ $DataBaseName = "SQLDB_01"
 ## Read our Restore Host
 
 ```Powershell
-$RestoreHostFilter = 'attributes.appHost.appServerTypes eq "MSSQL" and not (lastDiscoveryStatus eq "DELETED") and details.appHost.os lk "WINDOWS" and details.appHost.phase eq "NONE" and hostname eq "' + $RestoreToHost_Name + '"'
+$RestoreHostFilter = 'attributes.appHost.applicationsOfInterest.type eq "MSSQL" and not (lastDiscoveryStatus eq "DELETED") and details.appHost.os eq "WINDOWS" and hostname eq "' + $RestoreToHost_Name + '"'
 $RestoreToHost = Get-PPDMhosts -filter $RestoreHostFilter
 $RestoreToHost
 ```
