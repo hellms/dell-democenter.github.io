@@ -24,6 +24,8 @@ $Datacenter=$InventorySource| Get-PPDMvcenterDatacenters
 $Datacenter
 ```
 
+![Alt text](image-41.png)
+
 Get Information on the ESX Host we want to restore
 
 ```Powershell
@@ -36,6 +38,8 @@ Get the Moref´s of the Host
 $HostMorefs=Get-PPDMvcenterMorefs -ID $InventorySource.ID -hostMoref $ESXHOST.details.esxHost.hostMoref
 $HostMorefs
 ```
+
+![Alt text](image-42.png)
 
 Read the Original Asset
 
@@ -58,7 +62,17 @@ Restore-PPDMVMAsset -INSTANT_ACCESS -CopyObject $LatestCopy `
 -dataCenterMoref $Datacenter.moref `
 -hostMoref $HostMorefs.moref `
 -Description "from Powershell"
+Get-PPDMRestoredCopies
 ```
 
+![Alt text](image-43.png)
 
-[<<Module 3 Lesson 4](./Module_3_4.md) This Concludes Module 3 
+Now See the Status of the Instant Access Sewssion
+
+```Powershell
+Get-PPDMRestoredCopies -pagesize 1
+```
+
+![Alt text](image-44.png)
+
+[<<Module 3 Lesson 4](./Module_3_4.md) This Concludes Module 3
