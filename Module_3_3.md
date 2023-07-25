@@ -65,3 +65,23 @@ Copying the Policy Id from the Previously create Policy, we can run
 ```Powershell
 Add-PPDMProtection_policy_assignment -AssetID $Asset.id -ID <your Policy ID>
 ```
+
+
+View the Running Jobs
+
+```Powershell
+Get-PPDMactivities -PredefinedFilter ASSET_JOBS -pagesize 2
+```
+
+
+
+```Powershell
+Get-PPDMactivities -PredefinedFilter SYSTEM_JOBS -pageSize 2
+```
+
+
+
+```Powershell
+Get-PPDMactivities -PredefinedFilter PROTECTION_JOBS -pageSize 2
+```
+
