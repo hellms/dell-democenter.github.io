@@ -59,6 +59,8 @@ $RestoreAssetCopy = Get-PPDMlatest_copies -assetID $RestoreAssets.id
 
 ## Run the Restore
 
+This time we Specify Parameters in a Parameters Block as this makes it easier to use Options in Scripts
+
 ```Powershell
 $Parameters = @{
   HostID                  = $RestoreToHost.id 
@@ -70,7 +72,11 @@ $Parameters = @{
   CustomDescription       = "Restore from Powershell"
   Verbose                 = $false
 }
+```
 
+And finally start the Restore Job:
+
+```Powershell
 $Restore = Restore-PPDMMSSQL_copies @Parameters
 ```
 
