@@ -42,5 +42,6 @@ Finally, we create a Policy
 >Description: App Aware Policy
 >Type: Virtual Machine
 
-
+```Powershell
 New-PPDMSQLBackupPolicy -Schedule $DBSchedule -Name "SQL Virtual Machines" -Description "SQL Virtual Machines"  -AppAware -dbCID $Credentials.id -StorageSystemID $StorageSystem.id -DataMover SDM -SizeSegmentation FSS
+```
