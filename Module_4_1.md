@@ -37,5 +37,5 @@ Now lets have a look at the Discobvered Databases
 ![Alt text](image-48.png)
 
 ```Powershell
-
+Get-PPDMassets -type MICROSOFT_SQL_DATABASE -filter 'details.database.clusterName eq "sql-02.demo.local"' | ft
 ```
