@@ -32,3 +32,10 @@ Get-PPDMhosts -filter 'name eq"sql-02.demo.local"' | Start-PPDMdiscoveries -leve
 Get-PPDMactivities -taskid <Use TaskID from you discover to check the activity>
 ```
 
+Now lets have a look at the Discobvered Databases
+
+![Alt text](image-48.png)
+
+```Powershell
+
+```
