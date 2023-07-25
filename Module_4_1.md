@@ -55,8 +55,15 @@ Get-PPDMassets -type MICROSOFT_SQL_DATABASE -filter 'details.database.clusterNam
 
 ![Alt text](image-50.png)
 
-
 ```Powershell
 $Schedule=New-PPDMDatabaseBackupSchedule -hourly -CreateCopyIntervalHrs 1 -DifferentialBackupUnit MINUTELY -DifferentialBackupInterval 30 -RetentionUnit DAY -RetentionInterval 5
 ```
 
+```Powershell
+$StorageSystem=Get-PPDMStorage_systems -Type DATA_DOMAIN_SYSTEM -Filter {name eq "ddve-01.demo.local"}
+
+```
+
+```Powershell
+New-PPDMSQLBackupPolicy -Schedule $Schedule -Name "SQL PROD DATABASE"  -dbCID $credentials.id -StorageSystemID $StorageSystem.id
+```
