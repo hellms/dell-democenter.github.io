@@ -16,6 +16,7 @@ $RestoreHostFilter = 'attributes.appHost.applicationsOfInterest.type eq "MSSQL" 
 $RestoreToHost = Get-PPDMhosts -filter $RestoreHostFilter
 $RestoreToHost
 ```
+![Alt text](image-36.png)
 
 ## Read the Asset to restore to identify the Asset Copies
 
@@ -37,6 +38,8 @@ $RANGE_FILTER = 'startTime ge "' + $usedate + '"state eq "IDLE"'
 # $RestoreAssets | Get-PPDMassetcopies -filter $RANGE_FILTER
 $RestoreAssetCopy = $RestoreAssets | Get-PPDMassetcopies -filter $RANGE_FILTER | Select-Object -First 1
 ```
+
+![Alt text](image-37.png)
 
 ## Run the Restore
 
