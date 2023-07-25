@@ -31,11 +31,13 @@ $RestoreAssets = $RestoreAssets | Where-Object name -Match $DataBaseName
 ## Selecting the Asset Copy to Restore
 we have multiple options to select a Copy.....
 
-### Using the latest copy:
+### Using the latest copy
 
 ```Powershell
 Get-PPDMlatest_copies -assetID $RestoreAssets.id
 ```
+
+![Alt text](image-38.png)
 
 ### by Filering for a Date Range ...
 ```Powershell
@@ -53,7 +55,7 @@ For now, we use the Latest Copy Function
 $RestoreAssetCopy = Get-PPDMlatest_copies -assetID $RestoreAssets.id
 ```
 
-![Alt text](image-38.png)
+
 
 ## Run the Restore
 
@@ -79,6 +81,6 @@ $Restore | Get-PPDMRestored_copies
 $Restore | Get-PPDMactivities
 ```
 
-```Powershell
-$Asset=Get-PPDMassets -type VMWARE_VIRTUAL_MACHINE -filter 'name eq "SQL-03"'
-```
+![Alt text](image-39.png)
+
+![Alt text](image-40.png)
