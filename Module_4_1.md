@@ -32,15 +32,25 @@ Get-PPDMhosts -filter 'name eq"sql-02.demo.local"' | Start-PPDMdiscoveries -leve
 Get-PPDMactivities -taskid <Use TaskID from you discover to check the activity>
 ```
 
-Now lets have a look at the Discovered Databases
-
 ![Alt text](image-48.png)
+
+Now lets have a look at the Discovered Databases
 
 ```Powershell
 Get-PPDMassets -type MICROSOFT_SQL_DATABASE -filter 'details.database.clusterName eq "sql-02.demo.local"' | ft
 ```
 
+![Alt text](image-49.png)
 
+As we can see, Stream Counts are set to 4 for Full and Differential, and to 1 for logs.  
+We change this with
+
+```Powershell
 Get-PPDMassets -type MICROSOFT_SQL_DATABASE -filter 'details.database.clusterName eq "sql-02.demo.local" and name lk "SQLPROD%"' | Set-PPDMMSSQLassetStreamcount -LogStreamCount 10 -FullStreamCount 10 -DifferentialStreamCount 10
+```
 
+```Powershell
 (Get-PPDMassets -type MICROSOFT_SQL_DATABASE -filter 'details.database.clusterName eq "sql-02.demo.local" and name lk "SQLPROD%"').backupDetails
+```
+
+![Alt text](image-50.png)
