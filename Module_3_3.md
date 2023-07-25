@@ -92,4 +92,8 @@ Finally, we start the Protection Policy:
 Start-PPDMprotection_policies -id <your Policy ID> -BackupType FULL -RetentionUnit DAY -RetentionInterval 2
 ```
 
+View the Latest Asset Jobs
 
+```Powershell
+Get-PPDMactivities -PredefinedFilter ASSET_JOBS -pageSize 1
+```
