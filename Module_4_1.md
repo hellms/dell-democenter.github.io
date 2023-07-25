@@ -8,6 +8,20 @@ Review the Agent Regitration Status.
 Get-PPDMagent_registration_status
 ```
 
-The Command will output al Agents Registrations
+The Command will output all Agents Registrations
 
 ![Alt text](image-45.png)
+
+Agents cann be approved via the *Set-PPDMWhitelist* Function, eiter from ID or from Pipeline
+
+```Powershell
+Get-PPDMWhitelist | Set-PPDMWhitelist -state APPROVED
+```
+
+![Alt text](image-46.png)
+
+Lets start a discover for host *sql-02.demo.local*
+
+
+
+![Alt text](image-47.png)
