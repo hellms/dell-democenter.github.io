@@ -44,7 +44,7 @@ Get-Module -ListAvailable PPDM-pwsh
 *Note: The Version might already be a newer one
 ![image](https://github.com/dell-democenter/dell-democenter.github.io/assets/8255007/28b26ce5-2dad-4061-9c48-f988f241319e)
 
-To see all commands the Module provides, type 
+To see all commands the Module provides, type:
 
 ```Powershell
 Get-Command -Module PPDM-pwsh
