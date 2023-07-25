@@ -29,7 +29,15 @@ $RestoreAssets = $RestoreAssets | Where-Object name -Match $DataBaseName
 ```
 
 ## Selecting the Asset Copy to Restore
+we have multiple options to select a Copy.....
 
+### Using the latest copy:
+
+```Powershell
+Get-PPDMlatest_copies -assetID $RestoreAssets.id
+```
+
+### by Filering for a Date Range ...
 ```Powershell
 write-host "Selecting Asset-copy for $DataBaseName"
 $myDate = (get-date).AddDays(-1)
