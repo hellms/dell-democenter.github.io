@@ -47,7 +47,13 @@ $RANGE_FILTER = 'startTime ge "' + $usedate + '"state eq "IDLE"'
 $RestoreAssetCopy = $RestoreAssets | Get-PPDMassetcopies -filter $RANGE_FILTER | Select-Object -First 1
 ```
 
-![Alt text](image-37.png)
+For now, we use the Latest Copy Function 
+
+```Powershell
+$RestoreAssetCopy = Get-PPDMlatest_copies -assetID $RestoreAssets.id
+```
+
+![Alt text](image-38.png)
 
 ## Run the Restore
 
