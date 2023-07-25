@@ -10,6 +10,8 @@ use *admin* and *Password123!* for connection
 
 ![image](https://github.com/dell-democenter/dell-democenter.github.io/assets/8255007/29fc50fe-4b30-459d-9644-7e8f4434b125)
 
+The Credentialös are now stored in your Powershell session.  If you get disconnected from PPDM, just re-run *Connect-PPDMsystem -fqdn ppdm-01.demo.local -trustCert* without getting asked for Credential. *Hint: use ctrl-R to get the Command from search
+
 ## Review the Job State
 
 Review the state of Protection jobs with the *Get-PPDMactivities* function
@@ -41,7 +43,7 @@ From one of the last outputs, select a specific ID to view:
 Review the PPDM Components state
 
 ```Powershell
-Get-PPDMactivities -id 492bbaf1-06a9-4114-b935-4e16fd12c10a
+Get-PPDMactivities -id <your acticity id from above>
 ```
 
 ## Review the Components ( similar to Support --> System Health View)
@@ -70,4 +72,4 @@ Get-PPDMactivity_metrics -states
 
 ![Alt text](image-3.png)
 
- [<<Module 0](./Module_0.md) This Concludes Module 1 [Module 2](./Module_2.md)
+[<<Module 0](./Module_0.md) This Concludes Module 1 [Module 2](./Module_2.md)
