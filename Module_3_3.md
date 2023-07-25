@@ -66,22 +66,30 @@ Copying the Policy Id from the Previously create Policy, we can run
 Add-PPDMProtection_policy_assignment -AssetID $Asset.id -ID <your Policy ID>
 ```
 
-
 View the Running Jobs
 
 ```Powershell
 Get-PPDMactivities -PredefinedFilter ASSET_JOBS -pagesize 2
 ```
 
-
+![Alt text](image-31.png)
 
 ```Powershell
 Get-PPDMactivities -PredefinedFilter SYSTEM_JOBS -pageSize 2
 ```
 
-
+![Alt text](image-32.png)
 
 ```Powershell
 Get-PPDMactivities -PredefinedFilter PROTECTION_JOBS -pageSize 2
 ```
+
+![Alt text](image-33.png)
+
+Finally, we start the Protection Policy:
+
+```Powershell
+Start-PPDMprotection_policies -id <your Policy ID> -BackupType FULL -RetentionUnit DAY -RetentionInterval 2
+```
+
 
