@@ -17,8 +17,10 @@ $Policy.stages[0].target.dataTargetId
 We also need to create the following Credetials:
 
 >Credential Name: windows
->User Name: administrator@demo
+>User Name: demo\administrator
 >Password: Password123!
+
+
 
 ```Powershell
 $Credentials=New-PPDMcredentials -type OS -name windows -authmethod BASIC 
@@ -97,3 +99,9 @@ View the Latest Asset Jobs
 ```Powershell
 Get-PPDMactivities -PredefinedFilter ASSET_JOBS -pageSize 1
 ```
+
+![Alt text](image-34.png)
+
+![Alt text](image-35.png)
+
+ [<<Module 3 Lesson 2](./Module_3_2.md) This Concludes Module 3 Lesson 3 [Module 3 Lesson 4 >>](./Module_3_4.md)

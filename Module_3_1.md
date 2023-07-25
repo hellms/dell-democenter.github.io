@@ -102,4 +102,4 @@ Set-PPDMvm_backup_setting -vm_backup_setting $VMsettings
 
 ![Alt text](image-16.png)
 
- [<<Module 2](./Module_2.md) This Concludes Module § Lesson 1 [Module 3 Lesson 2 >>](./Module_3_2.md)
+ [<<Module 2](./Module_2.md) This Concludes Module 3 Lesson 1 [Module 3 Lesson 2 >>](./Module_3_2.md)
