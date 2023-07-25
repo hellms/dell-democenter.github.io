@@ -5,7 +5,5 @@
 Review the Agent Regitration Status
 
 ```Powershell
-$vcenterName="vcsa-7.demo.local"
-$RestoreHost="esxi03-7.demo.local"
-$OriginalVM="LINUX-01"
+Get-PPDMagent_registration_status
 ```
