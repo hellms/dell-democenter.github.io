@@ -32,10 +32,15 @@ Get-PPDMhosts -filter 'name eq"sql-02.demo.local"' | Start-PPDMdiscoveries -leve
 Get-PPDMactivities -taskid <Use TaskID from you discover to check the activity>
 ```
 
-Now lets have a look at the Discobvered Databases
+Now lets have a look at the Discovered Databases
 
 ![Alt text](image-48.png)
 
 ```Powershell
 Get-PPDMassets -type MICROSOFT_SQL_DATABASE -filter 'details.database.clusterName eq "sql-02.demo.local"' | ft
 ```
+
+
+Get-PPDMassets -type MICROSOFT_SQL_DATABASE -filter 'details.database.clusterName eq "sql-02.demo.local" and name lk "SQLPROD%"' | Set-PPDMMSSQLassetStreamcount -LogStreamCount 10 -FullStreamCount 10 -DifferentialStreamCount 10
+
+(Get-PPDMassets -type MICROSOFT_SQL_DATABASE -filter 'details.database.clusterName eq "sql-02.demo.local" and name lk "SQLPROD%"').backupDetails
