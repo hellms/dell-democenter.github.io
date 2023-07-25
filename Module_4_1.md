@@ -54,3 +54,9 @@ Get-PPDMassets -type MICROSOFT_SQL_DATABASE -filter 'details.database.clusterNam
 ```
 
 ![Alt text](image-50.png)
+
+
+```Powershell
+$Schedule=New-PPDMDatabaseBackupSchedule -hourly -CreateCopyIntervalHrs 1 -DifferentialBackupUnit MINUTELY -DifferentialBackupInterval 30 -RetentionUnit DAY -RetentionInterval 5
+```
+
