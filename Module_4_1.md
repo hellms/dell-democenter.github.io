@@ -22,6 +22,13 @@ Get-PPDMWhitelist | Set-PPDMWhitelist -state APPROVED
 
 Lets start a discover for host *sql-02.demo.local*
 
-
+```Powershell
+Get-PPDMhosts -filter 'name eq"sql-02.demo.local"' | Start-PPDMdiscoveries -level HOSTFULL -start hosts
+```
 
 ![Alt text](image-47.png)
+
+```Powershell
+Get-PPDMactivities -taskid <Use TaskID from you discover to check the activity>
+```
+
