@@ -13,7 +13,7 @@ The DataTarget is stored in *$Policy.stages[0].target.dataTargetId*
 ```Powershell
 $Policy.stages[0].target.dataTargetId
 ```
-
+![Alt text](image-29.png)
 We also need to create the following Credetials:
 
 >Credential Name: windows
@@ -32,15 +32,21 @@ $StorageSystem=Get-PPDMStorage_systems -Type DATA_DOMAIN_SYSTEM -Filter {name eq
 
 Next, we need to create a Database Backup Schedule:
 
+>Recurrence: Hourly  
+>Create Copy: 8 Hours  
+>Keep for: 5 days  
+>Start Time: 8 PM  
+>End Time: 6 AM  
+
 ```Powershell
-$DBSchedule=New-PPDMDatabaseBackupSchedule -hourly -CreateCopyIntervalHrs 8 -RetentionUnit DAY -RetentionInterval 5
+$DBSchedule=New-PPDMDatabaseBackupSchedule -hourly -CreateCopyIntervalHrs 8 -RetentionUnit DAY -RetentionInterval 5 -starttime 8:00PM -endtime 6:00AM
 ```
 
-Finally, we create a Policy 
+Finally, we create a Policy
 
->Name: SQL Virtual Machines
->Description: App Aware Policy
->Type: Virtual Machine
+>Name: SQL Virtual Machines  
+>Description: App Aware Policy  
+>Type: Virtual Machine  
 
 ```Powershell
 New-PPDMSQLBackupPolicy -Schedule $DBSchedule -Name "SQL Virtual Machines" -Description "SQL Virtual Machines"  -AppAware -dbCID $Credentials.id -StorageSystemID $StorageSystem.id -DataMover SDM -SizeSegmentation FSS
