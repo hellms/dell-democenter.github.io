@@ -108,7 +108,7 @@ Start-PPDMprotection_policies -id $Policy.id -BackupType FULL -RetentionUnit DAY
 Now, we can Monitory the Protection Job 
 
 ```Powershell
-
+Get-PPDMactivities -PredefinedFilter PROTECTION_JOBS -pageSize 1
 ```
 
 ![Alt text](image-58.png)
@@ -116,7 +116,7 @@ Now, we can Monitory the Protection Job
 And the Asset Activities
 
 ```Powershell
-
+Get-PPDMactivities -PredefinedFilter ASSET_JOBS -pageSize 4
 ```
 
 ![Alt text](image-59.png)
