@@ -19,7 +19,7 @@ $RestoreToHost = Get-PPDMhosts -filter $RestoreHostFilter
 $RestoreToHost
 ```
 
-![Alt text](image-60.png)
+![Alt text](image-64.png)
 
 ## Read the Asset to restore to identify the Asset Copies
 
@@ -40,7 +40,7 @@ we have multiple options to select a Copy.....
 Get-PPDMlatest_copies -assetID $RestoreAssets.id
 ```
 
-![Alt text](image-61.png)
+![Alt text](image-65.png)
 
 ### by Filtering for a Date Range ...
 
@@ -53,7 +53,7 @@ $RANGE_FILTER = 'startTime ge "' + $usedate + '"state eq "IDLE"'
 $RestoreAssetCopy = $RestoreAssets | Get-PPDMassetcopies -filter $RANGE_FILTER | Select-Object -First 1
 ```
 
-For now, we use the Latest Copy Function 
+For now, we use the Latest Copy Function
 
 ```Powershell
 $RestoreAssetCopy = Get-PPDMlatest_copies -assetID $RestoreAssets.id
@@ -92,7 +92,7 @@ $Restore | Get-PPDMRestored_copies
 $Restore | Get-PPDMactivities
 ```
 
-![Alt text](image-63.png)
+![Alt text](image-66.png)
 
 Lets wait until activity Completed:
 
