@@ -60,8 +60,6 @@ For now, we use the Latest Copy Function
 $RestoreAssetCopy = Get-PPDMlatest_copies -assetID $RestoreAssets.id
 ```
 
-
-
 ## Run the Restore
 
 This time we Specify Parameters in a Parameters Block as this makes it easier to use Options in Scripts
@@ -93,9 +91,7 @@ $Restore | Get-PPDMRestored_copies
 $Restore | Get-PPDMactivities
 ```
 
-![Alt text](image-62.png)
-
-![Alt text](image-40.png)
+![Alt text](image-63.png)
 
 Lets wait until activity Completed:
 
