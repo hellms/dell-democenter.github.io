@@ -23,3 +23,8 @@ Module | Title | Link
 3 | LESSON 3 - PROTECT SQL VIRTUAL MACHINES USING PRE-CREATED/EXISTING STORAGE UNIT(APPLICATION AWARE) | [Module 3 Lesson 32](./Module_3_3.md)
 3 | LESSON 4 - CENTRALIZED RESTORE- SQL DATABASE | [Module 3 Lesson 4](./Module_3_4.md)
 3 | LESSON 5 - CENTRALIZED INSTANT ACCESS RESTORE OF VM ASSET | [Module 3 Lesson 5](./Module_3_5.md)
+4 | LESSON 1 - DISCOVER SQL DATABASES | [Module 4 Lesson 1](./Module_4_1.md)
+4 | LESSON 2 - PROTECT SQL DATABASES | [Module 4 Lesson 2](./Module_4_2.md)
+4 | LESSON 3 - RECOVER SQL DATABASES | [Module 4 Lesson 3](./Module_4_3.md)
+4 | LESSON 4 -RECOVER SQL DATABASES TO AAG ( TO ALL REPLICAS) | [Module 4 Lesson 4](./Module_4_4.md)
+

@@ -1,6 +1,6 @@
 # MODULE 4 - PROTECT SQL DATABASES
 
-## LLESSON 4 -RECOVER SQL DATABASES TO AAG ( TO ALL REPLICAS)
+## LESSON 4 -RECOVER SQL DATABASES TO AAG ( TO ALL REPLICAS)
 
 This will perform a Centralized Restore
 
@@ -31,6 +31,7 @@ $RestoreAssets = Get-PPDMAssets -Filter $RestoreAssetFilter
 ```
 
 ## Selecting the Asset Copy to Restore
+
 we have multiple options to select a Copy.....
 
 ### Using the latest copy
