@@ -68,6 +68,7 @@ First, find the Asset
 $Asset=Get-PPDMassets -type ORACLE_DATABASE -filter 'details.database.clusterName eq "oracle01.demo.local" and name eq "orcl"'
 $Asset
 ```
+![Alt text](image-69.png)
 
 Then, Assign the Asset to the Poliocy
 
@@ -75,6 +76,8 @@ Then, Assign the Asset to the Poliocy
 Add-PPDMProtection_policy_assignment -id $Policy.id -AssetID $Asset.id
 $Policy | Get-PPDMprotection_policies
 ```
+
+![Alt text](image-70.png)
 
 
 [<<Module 4 Lesson 1](./Module_4_1.md) This Concludes Module 4 Lesson 2 [Module 5 Lesson 1>>](./Module_5_1.md)
