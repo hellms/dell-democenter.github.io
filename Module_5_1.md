@@ -87,6 +87,16 @@ Get-PPDMactivities -PredefinedFilter PROTECTION_JOBS -pageSize 2
 
 ![Alt text](image-71.png)
 
+Start an AdHoc Protection
+
+```Powershell
+Start-PPDMprotection -AssetIDs $Asset.id -StageID $Policy.stages[0].id -PolicyID $Policy.id
+Get-PPDMactivities -PredefinedFilter PROTECTION_JOBS -pageSize 2
+```
+
+
+
+
 [<<Module 4 Lesson 1](./Module_4_1.md) This Concludes Module 4 Lesson 2 [Module 5 Lesson 1>>](./Module_5_1.md)
 
 ## START ADHOC BACKUP FOR ORACLE DATABASE
