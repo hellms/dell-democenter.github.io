@@ -104,3 +104,19 @@ And now we are good to start the Policy AdHoc:
 ```Powershell
 Start-PPDMprotection_policies -id $Policy.id -BackupType FULL -RetentionUnit DAY -RetentionInterval 5
 ```
+
+Now, we can Monitory the Protection Job 
+
+```Powershell
+
+```
+
+![Alt text](image-58.png)
+
+And the Asset Activities
+
+```Powershell
+
+```
+
+![Alt text](image-59.png)
