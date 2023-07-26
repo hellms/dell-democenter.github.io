@@ -24,16 +24,16 @@ And then have a Look at the Result:
 
 ![Alt text](image-50.png)
 
-Time to create a Backup Poliy. At this time, we define 2 Stage 0 Backups. One it the Full schdeule, and one the Differentail both share the same retention in Stage 0, but different Intervals.
+Time to create a Backup Policy. At this time, we define 2 Stage 0 Backups. One it the Full schdeule, and one the Differentail both share the same retention in Stage 0, but different Intervals.
 From the LAB Gude, we will use the following Settings:
->Name: SQL PROD Databases
->Description: SQL DB Backups
->Type: Microsoft SQL
->Recurrence: Hourly
->Create Full: 1 Hour
->Keep For: 5 days
->Start Time: 8:00 PM
->End Time:  6:00 AM
+>Name: SQL PROD Databases  
+>Description: SQL DB Backups  
+>Type: Microsoft SQL  
+>Recurrence: Hourly  
+>Create Full: 1 Hour  
+>Keep For: 5 days  
+>Start Time: 8:00 PM  
+>End Time:  6:00 AM  
 
 We create a Schdeule using the Schedule Helper for Databases:
 
@@ -60,7 +60,6 @@ New-PPDMSQLBackupPolicy -Schedule $Schedule -Name "SQL PROD DATABASE" -Descripti
 ```
 
 ![Alt text](image-53.png)
-
 
 For output reasons we did not assign the result of the command  to a Variable. But we an leverage the filter api do do so. We Always use Filters to query for Human Readable Entities, otherwise we would select by id:
 
