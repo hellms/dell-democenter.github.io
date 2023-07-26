@@ -12,8 +12,8 @@ Thie time we will pass a credentials string to Powershell
 
 ```Powershell
 $username="oracle"
-$credentialname="oracle
-$assword="Password123!"
+$credentialname="oracle"
+$password="Password123!"
 $Securestring=ConvertTo-SecureString -AsPlainText -String $Password -Force
 $Credentials = New-Object System.Management.Automation.PSCredential($username, $Securestring)
 $Credentials=New-PPDMcredentials -type OS -name $credentialname -authmethod BASIC 
