@@ -2,28 +2,21 @@
 
 ## LESSON 3 - PROTECT SQL VIRTUAL MACHINES USING PRE-CREATED/EXISTING STORAGE UNIT(APPLICATION AWARE)
 
-As we will re-use the StorageUnit (also refreed to as DataTarget) from Lesson 2, we read the Plolicy Properties with
+In this Lesson we Create a Protectin Policy for Oracle Centralized Protection
+We alo need to create the following Credentials:
 
-```Powershell
-$Policy=Get-PPDMprotection_policies -filter 'name eq "Linux VM"'
-```
-
-The DataTarget is stored in *$Policy.stages[0].target.dataTargetId*
-
-```Powershell
-$Policy.stages[0].target.dataTargetId
-```
-![Alt text](image-29.png)
-We also need to create the following Credetials:
-
->Credential Name: windows
->User Name: demo\administrator
+>Credential Name: oracle
+>User Name: oracle
 >Password: Password123!
-
-
+Thie time we will pass a credentials string to Powershell
 
 ```Powershell
-$Credentials=New-PPDMcredentials -type OS -name windows -authmethod BASIC 
+$username="oracle"
+$credentialname="oracle
+$assword="Password123!"
+$Securestring=ConvertTo-SecureString -AsPlainText -String $Password -Force
+$Credentials = New-Object System.Management.Automation.PSCredential($username, $Securestring)
+$Credentials=New-PPDMcredentials -type OS -name $credentialname -authmethod BASIC 
 ```
 
 Again, we read our Storage System
