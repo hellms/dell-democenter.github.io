@@ -47,7 +47,13 @@ Then, we read the Storage System into a Variable
 $StorageSystem=Get-PPDMStorage_systems -Type DATA_DOMAIN_SYSTEM -Filter {name eq "ddve-01.demo.local"}
 ```
 
-And Create a new Protection Policy from Both
+As we are going to use the same OS Credentials we used in a Previous excersise, we do a 
+
+```Powershell
+$credentials=Get-PPDMcredentials -filter 'name eq "windows"'
+```
+
+And Create a new Protection Policy from the 3 Variables
 
 ```Powershell
 New-PPDMSQLBackupPolicy -Schedule $Schedule -Name "SQL PROD DATABASE" -Description "SQL DB Backups" -dbCID $credentials.id -StorageSystemID $StorageSystem.id
