@@ -7,7 +7,7 @@ This will perform a Centralized Restore
 
 ```Powershell
 $RestoreFromHost = "sql-02.demo.local"
-$RestoreToHost_Name = "sql-023.demo.local"
+$RestoreToHost_Name = "sql-02.demo.local"
 $AppServerName = "MSSQLSERVER"
 $DataBaseName = "SQLPROD-01"
 ```
