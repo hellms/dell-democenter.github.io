@@ -79,6 +79,13 @@ $Policy | Get-PPDMprotection_policies
 
 ![Alt text](image-70.png)
 
+Watch the Activities
+
+```Powershell
+Get-PPDMactivities -PredefinedFilter PROTECTION_JOBS -pageSize 2
+```
+
+
 
 [<<Module 4 Lesson 1](./Module_4_1.md) This Concludes Module 4 Lesson 2 [Module 5 Lesson 1>>](./Module_5_1.md)
 
