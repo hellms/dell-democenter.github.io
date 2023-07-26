@@ -48,7 +48,7 @@ Log:
 $OraSchedule=New-PPDMDatabaseBackupSchedule -hourly -CreateCopyIntervalHrs 1 -RetentionUnit DAY -RetentionInterval 5 -starttime 8:00PM -endtime 6:00AM -LogBackupUnit MINUTELY -LogBackupInterval 15
 ```
 
-## Creating the Proztection Policy
+## Creating the Protection Policy
 
 >Name:  Oracle DEV  
 >Description: Oracle DB Backup  
@@ -57,6 +57,13 @@ $OraSchedule=New-PPDMDatabaseBackupSchedule -hourly -CreateCopyIntervalHrs 1 -Re
 $Policy=New-PPDMOracleBackupPolicy -Schedule $OraSchedule -Name "Oracle DEV" -Description "Oracle DB Backup" -dbCID $OraCreds.id -StorageSystemID $StorageSystem.id
 ```
 
+## Assigning an Asset
+
+
+
+```Powershell
+$Asset=Get-PPDMassets -type ORACLE_DATABASE -filter 'details.database.clusterName eq "oracle01.demo.local" and name eq "orcl"'
+```
 
 [<<Module 4 Lesson 1](./Module_4_1.md) This Concludes Module 4 Lesson 2 [Module 5 Lesson 1>>](./Module_5_1.md)
 
