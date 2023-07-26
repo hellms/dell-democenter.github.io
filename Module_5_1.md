@@ -85,7 +85,9 @@ Watch the Activities
 Get-PPDMactivities -PredefinedFilter PROTECTION_JOBS -pageSize 2
 ```
 
-
+![Alt text](image-71.png)
 
 [<<Module 4 Lesson 1](./Module_4_1.md) This Concludes Module 4 Lesson 2 [Module 5 Lesson 1>>](./Module_5_1.md)
+
+## START ADHOC BACKUP FOR ORACLE DATABASE
 
