@@ -26,7 +26,6 @@ $RestoreToHost
 ```Powershell
 $RestoreAssetFilter = 'type eq "MICROSOFT_SQL_DATABASE" and protectionStatus eq "PROTECTED" and details.database.clusterName eq "' + $RestoreFromHost + '"' + ' and details.database.appServerName eq "' + $AppServerName + '"'  + ' and name eq "' + $DataBaseName + '"'
 $RestoreAssets = Get-PPDMAssets -Filter $RestoreAssetFilter
-$RestoreAssets = Get-PPDMAssets -Filter $RestoreAssetFilter
 $RestoreAssets = $RestoreAssets | Where-Object name -Match $DataBaseName
 # Optionally, look at the CopyMap
 # $Copymap=$RestoreAssets | Get-PPDMcopy_map
