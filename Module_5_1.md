@@ -65,13 +65,14 @@ First, find the Asset
 >DatabaseName: oracl
 
 ```Powershell
-
+$Asset=Get-PPDMassets -type ORACLE_DATABASE -filter 'details.database.clusterName eq "oracle01.demo.local" and name eq "orcl"'
+$Asset
 ```
 
-
+Then, Assign the Asset to the Poliocy
 
 ```Powershell
-Add-PPDMProtection_policy_assignment -id $Policy.id -AssetID $Assets.id
+Add-PPDMProtection_policy_assignment -id $Policy.id -AssetID $Asset.id
 $Policy | Get-PPDMprotection_policies
 ```
 
