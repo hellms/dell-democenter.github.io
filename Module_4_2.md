@@ -87,4 +87,20 @@ Add-PPDMProtection_policy_assignment -id $Policy.id -AssetID $Assets.id
 $Policy | Get-PPDMprotection_policies
 ```
 
-![Alt text](image-54.png)
+![Alt text](image-56.png)
+
+This will Trigger some Configuration Activities.
+
+Review them with
+
+```Powershell
+Get-PPDMactivities -PredefinedFilter SYSTEM_JOBS -pageSize 3
+```
+
+![Alt text](image-57.png)
+
+And now we are good to start the Policy AdHoc:
+
+```Powershell
+Start-PPDMprotection_policies -id $Policy.id -BackupType FULL -RetentionUnit DAY -RetentionInterval 5
+```
