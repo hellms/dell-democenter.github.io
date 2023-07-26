@@ -56,7 +56,7 @@ $credentials=Get-PPDMcredentials -filter 'name eq "windows"'
 And Create a new Protection Policy from the 3 Variables
 
 ```Powershell
-New-PPDMSQLBackupPolicy -Schedule $Schedule -Name "SQL PROD DATABASE" -Description "SQL DB Backups" -skipUnprotectableState -dbCID $credentials.id -StorageSystemID $StorageSystem.id -
+New-PPDMSQLBackupPolicy -Schedule $Schedule -Name "SQL PROD DATABASE" -Description "SQL DB Backups" -skipUnprotectableState -dbCID $credentials.id -StorageSystemID $StorageSystem.id
 ```
 
 ![Alt text](image-53.png)
