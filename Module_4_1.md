@@ -83,10 +83,11 @@ Lets to the same with the SQL Assets we are going to assign to the Policy:
 $Assets=Get-PPDMassets -type MICROSOFT_SQL_DATABASE -filter 'details.database.clusterName eq "sql-02.demo.local" and name lk "SQLPROD%"'
 ```
 
+Now assign the Assets to the Policy. The Policy Assignment Alows a List of Assets to be assigned. Multiple Asset IDS can be called from Assets.id. We the Pipe the $Policy to *Get-PPDMprotection_policies* to get a refresed list of the Policy
 
 ```Powershell
-
+Add-PPDMProtection_policy_assignment -id $Policy.id -AssetID $Assets.id
+$Policy | Get-PPDMprotection_policies
 ```
-Add-PPDMProtection_policy_assignment -AssetID $Assets.id -ID $Policy.ID
 
 ![Alt text](image-52.png)
