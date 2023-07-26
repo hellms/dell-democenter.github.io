@@ -59,7 +59,7 @@ And Create a new Protection Policy from the 3 Variables
 New-PPDMSQLBackupPolicy -Schedule $Schedule -Name "SQL PROD DATABASE" -Description "SQL DB Backups" -dbCID $credentials.id -StorageSystemID $StorageSystem.id
 ```
 
-![Alt text](image-51.png)
+![Alt text](image-53.png)
 
 
 For output reasons we did not assign the result of the command  to a Variable. But we an leverage the filter api do do so. We Always use Filters to query for Human Readable Entities, otherwise we would select by id:
