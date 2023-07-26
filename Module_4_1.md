@@ -67,3 +67,12 @@ $StorageSystem=Get-PPDMStorage_systems -Type DATA_DOMAIN_SYSTEM -Filter {name eq
 ```Powershell
 New-PPDMSQLBackupPolicy -Schedule $Schedule -Name "SQL PROD DATABASE"  -dbCID $credentials.id -StorageSystemID $StorageSystem.id
 ```
+
+![Alt text](image-51.png)
+
+
+For output reasons we did not assign the result of the command  to a Variable. But we an leverage the filter api do do so:
+
+
+Add-PPDMProtection_policy_assignment -AssetID $Asset.id -ID <your Policy ID>
+
