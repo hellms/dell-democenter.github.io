@@ -56,7 +56,7 @@ $credentials=Get-PPDMcredentials -filter 'name eq "windows"'
 And Create a new Protection Policy from the 3 Variables
 
 ```Powershell
-New-PPDMSQLBackupPolicy -Schedule $Schedule -Name "SQL PROD DATABASE" -Description "SQL DB Backups" -dbCID $credentials.id -StorageSystemID $StorageSystem.id
+New-PPDMSQLBackupPolicy -Schedule $Schedule -Name "SQL PROD DATABASE" -Description "SQL DB Backups" -skipUnprotectableState -dbCID $credentials.id -StorageSystemID $StorageSystem.id -
 ```
 
 ![Alt text](image-53.png)
@@ -74,7 +74,7 @@ Lets to the same with the SQL Assets we are going to assign to the Policy:
 $Assets=Get-PPDMassets -type MICROSOFT_SQL_DATABASE -filter 'details.database.clusterName eq "sql-02.demo.local" and name lk "SQLPROD%"'
 ```
 
-Do Similar  for the Always On Databases 
+Do Similar  for the Always On Databases
 
 ```Powershell
 $Assets+=Get-PPDMassets -type MICROSOFT_SQL_DATABASE -filter 'details.database.clusterName eq "sqlaag-01.demo.local" and name lk "DemoDB-0%"'
@@ -88,4 +88,4 @@ Add-PPDMProtection_policy_assignment -id $Policy.id -AssetID $Assets.id
 $Policy | Get-PPDMprotection_policies
 ```
 
-![Alt text](image-52.png)
+![Alt text](image-54.png)
