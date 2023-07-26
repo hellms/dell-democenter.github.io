@@ -5,9 +5,9 @@
 In this Lesson we Create a Protectin Policy for Oracle Centralized Protection
 We alo need to create the following Credentials:
 
->Credential Name: oracle
->User Name: oracle
->Password: Password123!
+>Credential Name: oracle  
+>User Name: oracle  
+>Password: Password123!  
 Thie time we will pass a credentials string to Powershell
 
 ```Powershell
