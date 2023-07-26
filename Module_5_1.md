@@ -54,7 +54,7 @@ $OraSchedule=New-PPDMDatabaseBackupSchedule -hourly -CreateCopyIntervalHrs 1 -Re
 >Description: Oracle DB Backup  
 
 ```Powershell
-$Policy=New-PPDMOracleBackupPolicy -Schedule $OraSchedule -Name "Oracle DEV" -Description "Oracle DB Backup" -dbCID $OraCreds.id -StorageSystemID $StorageSystem.id -noop -Verbose
+$Policy=New-PPDMOracleBackupPolicy -Schedule $OraSchedule -Name "Oracle DEV" -Description "Oracle DB Backup" -dbCID $OraCreds.id -StorageSystemID $StorageSystem.id
 ```
 
 
