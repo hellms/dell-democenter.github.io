@@ -68,11 +68,13 @@ $Parameters = @{
   HostID                  = $RestoreToHost.id 
   appServerId             = $RestoreAssets.details.database.appServerId
   copyObject              = $RestoreAssetCopy
+  performTailLogBackup    = $true
   enableDebug             = $false
   enableCompressedRestore = $true
   fileRelocationOptions   = "ORIGINAL_LOCATION"
   restoreType             = "TO_ALTERNATE" 
   CustomDescription       = "Restore from Powershell"
+  aagRestoreType          = "RESTORE_TO_ALL"
   Verbose                 = $false
 }
 ```
