@@ -71,8 +71,17 @@ New-PPDMSQLBackupPolicy -Schedule $Schedule -Name "SQL PROD DATABASE"  -dbCID $c
 ![Alt text](image-51.png)
 
 
-For output reasons we did not assign the result of the command  to a Variable. But we an leverage the filter api do do so:
+For output reasons we did not assign the result of the command  to a Variable. But we an leverage the filter api do do so. We Always use Filters to query for Human Readable Entities, otherwise we would select by id:
 
+```Powershell
+$Policy=Get-PPDMprotection_policies -filter 'name eq "SQL PROD DATABASE"'
+```
 
-Add-PPDMProtection_policy_assignment -AssetID $Asset.id -ID <your Policy ID>
+Lets to the same with the SQL Assets we are going to assign to the Policy:
+
+```Powershell
+$Assets=Get-PPDMassets -type MICROSOFT_SQL_DATABASE -filter 'details.database.clusterName eq "sql-02.demo.local" and name lk "SQLPROD%"'
+```
+
+Add-PPDMProtection_policy_assignment -AssetID $Assets.id -ID $Policy.ID
 
