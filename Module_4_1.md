@@ -83,5 +83,10 @@ Lets to the same with the SQL Assets we are going to assign to the Policy:
 $Assets=Get-PPDMassets -type MICROSOFT_SQL_DATABASE -filter 'details.database.clusterName eq "sql-02.demo.local" and name lk "SQLPROD%"'
 ```
 
+
+```Powershell
+
+```
 Add-PPDMProtection_policy_assignment -AssetID $Assets.id -ID $Policy.ID
 
+![Alt text](image-52.png)
