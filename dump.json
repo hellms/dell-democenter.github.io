@@ -16,4 +16,13 @@
 
 
 
+## From UI
+
+{"name":"Oracle Dev from UI","description":"","assetType":"ORACLE_DATABASE","type":"ACTIVE","encrypted":false,"enabled":true,"priority":1,"dataConsistency":"APPLICATION_CONSISTENT","passive":false,"forceFull":false,"details":{"oracle":{"dbConnection":{"configureCredential":false,"tnsName":"","tnsAdmin":""}}},"stages":[{"id":"7710de4e-4bff-0633-6382-04e846fc1e55","type":"PROTECTION","passive":false,"attributes":{"oracle":{"troubleShootingOption":"debugEnabled=false"},"protection":{"backupMechanism":"SBT"}},"target":{"storageSystemId":"8b521aee-a667-4e40-87f6-7bf036ed5981","dataTargetId":null,"preferredInterfaceId":"fqdn"},"slaId":null,"sourceStageId":null,"operations":[{"id":"a278ea36-3ddd-56b8-4c5b-4500b606f060","backupType":"FULL","schedule":{"frequency":"HOURLY","startTime":"2023-07-27T20:00:00.000Z","duration":"PT10H","interval":1}},{"id":"bf9c99cf-d081-9813-2453-779e43bebe11","backupType":"LOG","schedule":{"frequency":"MINUTELY","startTime":"2023-07-27T20:00:00.000Z","duration":"PT10H","interval":15}}],"retention":{"id":"a59da4c7-3f20-370a-51d4-25dcc7911d1e","unit":"DAY","storageSystemRetentionLock":false,"interval":5},"extendedRetentions":[{"selector":{"operationId":"a278ea36-3ddd-56b8-4c5b-4500b606f060","backupType":"FULL"},"retention":{"id":"90be4bbf-5b71-8979-205a-17e08906e367","storageSystemRetentionLock":false,"unit":"DAY","interval":5}},{"selector":{"operationId":"bf9c99cf-d081-9813-2453-779e43bebe11","backupType":"LOG"},"retention":{"id":"bc1e9990-a877-f30b-b67e-2e519c81aae0","storageSystemRetentionLock":false,"unit":"DAY","interval":5}}],"options":{"syncCatalog":"NONE"}}],"filterIds":[],"credentials":{"id":"aada7741-8aef-4364-8def-5b1839d0c737","name":"Select One","type":"OS"},"slaId":""}
+
+
+###
+
+
+
 {"restoreType":"TO_ALTERNATE","description":"Restore to original database","copyIds":["a57b02be-7d3b-5eda-91d5-cac6f305e228"],"restoredCopiesDetails":{"targetDatabaseInfo":{"hostId":"f5e47e80-bafc-42dc-adb6-b56c0a90294c","applicationSystemId":"f91e7f4a-87e9-5de0-ba72-52c0051f9441","assetName":"DemoDB-01","restoreOptions":{"aagRestoreType":"RESTORE_TO_PRIMARY"}}},"options":{"forceDatabaseOverwrite":true,"enableDebug":false,"performTailLogBackup":true,"enableCompressedRestore":false,"disconnectDatabaseUsers":false,"fileRelocationOptions":{"type":"ORIGINAL_LOCATION"}}}
