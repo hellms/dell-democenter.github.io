@@ -68,7 +68,7 @@ First, find the Asset
 $Asset=Get-PPDMassets -type ORACLE_DATABASE -filter 'details.database.clusterName eq "oracle01.demo.local" and name eq "orcl"'
 $Asset
 ```
-![Alt text](image-69.png)
+![Alt text](image-73.png)
 
 Then, Assign the Asset to the Poliocy
 
@@ -77,29 +77,27 @@ Add-PPDMProtection_policy_assignment -id $Policy.id -AssetID $Asset.id
 $Policy | Get-PPDMprotection_policies
 ```
 
-![Alt text](image-70.png)
+![Alt text](image-74.png)
 
 Watch the Activities
 
 ```Powershell
-Get-PPDMactivities -PredefinedFilter PROTECTION_JOBS -pageSize 2
+Get-PPDMactivities -PredefinedFilter SYSTEM_JOBS -pageSize 2
 ```
 
-![Alt text](image-71.png)
+![Alt text](image-75.png)
 
-Start an AdHoc Protection
+repeat until the Assets COnfiguration reaches state=COMPLETED 
+
+## START ADHOC BACKUP FOR ORACLE DATABASE
+
+Start an AdHoc Protection and monitor the Protection Job
 
 ```Powershell
 Start-PPDMprotection -AssetIDs $Asset.id -StageID $Policy.stages[0].id -PolicyID $Policy.id
 Get-PPDMactivities -PredefinedFilter PROTECTION_JOBS -pageSize 2
 ```
 
-![Alt text](image-72.png)
+![Alt text](image-76.png)
 
-
-
-
-[<<Module 4 Lesson 1](./Module_4_1.md) This Concludes Module 4 Lesson 2 [Module 5 Lesson 1>>](./Module_5_1.md)
-
-## START ADHOC BACKUP FOR ORACLE DATABASE
-
+[<<Module 4 Lesson 4](./Module_4_4.md) This Concludes Module 5 Lesson 1 [Module 5 Lesson 2>>](./Module_5_1.md)
