@@ -46,4 +46,10 @@ $Asset | Get-PPDMlatest_copies
 
 ![Alt text](image-80.png)
 
+
+
+Restore-PPDMOracle_copies -copyobject $CopyObject -appServerID $Asset.details.database.appServerId -HostID e21abba-f9d7-43b8-9c6b-42d9e678d451  -Verbose -crossCheckBackup -OraCredObject $OraCreds
+
+
+
 [<<Module 5 Lesson 1](./Module_5_1.md) This Concludes Module 5 Lesson 2 [Module 5 Lesson 3>>](./Module_5_3.md)
