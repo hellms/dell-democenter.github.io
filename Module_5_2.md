@@ -33,28 +33,6 @@ For the latest copy of an asset, use
 $Asset | Get-PPDMlatest_copies
 ```
 
+![Alt text](image-80.png)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-[<<Module 4 Lesson 4](./Module_4_4.md) This Concludes Module 5 Lesson 1 [Module 5 Lesson 2>>](./Module_5_2.md)
+[<<Module 5 Lesson 1](./Module_5_1.md) This Concludes Module 5 Lesson 2 [Module 5 Lesson 3>>](./Module_5_3.md)
