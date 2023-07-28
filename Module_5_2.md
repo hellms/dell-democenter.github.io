@@ -19,12 +19,19 @@ $Asset
 
 ## Get your Asset Copies
 
+To get all Copies of an asset, or use custom filters, use *Get-PPDMassetcopies*
+
 ```Powershell
 $Asset | Get-PPDMassetcopies | ft
 ```
 
 ![Alt text](image-79.png)
 
+For the latest copy of an asset, use
+
+```Powershell
+$Asset | Get-PPDMlatest_copies
+```
 
 
 
