@@ -7,9 +7,10 @@ In this lesson, we will learn how to view and manage Oracle copies on the Protec
 ## Identify our Asset
 
 >DatabaseName: oracl
+$Asset=Get-PPDMassets -type ORACLE_DATABASE -filter 'details.database.clusterName eq "oracle01.demo.local" and name eq "orcl"'
 
 ```Powershell
-$Asset=Get-PPDMassets -type ORACLE_DATABASE -filter 'details.database.clusterName eq "oracle01.demo.local" and name eq "orcl"'
+$Asset=Get-PPDMassets -type ORACLE_DATABASE -filter 'name eq "orcl"'
 $Asset
 ```
 
