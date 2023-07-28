@@ -15,13 +15,15 @@ $Asset
 # $Asset=Get-PPDMassets -type ORACLE_DATABASE -filter 'details.database.clusterName eq "oracle01.demo.local" and name eq "orcl"'
 ```
 
+![Alt text](image-78.png)
+
 ## Get your Asset Copies
 
 ```Powershell
 $Asset | Get-PPDMassetcopies | ft
-``
+```
 
-
+![Alt text](image-79.png)
 
 
 
