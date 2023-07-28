@@ -18,7 +18,7 @@ $Asset
 ## Get your Asset Copies
 
 ```Powershell
-
+$Asset | Get-PPDMassetcopies | ft
 ``
 
 
