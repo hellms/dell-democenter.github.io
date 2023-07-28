@@ -70,7 +70,7 @@ $Asset
 ```
 ![Alt text](image-73.png)
 
-Then, Assign the Asset to the Poliocy
+## Assign the Asset to the Poliocy
 
 ```Powershell
 Add-PPDMProtection_policy_assignment -id $Policy.id -AssetID $Asset.id
@@ -79,7 +79,7 @@ $Policy | Get-PPDMprotection_policies
 
 ![Alt text](image-74.png)
 
-Watch the Activities
+## Watch the Activities
 
 ```Powershell
 Get-PPDMactivities -PredefinedFilter SYSTEM_JOBS -pageSize 2
@@ -87,7 +87,7 @@ Get-PPDMactivities -PredefinedFilter SYSTEM_JOBS -pageSize 2
 
 ![Alt text](image-75.png)
 
-repeat until the Assets COnfiguration reaches state=COMPLETED 
+repeat until the Assets Configuration reaches state=COMPLETED
 
 ## START ADHOC BACKUP FOR ORACLE DATABASE
 
