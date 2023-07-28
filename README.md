@@ -2,6 +2,8 @@
 
 This Guide runs the Dell DPS *HOL-0419-02-POWERPROTECT DATA MANAGER* by using Powershell
 
+![Alt text](image-77.png)
+
 ## Getting Started
 
 Book a session with the [PowerProtect Data Manager - Advanced](https://democenter.dell.com/hol/HOL-0419-02)   
@@ -27,4 +29,5 @@ Module | Title | Link
 4 | LESSON 2 - PROTECT SQL DATABASES | [Module 4 Lesson 2](./Module_4_2.md)
 4 | LESSON 3 - RECOVER SQL DATABASES | [Module 4 Lesson 3](./Module_4_3.md)
 4 | LESSON 4 -RECOVER SQL DATABASES TO AAG ( TO ALL REPLICAS) | [Module 4 Lesson 4](./Module_4_4.md)
+5 | LESSON 1 - PROTECT ORACLE DATABASES | [Module 5 Lesson 1](./Module_5_1.md)
 
