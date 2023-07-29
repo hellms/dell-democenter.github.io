@@ -58,6 +58,7 @@ $OraHost=Get-PPDMhosts -type APP_HOST -filter 'name eq "oracle01.demo.local"'
 Restore-PPDMOracle_copies -copyobject $CopyObject -appServerID $Asset.details.database.appServerId -HostID $OraHost.id  -Verbose -crossCheckBackup -OraCredObject $OraCreds
 ```
 
+<img width="1005" alt="image" src="https://github.com/dell-democenter/dell-democenter.github.io/assets/140008579/0fcc48b9-1ec8-4f06-8b7d-822a35fe0133">
 
 
 
