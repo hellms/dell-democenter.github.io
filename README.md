@@ -28,7 +28,7 @@ Module | Title | Link
 4 | LESSON 1 - DISCOVER SQL DATABASES | [Module 4 Lesson 1](./Module_4_1.md)
 4 | LESSON 2 - PROTECT SQL DATABASES | [Module 4 Lesson 2](./Module_4_2.md)
 4 | LESSON 3 - RECOVER SQL DATABASES | [Module 4 Lesson 3](./Module_4_3.md)
-4 | LESSON 4 -RECOVER SQL DATABASES TO AAG ( TO ALL REPLICAS) | [Module 4 Lesson 4](./Module_4_4.md)
+4 | LESSON 4 - RECOVER SQL DATABASES TO AAG ( TO ALL REPLICAS) | [Module 4 Lesson 4](./Module_4_4.md)
 5 | LESSON 1 - PROTECT ORACLE DATABASES | [Module 5 Lesson 1](./Module_5_1.md)
 5 | LESSON 2 - VIEW ORACLE COPIES | [Module 5 Lesson 2](./Module_5_2.md)
 5 | LESSON 3 - PERFORM CENTRALIZED ORACLE DATABASE RESTORE | [Module 5 Lesson 3](./Module_5_3.md)
