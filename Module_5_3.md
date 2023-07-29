@@ -70,7 +70,7 @@ Restore-PPDMOracle_copies -copyobject $CopyObject -appServerID $Asset.details.da
 Get-PPDMactivities -id a03216f0-a833-479f-9aec-1119efe395d0
 ```
 
-<img width="1005" alt="image" src="https://github.com/dell-democenter/dell-democenter.github.io/assets/140008579/0fcc48b9-1ec8-4f06-8b7d-822a35fe0133">
+![Alt text](image-82.png)
 
 you may want to repeat the Command or create a loop that monitors the activities
 ( will be handled in an Advanced Session later)
@@ -79,5 +79,6 @@ you may want to repeat the Command or create a loop that monitors the activities
 Get-PPDMactivities -id a03216f0-a833-479f-9aec-1119efe395d0
 ```
 
+![Alt text](image-81.png)
 
-[<<Module 5 Lesson 1](./Module_5_1.md) This Concludes Module 5 Lesson 2 [Module 5 Lesson 3>>](./Module_5_3.md)
+[<<Module 5 Lesson 2](./Module_5_2.md) This Concludes Module 5 Lesson 3 [Module 5 Lesson 3>>](./Module_5_3.md)
