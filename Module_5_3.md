@@ -38,7 +38,7 @@ $Asset | Get-PPDMassetcopies | ft
 
 ![Alt text](image-79.png)
 
-For the latest copy of an asset, use
+## For the latest copy of an asset, use
 
 ```Powershell
 $Asset | Get-PPDMlatest_copies
@@ -46,7 +46,7 @@ $Asset | Get-PPDMlatest_copies
 
 ![Alt text](image-80.png)
 
-We need to read our Oracle Host
+## We need to read our Oracle Host
 
 ```Powershell
 $OraHost=Get-PPDMhosts -type APP_HOST -filter 'name eq "oracle01.demo.local"'
