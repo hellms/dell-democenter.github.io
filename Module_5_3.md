@@ -46,9 +46,18 @@ $Asset | Get-PPDMlatest_copies
 
 ![Alt text](image-80.png)
 
+We need to read our Oracle Host
 
+```Powershell
+$OraHost=Get-PPDMhosts -type APP_HOST -filter 'name eq "oracle01.demo.local"'
+```
 
-Restore-PPDMOracle_copies -copyobject $CopyObject -appServerID $Asset.details.database.appServerId -HostID e21abba-f9d7-43b8-9c6b-42d9e678d451  -Verbose -crossCheckBackup -OraCredObject $OraCreds
+## Run the Restore
+
+```Powershell
+Restore-PPDMOracle_copies -copyobject $CopyObject -appServerID $Asset.details.database.appServerId -HostID $OraHost.id  -Verbose -crossCheckBackup -OraCredObject $OraCreds
+```
+
 
 
 
