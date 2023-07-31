@@ -33,3 +33,17 @@ Now we are going to create a new Oracle Incremental Merge Policy using the follo
 >Name:  Oracle Backup OIM
 >Description: Oracle Backup - OIM
 >Type: Oracle  & then Select - Oracle Incremental Merge Backup
+
+
+## Creating a Oracle Incremental Merge Policy
+
+First we start with creating a new Schedule for the Policy
+
+```Powershell
+$OIMSchedule=New-PPDMDatabaseBackupSchedule -hourly -CreateCopyIntervalHrs 1 -RetentionUnit DAY -RetentionInterval 5
+```
+
+Next, we create a OIM Policy
+```Powershell
+$OIMPolicy=New-PPDMOracleBackupPolicy -Schedule $OraSchedule -Name "Oracle Backup OIM" -Description "Oracle Backup - OIM" -dbCID $OraCreds.id -StorageSystemID $StorageSystem.id
+```
