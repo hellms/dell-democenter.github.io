@@ -16,12 +16,14 @@ If not, do
 ```Powershell
 
 $Asset=Get-PPDMassets -type ORACLE_DATABASE -filter 'details.database.clusterName eq "oracle01.demo.local" and name eq "orcl"'
-
+$Policy=Get-PPDMprotection_policies -filter 'name eq "Oracle DEV"'
 ```
 
 
 Remove the Asset using
 ```Powershell
-
+Remove-PPDMProtection_policy_assignment -protectionPolicyId $Policy.id -AssetID $Asset.id
 ```
 ![Alt text](image-83.png)
+
+
