@@ -26,4 +26,10 @@ Remove-PPDMProtection_policy_assignment -protectionPolicyId $Policy.id -AssetID 
 ```
 ![Alt text](image-83.png)
 
+## Creating a new Oracle Incremental merge Policy
 
+Now we are going to create a new Oracle Incremental Merge Policy using the following Parameters
+
+>Name:  Oracle Backup OIM
+>Description: Oracle Backup - OIM
+>Type: Oracle  & then Select - Oracle Incremental Merge Backup
