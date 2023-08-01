@@ -11,31 +11,27 @@ As we are moving the Asset to an Incremental Merge Policy, we first need to unas
 
 If you still in the same Powershell Session fron Previous lesson, you already have the Policy as $Policy and the Oracle Asset as $Asset
 and the Storage System as $Storage System
-If you hve not Done Lesson 3, do
+If you have not Done Lesson 3, do belowto read the Objects and Continue to Step22
 
 ```Powershell
-
 $Asset=Get-PPDMassets -type ORACLE_DATABASE -filter 'details.database.clusterName eq "oracle01.demo.local" and name eq "orcl"'
-$Policy=Get-PPDMprotection_policies -filter 'name eq "Oracle DEV"'
+$StorageSystem=Get-PPDMStorage_systems -Type DATA_DOMAIN_SYSTEM -Filter {name eq "ddve-01.demo.local"}
 ```
 
-## Step1 Remove the Asset using
+## Step 1 Remove the Asset using
 
 ```Powershell
 Remove-PPDMProtection_policy_assignment -protectionPolicyId $Policy.id -AssetID $Asset.id
 ```
 ![Alt text](image-83.png)
 
-## Creating a new Oracle Incremental merge Policy
+## Step 2 Creating a new Oracle Incremental merge Policy
 
 Now we are going to create a new Oracle Incremental Merge Policy using the following Parameters
 
 >Name:  Oracle Backup OIM
 >Description: Oracle Backup - OIM
 >Type: Oracle  & then Select - Oracle Incremental Merge Backup
-
-
-## Creating a Oracle Incremental Merge Policy
 
 First we start with creating a new Schedule for the Policy
 
@@ -48,12 +44,15 @@ Next, we create a OIM Policy
 $OIMPolicy=New-PPDMOracleBackupPolicy -Schedule $OIMSchedule -Name "Oracle Backup OIM" -Description "Oracle Backup - OIM" -dbCID $OraCreds.id -StorageSystemID $StorageSystem.id -backupMechanism OIM -Verbose
 ```
 
+## Assign Assets and Configure Prottocol to be used ( NFS/BOOST )
+
 We Assign our Asset
 ```Powershell
 Add-PPDMProtection_policy_assignment -id $OIMPolicy.id -AssetID $Asset.id
 ```
 
 And set the Protection Protocol to NFS on the Asset.
+This is an Asset Level Setting and can be changed by Modifiying te Asset Configuration.
 This will trigger a asset reconfiguration and sets the Mount Paths to the Boost NFS Exports in the Clients COnfiuration.
 
 ```Powershell
@@ -62,19 +61,17 @@ $Asset | Set-PPDMOIMProtocol -ProtectionProtocol NFS
 
 Watch the Activities
 
-
 ```Powershell
 Get-PPDMactivities -PredefinedFilter SYSTEM_JOBS -pageSize 2
 ```
 
+## Starting a Backup
 
-
-And finally start the Backupop
+We Just need to Pipe the Policy into *Start-PPDMprotection_policies* to get started with the Backup
 
 ```Powershell
 $OIMPolicy | Start-PPDMprotection_policies
 ```
-
 
 ```Powershell
 (Get-PPDMactivities -PredefinedFilter PROTECTION_JOBS -pageSize 1).steps
