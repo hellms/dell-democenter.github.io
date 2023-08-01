@@ -9,9 +9,9 @@ Pre-requirement for this feature would be boostfs to be installed on the oracle 
 
 As we are moving the Asset to an Incremental Merge Policy, we first need to unassign the Asset from the previous Policy.
 
-If you still in the Same Powershell Session fro. Previous lesson, you already have the Policy as $Policy and the Oracel Asset as $Asset
-
-If not, do
+If you still in the same Powershell Session fron Previous lesson, you already have the Policy as $Policy and the Oracle Asset as $Asset
+and the Storage System as $Storage System
+If you hve not Done Lesson 3, do
 
 ```Powershell
 
@@ -19,8 +19,8 @@ $Asset=Get-PPDMassets -type ORACLE_DATABASE -filter 'details.database.clusterNam
 $Policy=Get-PPDMprotection_policies -filter 'name eq "Oracle DEV"'
 ```
 
+## Step1 Remove the Asset using
 
-Remove the Asset using
 ```Powershell
 Remove-PPDMProtection_policy_assignment -protectionPolicyId $Policy.id -AssetID $Asset.id
 ```
