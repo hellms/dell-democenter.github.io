@@ -45,5 +45,37 @@ $OIMSchedule=New-PPDMDatabaseBackupSchedule -hourly -CreateCopyIntervalHrs 1 -Re
 
 Next, we create a OIM Policy
 ```Powershell
-$OIMPolicy=New-PPDMOracleBackupPolicy -Schedule $OraSchedule -Name "Oracle Backup OIM" -Description "Oracle Backup - OIM" -dbCID $OraCreds.id -StorageSystemID $StorageSystem.id
+$OIMPolicy=New-PPDMOracleBackupPolicy -Schedule $OIMSchedule -Name "Oracle Backup OIM" -Description "Oracle Backup - OIM" -dbCID $OraCreds.id -StorageSystemID $StorageSystem.id -backupMechanism OIM -Verbose
+```
+
+We Assign our Asset
+```Powershell
+Add-PPDMProtection_policy_assignment -id $OIMPolicy.id -AssetID $Asset.id
+```
+
+And set the Protection Protocol to NFS on the Asset.
+This will trigger a asset reconfiguration and sets the Mount Paths to the Boost NFS Exports in the Clients COnfiuration.
+
+```Powershell
+$Asset | Set-PPDMOIMProtocol -ProtectionProtocol NFS
+```
+
+Watch the Activities
+
+
+```Powershell
+Get-PPDMactivities -PredefinedFilter SYSTEM_JOBS -pageSize 2
+```
+
+
+
+And finally start the Backupop
+
+```Powershell
+$OIMPolicy | Start-PPDMprotection_policies
+```
+
+
+```Powershell
+(Get-PPDMactivities -PredefinedFilter PROTECTION_JOBS -pageSize 1).steps
 ```
