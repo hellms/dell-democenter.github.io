@@ -102,5 +102,14 @@ Once you identified you activity, do
 you may want to repeat the Command or create a loop that monitors the activities
 ( will be handled in an Advanced Session later)
 
+To view the Restored Copy State (Instant Access Session), do
+
+```Powershell
+
+```
+
+
+![Alt text](image-91.png)
+
 [<<Module 5 Lesson 4](./Module_5_4.md) This Concludes Module 5 Lesson 5 [Module 5 Lesson 3>>](./Module_5_3.md)
 
