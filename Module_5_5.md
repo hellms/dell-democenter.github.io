@@ -41,7 +41,7 @@ $Asset | Get-PPDMassetcopies | ft
 ## For the latest copy of an asset, use
 
 ```Powershell
-$Asset | Get-PPDMlatest_copies
+$copyObject=$Asset | Get-PPDMlatest_copies
 ```
 
 ![Alt text](image-80.png)
