@@ -25,6 +25,7 @@ $StorageSystem=Get-PPDMStorage_systems -Type DATA_DOMAIN_SYSTEM -Filter {name eq
 ```Powershell
 Remove-PPDMProtection_policy_assignment -protectionPolicyId $Policy.id -AssetID $Asset.id
 ```
+
 ![Alt text](image-83.png)
 
 ## Step 2 Creating a new Oracle Incremental merge Policy
@@ -42,6 +43,7 @@ $OIMSchedule=New-PPDMDatabaseBackupSchedule -hourly -CreateCopyIntervalHrs 1 -Re
 ```
 
 Next, we create a OIM Policy
+
 ```Powershell
 $OIMPolicy=New-PPDMOracleBackupPolicy -Schedule $OIMSchedule -Name "Oracle Backup OIM" -Description "Oracle Backup - OIM" -dbCID $OraCreds.id -StorageSystemID $StorageSystem.id -backupMechanism OIM
 ```
@@ -49,11 +51,10 @@ $OIMPolicy=New-PPDMOracleBackupPolicy -Schedule $OIMSchedule -Name "Oracle Backu
 ## Assign Assets and Configure Prottocol to be used ( NFS/BOOST )
 
 We Assign our Asset
+
 ```Powershell
 Add-PPDMProtection_policy_assignment -id $OIMPolicy.id -AssetID $Asset.id
 ```
-
-![image](https://github.com/dell-democenter/dell-democenter.github.io/assets/8255007/d4be49ac-31a2-4264-a888-dc8ebf98b604)
 
 And set the Protection Protocol to NFS on the Asset.
 This is an Asset Level Setting and can be changed by Modifiying te Asset Configuration.
@@ -63,12 +64,15 @@ This will trigger a asset reconfiguration and sets the Mount Paths to the Boost 
 $Asset | Set-PPDMOIMProtocol -ProtectionProtocol NFS
 ```
 
+![image](https://github.com/dell-democenter/dell-democenter.github.io/assets/8255007/d4be49ac-31a2-4264-a888-dc8ebf98b604)
 
 Watch the Activities
 
 ```Powershell
 Get-PPDMactivities -PredefinedFilter SYSTEM_JOBS -pageSize 2
 ```
+
+![Alt text](image-84.png)
 
 ## Starting a Backup
 
@@ -81,3 +85,14 @@ $OIMPolicy | Start-PPDMprotection_policies
 ```Powershell
 (Get-PPDMactivities -PredefinedFilter PROTECTION_JOBS -pageSize 1).steps
 ```
+
+At this time we ask powershell to show as the Steps. this is made for demonstarting the "Steps" feature from the UI
+
+![Alt text](image-85.png)
+
+Repeat Above command to Show The Progress, consider by tackling using the Job ID:
+
+![Alt text](image-87.png)
+
+[<<Module 5 Lesson 3](./Module_5_3.md) This Concludes Module 5 Lesson 4 [Module 5 Lesson 3>>](./Module_5_3.md)
+
