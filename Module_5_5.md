@@ -57,7 +57,7 @@ $Asset | Get-PPDMassetcopies | ft
 $copyObject=$Asset | Get-PPDMlatest_copies
 ```
 
-![Alt text](image-80.png)
+![Alt text](image-90.png)
 
 ## We need to read our Oracle Host
 
