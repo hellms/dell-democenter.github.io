@@ -55,7 +55,7 @@ $OraHost=Get-PPDMhosts -type APP_HOST -filter 'name eq "oracle01.demo.local"'
 ## Run the Restore
 
 ```Powershell
-$Parameter = {
+$Parameter = @{
     'copyobject'            = $CopyObject 
     'appServerID'           = $Asset.details.database.appServerId 
     'HostID'                = $OraHost.id
