@@ -66,7 +66,10 @@ $Parameter = @{
     'Verbose'               = $true
     'noop'                  = $true
 }
-Restore-PPDMOracle_copies @Parameters
+```
+
+```Powershell
+Restore-PPDMOracle_OIM_copies @Parameter
 ```
 
 ## run the restore
