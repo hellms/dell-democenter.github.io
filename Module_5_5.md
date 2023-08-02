@@ -83,17 +83,13 @@ $Parameter = @{
 ```Powershell
 Restore-PPDMOracle_OIM_copies @Parameter
 ```
+![image](https://github.com/dell-democenter/dell-democenter.github.io/assets/8255007/db2e543b-11ea-4499-a3ff-ae3070f94e6d)
 
-## run the restore
-
-```Powershell
-Restore-PPDMOracle_copies -copyobject $CopyObject -appServerID $Asset.details.database.appServerId -HostID $OraHost.id -crossCheckBackup -OraCredObject $OraCreds
-```
 
 ## Get the Status of the Activity from Restore
 
 ```Powershell
-Get-PPDMactivities -id a03216f0-a833-479f-9aec-1119efe395d0
+Get-PPDMactivities -id <your activity id>
 ```
 
 ![Alt text](image-82.png)
@@ -104,6 +100,9 @@ you may want to repeat the Command or create a loop that monitors the activities
 ```Powershell
 Get-PPDMactivities -id a03216f0-a833-479f-9aec-1119efe395d0
 ```
+
+
+
 
 ![Alt text](image-81.png)
 
