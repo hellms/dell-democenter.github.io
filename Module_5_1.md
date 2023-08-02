@@ -11,7 +11,7 @@ We alo need to create the following Credentials:
 
 This time we will pass a credentials string to the *New-PPDMcredentials*
 
-## Creating the Credtial
+## Creating the Credential
 
 ```Powershell
 $username="oracle"

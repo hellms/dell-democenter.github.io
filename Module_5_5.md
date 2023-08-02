@@ -33,7 +33,7 @@ $Asset
 ## Credentials
 
 we will need the oracle Credenitials from [Lesson 5.1](https://github.com/dell-democenter/dell-democenter.github.io/blob/main/Module_5_1.md#)
-If you fva enot done, follow te instructions to create [Create Oracle Credentials](https://github.com/dell-democenter/dell-democenter.github.io/blob/main/Module_5_1.md#creating-the-credtial)
+If you fva enot done, follow te instructions to create [Create Oracle Credentials](https://github.com/dell-democenter/dell-democenter.github.io/blob/main/Module_5_1.md#creating-the-credential)
 
 If you have created the Credentials but the are not scoped to a Variable, do
 
@@ -83,29 +83,26 @@ $Parameter = @{
 ```Powershell
 Restore-PPDMOracle_OIM_copies @Parameter
 ```
-![image](https://github.com/dell-democenter/dell-democenter.github.io/assets/8255007/db2e543b-11ea-4499-a3ff-ae3070f94e6d)
 
+![Alt text](image-89.png)
 
 ## Get the Status of the Activity from Restore
 
 ```Powershell
-Get-PPDMactivities -id <your activity id>
+Get-PPDMactivities -PredefinedFilter PROTECTION_JOBS -pageSize 5
 ```
 
-![Alt text](image-82.png)
+Once you identified you activity, do
+
+```Powershell
+(Get-PPDMactivities -ID <your activity id> ).steps
+```
+
+![Alt text](image-88.png)
 
 you may want to repeat the Command or create a loop that monitors the activities
 ( will be handled in an Advanced Session later)
 
-```Powershell
-Get-PPDMactivities -id a03216f0-a833-479f-9aec-1119efe395d0
-```
-
-
-
-
-![Alt text](image-81.png)
-
-[<<Module 5 Lesson 2](./Module_5_2.md) This Concludes Module 5 Lesson 3 [Module 5 Lesson 3>>](./Module_5_3.md)
+[<<Module 5 Lesson 4](./Module_5_4.md) This Concludes Module 5 Lesson 5 [Module 5 Lesson 3>>](./Module_5_3.md)
 
 >>>>>>> de69ba329bbea4e999dd22e58608502c9622e155
