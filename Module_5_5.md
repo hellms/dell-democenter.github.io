@@ -12,12 +12,14 @@
 - 'sqlplus "/as sysdba" and wait for the SQL> prompt
 - select status from v$instance;
 - shutdown immediate;
-- startup nomount;
+- vi /etc/oratab
+
+ comment the entry : # orcl:/opt/oracle/product/18c/dbhomeXE:Y
 
 
 ## Identify our Asset
 
->DatabaseName: oracl
+>DatabaseName: orcl
 
 ```Powershell
 $Asset=Get-PPDMassets -type ORACLE_DATABASE -filter 'name eq "orcl"'
@@ -27,6 +29,18 @@ $Asset
 ```
 
 ![Alt text](image-78.png)
+
+## Credentials
+
+we will need the oracle Credenitials from [Lesson 5.1](https://github.com/dell-democenter/dell-democenter.github.io/blob/main/Module_5_1.md#)
+If you fva enot done, follow te instructions to create [Create Oracle Credentials](https://github.com/dell-democenter/dell-democenter.github.io/blob/main/Module_5_1.md#creating-the-credtial)
+
+If you have created the Credentials but the are not scoped to a Variable, do
+
+```Powershell
+
+```
+
 
 ## Get your Asset Copies
 
@@ -63,8 +77,6 @@ $Parameter = @{
     'OraCredObject'         = $OraCreds
     'targetSid'             = "oracl"
     'targetInstallLocation' = "/opt/oracle/product/18c/dbhomeXE"
-    'Verbose'               = $true
-    'noop'                  = $true
 }
 ```
 
