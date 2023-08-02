@@ -2,8 +2,10 @@
 
 ## LESSON 5 - PERFORM INSTANT RECOVERY USING OIM BACKUP COPY
 
+## IMPORTANT ! FOLLLOW THE LAB GUIDE TO PREPARE THE  ORACLE Server:
 
-## IMPORTANT FOLLLOW THE LAB GUIDE TO PREPARE THE  ORACLE Server:
+As we are reusing the Production server, we have to Shutdown the Database and remove it from the OraTab:
+
 
 - click on the Royal TS icon located on the Desktop
 - Connect to oracle01.demo.local
@@ -13,9 +15,7 @@
 - select status from v$instance;
 - shutdown immediate;
 - vi /etc/oratab
-
- comment the entry : # orcl:/opt/oracle/product/18c/dbhomeXE:Y
-
+   comment the entry : # orcl:/opt/oracle/product/18c/dbhomeXE:Y
 
 ## Identify our Asset
 
@@ -38,9 +38,8 @@ If you fva enot done, follow te instructions to create [Create Oracle Credential
 If you have created the Credentials but the are not scoped to a Variable, do
 
 ```Powershell
-
+$OraCreds=Get-PPDMcredentials -filter 'name eq "oracle"'
 ```
-
 
 ## Get your Asset Copies
 
@@ -75,7 +74,7 @@ $Parameter = @{
     'HostID'                = $OraHost.id
     'crossCheckBackup'      = $true
     'OraCredObject'         = $OraCreds
-    'targetSid'             = "oracl"
+    'targetSid'             = "orcl"
     'targetInstallLocation' = "/opt/oracle/product/18c/dbhomeXE"
 }
 ```
@@ -105,4 +104,3 @@ you may want to repeat the Command or create a loop that monitors the activities
 
 [<<Module 5 Lesson 4](./Module_5_4.md) This Concludes Module 5 Lesson 5 [Module 5 Lesson 3>>](./Module_5_3.md)
 
->>>>>>> de69ba329bbea4e999dd22e58608502c9622e155
