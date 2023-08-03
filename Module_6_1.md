@@ -1,0 +1,27 @@
+# MODULE 6 - PROTECT KUBERNETES WORKLOAD
+
+## LESSON 1 - PROTECT KUBERNETES WORKLOADS - CRASH CONSISTENT BACKUPS
+
+This lesson will help you create a Protection Policy to configure  backups for namespace discovered
+
+As in previous section, we first create a Backup Schedule with the Helper Funktion
+
+>Recurrence : Hourly
+>Create every : 8
+>Keep for : 5
+>Start time : 8 PM 
+>End Time : 6 AM
+
+```Powershell
+$K8SSchedule=New-PPDMBackupSchedule -hourly -CreateCopyIntervalHrs 8 -RetentionUnit DAY -RetentionInterval 5
+```
+
+Next, we are going to create the ProtectionPolicy:
+
+>Name: Kubernetes-Crash Consistent
+>Description : Protect Kubernetes Workload
+>Type : Kubernetes
+
+```Powershell
+New-PPDMK8SBackupPolicy -Schedule $K8SSchedule -Name "Kubernetes-Crash Consistent" -Description "Protect Kubernetes Workload" -enabled -StorageSystemID $Storage.id
+```
