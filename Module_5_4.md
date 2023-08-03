@@ -9,9 +9,9 @@ Pre-requirement for this feature would be boostfs to be installed on the oracle 
 
 As we are moving the Asset to an Incremental Merge Policy, we first need to unassign the Asset from the previous Policy.
 
-If you still in the same Powershell Session fron Previous lesson, you already have the Policy as $Policy and the Oracle Asset as $Asset
+If you still in the same Powershell Session from Previous lesson, you already have the Policy as $Policy and the Oracle Asset as $Asset
 and the Storage System as $Storage System
-If you have not Done Lesson 3, do below to read the Objects and Continue to Step22
+If you have not Done Lesson 3, do below to read the Objects and Continue to Step 2
 
 ```Powershell
 $Asset=Get-PPDMassets -type ORACLE_DATABASE -filter 'details.database.clusterName eq "oracle01.demo.local" and name eq "orcl"'
@@ -58,7 +58,13 @@ Add-PPDMProtection_policy_assignment -id $OIMPolicy.id -AssetID $Asset.id
 
 And set the Protection Protocol to NFS on the Asset.
 This is an Asset Level Setting and can be changed by Modifiying te Asset Configuration.
-This will trigger a asset reconfiguration and sets the Mount Paths to the Boost NFS Exports in the Clients COnfiuration.
+This will trigger a asset reconfiguration and sets the Mount Paths to the Boost NFS Exports in the Clients Confiuration.
+
+Monitor the Activities and continue with the next step when all Oracle Configuration Jobs has been finished.
+
+Hint:
+
+Leverage the *Get-PPDMActivities* you learned in earlier sessions 
 
 ```Powershell
 $Asset | Set-PPDMOIMProtocol -ProtectionProtocol NFS
@@ -86,7 +92,7 @@ $OIMPolicy | Start-PPDMprotection_policies
 (Get-PPDMactivities -PredefinedFilter PROTECTION_JOBS -pageSize 1).steps
 ```
 
-At this time we ask powershell to show as the Steps. this is made for demonstarting the "Steps" feature from the UI
+At this time we ask powershell to show as the Steps. this is made for demonstrating the "Steps" feature from the UI
 
 ![Alt text](./images/image-85.png)
 
