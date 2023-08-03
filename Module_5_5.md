@@ -107,8 +107,22 @@ To view the Restored Copy State (Instant Access Session), do
 ```Powershell
 Get-PPDMexported_copies
 ```
+
 ![Alt text](image.png)
 
+You can modify the exported copy expiration using 
+
+```Powershell
+Get-PPDMexported_copies | Set-PPDMexported_copies -days 6
+```
+
+![Alt text](image-1.png)
+
+```Powershell
+Get-PPDMexported_copies | Remove-PPDMexported_copies
+Get-PPDMactivities <task from remove job>
+```
+
+![Alt text](image-2.png)
 
 [<<Module 5 Lesson 4](./Module_5_4.md) This Concludes Module 5 Lesson 5 [Module 5 Lesson 3>>](./Module_5_3.md)
-
