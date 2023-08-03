@@ -34,7 +34,7 @@ Check for any Bypassed (mfa disabled) user Account
 Get-PPDMmfa_bypass_accounts
 ```
 
-![Alt text](image-5.png)
+![Alt text](./images/image-5.png)
 
 From above we can see that user admin is already bypassed. We can Remove the MFA Bypass using:
 
@@ -42,7 +42,7 @@ From above we can see that user admin is already bypassed. We can Remove the MFA
 Get-PPDMmfa_bypass_accounts -filter 'selector eq "local" and subject eq "admin"' |  Remove-PPDMmfa_bypass_accounts
 ```
 
-![Alt text](image-2.png)
+![Alt text](./images/image-2.png)
 
 To disable MFA (Bypass) for a local user, we need to provide the accountname  
 
@@ -58,7 +58,7 @@ List the Account bypass for local user admin
 Get-PPDMmfa_bypass_accounts -filter 'selector eq "local" and subject eq "admin"'
 ```
 
-![Alt text](image-1.png)
+![Alt text](./images/image-1.png)
 
  [<<Module 1](./Module_1.md) This Concludes Module 2 [Module 3 Lesson 1 >>](./Module_3_1.md)
 

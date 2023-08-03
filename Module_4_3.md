@@ -20,7 +20,7 @@ $RestoreToHost = Get-PPDMhosts -filter $RestoreHostFilter
 $RestoreToHost
 ```
 
-![Alt text](image-60.png)
+![Alt text](./images/image-60.png)
 
 ## Read the Asset to restore to identify the Asset Copies
 
@@ -41,7 +41,7 @@ we have multiple options to select a Copy.....
 Get-PPDMlatest_copies -assetID $RestoreAssets.id
 ```
 
-![Alt text](image-61.png)
+![Alt text](./images/image-61.png)
 
 ### by Filering for a Date Range ...
 
@@ -91,7 +91,7 @@ $Restore | Get-PPDMRestored_copies
 $Restore | Get-PPDMactivities
 ```
 
-![Alt text](image-63.png)
+![Alt text](./images/image-63.png)
 
 Lets wait until activity Completed:
 

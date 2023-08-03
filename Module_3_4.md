@@ -16,7 +16,7 @@ $RestoreHostFilter = 'attributes.appHost.applicationsOfInterest.type eq "MSSQL" 
 $RestoreToHost = Get-PPDMhosts -filter $RestoreHostFilter
 $RestoreToHost
 ```
-![Alt text](image-36.png)
+![Alt text](./images/image-36.png)
 
 ## Read the Asset to restore to identify the Asset Copies
 
@@ -37,7 +37,7 @@ we have multiple options to select a Copy.....
 Get-PPDMlatest_copies -assetID $RestoreAssets.id
 ```
 
-![Alt text](image-38.png)
+![Alt text](./images/image-38.png)
 
 ### by Filering for a Date Range ...
 ```Powershell
@@ -87,8 +87,8 @@ $Restore | Get-PPDMRestored_copies
 $Restore | Get-PPDMactivities
 ```
 
-![Alt text](image-39.png)
+![Alt text](./images/image-39.png)
 
-![Alt text](image-40.png)
+![Alt text](./images/image-40.png)
 
 [<<Module 3 Lesson 3](./Module_3_3.md) This Concludes Module 3 Lesson 4 [Module 3 Lesson 5 >>](./Module_3_5.md)

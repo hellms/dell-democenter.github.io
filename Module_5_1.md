@@ -23,7 +23,7 @@ $OraCreds=New-PPDMcredentials -type OS -name $credentialname -authmethod BASIC -
 $OraCreds
 ```
 
-![Alt text](image-67.png)
+![Alt text](./images/image-67.png)
 
 ## Storage System
 
@@ -59,7 +59,7 @@ $OraSchedule=New-PPDMDatabaseBackupSchedule -hourly -CreateCopyIntervalHrs 1 -Re
 $Policy=New-PPDMOracleBackupPolicy -Schedule $OraSchedule -Name "Oracle DEV" -Description "Oracle DB Backup" -dbCID $OraCreds.id -StorageSystemID $StorageSystem.id
 ```
 
-![Alt text](image-68.png)
+![Alt text](./images/image-68.png)
 
 ## Assign an Asset
 First, find the Asset
@@ -70,7 +70,7 @@ First, find the Asset
 $Asset=Get-PPDMassets -type ORACLE_DATABASE -filter 'details.database.clusterName eq "oracle01.demo.local" and name eq "orcl"'
 $Asset
 ```
-![Alt text](image-73.png)
+![Alt text](./images/image-73.png)
 
 ## Assign the Asset to the Poliocy
 
@@ -79,7 +79,7 @@ Add-PPDMProtection_policy_assignment -id $Policy.id -AssetID $Asset.id
 $Policy | Get-PPDMprotection_policies
 ```
 
-![Alt text](image-74.png)
+![Alt text](./images/image-74.png)
 
 ## Watch the Activities
 
@@ -87,7 +87,7 @@ $Policy | Get-PPDMprotection_policies
 Get-PPDMactivities -PredefinedFilter SYSTEM_JOBS -pageSize 2
 ```
 
-![Alt text](image-75.png)
+![Alt text](./images/image-75.png)
 
 repeat until the Assets Configuration reaches state=COMPLETED
 
@@ -100,6 +100,6 @@ Start-PPDMprotection -AssetIDs $Asset.id -StageID $Policy.stages[0].id -PolicyID
 Get-PPDMactivities -PredefinedFilter PROTECTION_JOBS -pageSize 2
 ```
 
-![Alt text](image-76.png)
+![Alt text](./images/image-76.png)
 
 [<<Module 4 Lesson 4](./Module_4_4.md) This Concludes Module 5 Lesson 1 [Module 5 Lesson 2>>](./Module_5_2.md)

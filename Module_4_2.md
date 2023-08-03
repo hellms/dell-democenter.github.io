@@ -8,7 +8,7 @@ Look at the Databases we discovered in lesson 1. As Asset Protection Properties,
 Get-PPDMassets -type MICROSOFT_SQL_DATABASE -filter 'details.database.clusterName eq "sql-02.demo.local"' | ft
 ```
 
-![Alt text](image-49.png)
+![Alt text](./images/image-49.png)
 
 As we can see, Stream Counts are set to 4 for Full and Differential, and to 1 for logs.  
 We change this with
@@ -22,7 +22,7 @@ And then have a Look at the Result:
 (Get-PPDMassets -type MICROSOFT_SQL_DATABASE -filter 'details.database.clusterName eq "sql-02.demo.local" and name lk "SQLPROD%"').backupDetails
 ```
 
-![Alt text](image-50.png)
+![Alt text](./images/image-50.png)
 
 Time to create a Backup Policy. At this time, we define 2 Stage 0 Backups. One it the Full schdeule, and one the Differentail both share the same retention in Stage 0, but different Intervals.
 From the LAB Gude, we will use the following Settings:
@@ -59,7 +59,7 @@ And Create a new Protection Policy from the 3 Variables
 New-PPDMSQLBackupPolicy -Schedule $Schedule -Name "SQL PROD DATABASE" -Description "SQL DB Backups" -skipUnprotectableState -dbCID $credentials.id -StorageSystemID $StorageSystem.id
 ```
 
-![Alt text](image-55.png)
+![Alt text](./images/image-55.png)
 
 For output reasons we did not assign the result of the command  to a Variable. But we an leverage the filter api do do so. We Always use Filters to query for Human Readable Entities, otherwise we would select by id:
 
@@ -87,7 +87,7 @@ Add-PPDMProtection_policy_assignment -id $Policy.id -AssetID $Assets.id
 $Policy | Get-PPDMprotection_policies
 ```
 
-![Alt text](image-56.png)
+![Alt text](./images/image-56.png)
 
 This will Trigger some Configuration Activities.
 
@@ -97,7 +97,7 @@ Review them with
 Get-PPDMactivities -PredefinedFilter SYSTEM_JOBS -pageSize 3
 ```
 
-![Alt text](image-57.png)
+![Alt text](./images/image-57.png)
 
 And now we are good to start the Policy AdHoc:
 
@@ -111,7 +111,7 @@ Now, we can Monitory the Protection Job
 Get-PPDMactivities -PredefinedFilter PROTECTION_JOBS -pageSize 1
 ```
 
-![Alt text](image-58.png)
+![Alt text](./images/image-58.png)
 
 And the Asset Activities
 
@@ -119,6 +119,6 @@ And the Asset Activities
 Get-PPDMactivities -PredefinedFilter ASSET_JOBS -pageSize 4
 ```
 
-![Alt text](image-59.png)
+![Alt text](./images/image-59.png)
 
 [<<Module 4 Lesson 1](./Module_4_1.md) This Concludes Module 4 Lesson 2 [Module 4 Lesson 3>>](./Module_4_3.md)

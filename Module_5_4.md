@@ -26,7 +26,7 @@ $StorageSystem=Get-PPDMStorage_systems -Type DATA_DOMAIN_SYSTEM -Filter {name eq
 Remove-PPDMProtection_policy_assignment -protectionPolicyId $Policy.id -AssetID $Asset.id
 ```
 
-![Alt text](image-83.png)
+![Alt text](./images/image-83.png)
 
 ## Step 2 Creating a new Oracle Incremental merge Policy
 
@@ -72,7 +72,7 @@ Watch the Activities
 Get-PPDMactivities -PredefinedFilter SYSTEM_JOBS -pageSize 2
 ```
 
-![Alt text](image-84.png)
+![Alt text](./images/image-84.png)
 
 ## Starting a Backup
 
@@ -88,11 +88,11 @@ $OIMPolicy | Start-PPDMprotection_policies
 
 At this time we ask powershell to show as the Steps. this is made for demonstarting the "Steps" feature from the UI
 
-![Alt text](image-85.png)
+![Alt text](./images/image-85.png)
 
 Repeat Above command to Show The Progress, consider by tackling using the Job ID:
 
-![Alt text](image-87.png)
+![Alt text](./images/image-87.png)
 
 [<<Module 5 Lesson 3](./Module_5_3.md) This Concludes Module 5 Lesson 4 [Module 5 Lesson 5>>](./Module_5_5.md)
 

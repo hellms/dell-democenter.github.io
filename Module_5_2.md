@@ -15,7 +15,7 @@ $Asset
 # $Asset=Get-PPDMassets -type ORACLE_DATABASE -filter 'details.database.clusterName eq "oracle01.demo.local" and name eq "orcl"'
 ```
 
-![Alt text](image-78.png)
+![Alt text](./images/image-78.png)
 
 ## Get your Asset Copies
 
@@ -25,7 +25,7 @@ To get all Copies of an asset, or use custom filters, use *Get-PPDMassetcopies*
 $Asset | Get-PPDMassetcopies | ft
 ```
 
-![Alt text](image-79.png)
+![Alt text](./images/image-79.png)
 
 For the latest copy of an asset, use
 
@@ -33,6 +33,6 @@ For the latest copy of an asset, use
 $Asset | Get-PPDMlatest_copies
 ```
 
-![Alt text](image-80.png)
+![Alt text](./images/image-80.png)
 
 [<<Module 5 Lesson 1](./Module_5_1.md) This Concludes Module 5 Lesson 2 [Module 5 Lesson 3>>](./Module_5_3.md)

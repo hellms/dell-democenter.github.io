@@ -26,7 +26,7 @@ $Asset
 # $Asset=Get-PPDMassets -type ORACLE_DATABASE -filter 'details.database.clusterName eq "oracle01.demo.local" and name eq "orcl"'
 ```
 
-![Alt text](image-78.png)
+![Alt text](./images/image-78.png)
 
 ## Get your Asset Copies
 
@@ -36,7 +36,7 @@ To get all Copies of an asset, or use custom filters, use *Get-PPDMassetcopies*
 $Asset | Get-PPDMassetcopies | ft
 ```
 
-![Alt text](image-79.png)
+![Alt text](./images/image-79.png)
 
 ## For the latest copy of an asset, use
 
@@ -69,7 +69,7 @@ Restore-PPDMOracle_copies -copyobject $CopyObject -appServerID $Asset.details.da
 Get-PPDMactivities -id a03216f0-a833-479f-9aec-1119efe395d0
 ```
 
-![Alt text](image-82.png)
+![Alt text](./images/image-82.png)
 
 you may want to repeat the Command or create a loop that monitors the activities
 ( will be handled in an Advanced Session later)
@@ -78,6 +78,6 @@ you may want to repeat the Command or create a loop that monitors the activities
 Get-PPDMactivities -id a03216f0-a833-479f-9aec-1119efe395d0
 ```
 
-![Alt text](image-81.png)
+![Alt text](./images/image-81.png)
 
 [<<Module 5 Lesson 2](./Module_5_2.md) This Concludes Module 5 Lesson 3 [Module 5 Lesson 4>>](./Module_5_4.md)

@@ -2,7 +2,7 @@
 
 This Guide runs the Dell DPS *HOL-0419-02-POWERPROTECT DATA MANAGER* by using Powershell
 
-![Alt text](image-77.png)
+![Alt text](./images/image-77.png)
 
 ## Getting Started
 

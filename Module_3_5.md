@@ -24,7 +24,7 @@ $Datacenter=$InventorySource| Get-PPDMvcenterDatacenters
 $Datacenter
 ```
 
-![Alt text](image-41.png)
+![Alt text](./images/image-41.png)
 
 Get Information on the ESX Host we want to restore
 
@@ -39,7 +39,7 @@ $HostMorefs=Get-PPDMvcenterMorefs -ID $InventorySource.ID -hostMoref $ESXHOST.de
 $HostMorefs
 ```
 
-![Alt text](image-42.png)
+![Alt text](./images/image-42.png)
 
 Read the Original Asset
 
@@ -65,7 +65,7 @@ Restore-PPDMVMAsset -INSTANT_ACCESS -CopyObject $LatestCopy `
 Get-PPDMRestoredCopies
 ```
 
-![Alt text](image-43.png)
+![Alt text](./images/image-43.png)
 
 Now See the Status of the Instant Access Sewssion
 
@@ -73,6 +73,6 @@ Now See the Status of the Instant Access Sewssion
 Get-PPDMRestoredCopies -pagesize 1
 ```
 
-![Alt text](image-44.png)
+![Alt text](./images/image-44.png)
 
 [<<Module 3 Lesson 4](./Module_3_4.md) This Concludes Module 3 [Module 4 Lesson 1>>](./Module_4_1.md)

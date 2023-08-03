@@ -13,7 +13,7 @@ The DataTarget is stored in *$Policy.stages[0].target.dataTargetId*
 ```Powershell
 $Policy.stages[0].target.dataTargetId
 ```
-![Alt text](image-29.png)
+![Alt text](./images/image-29.png)
 We also need to create the following Credetials:
 
 >Credential Name: windows
@@ -54,7 +54,7 @@ Finally, we create a Policy
 New-PPDMSQLBackupPolicy -Schedule $DBSchedule -Name "SQL Virtual Machines" -Description "SQL Virtual Machines"  -AppAware -dbCID $Credentials.id -StorageSystemID $StorageSystem.id -DataMover SDM -SizeSegmentation VSS
 ```
 
-![Alt text](image-30.png)
+![Alt text](./images/image-30.png)
 
 Now we need to Assign the Database VM Asset(s) to the Protection Policy. Therefore, we filter an asset query to the VM LINUX-01:
 
@@ -74,19 +74,19 @@ View the Running Jobs
 Get-PPDMactivities -PredefinedFilter ASSET_JOBS -pagesize 2
 ```
 
-![Alt text](image-31.png)
+![Alt text](./images/image-31.png)
 
 ```Powershell
 Get-PPDMactivities -PredefinedFilter SYSTEM_JOBS -pageSize 2
 ```
 
-![Alt text](image-32.png)
+![Alt text](./images/image-32.png)
 
 ```Powershell
 Get-PPDMactivities -PredefinedFilter PROTECTION_JOBS -pageSize 2
 ```
 
-![Alt text](image-33.png)
+![Alt text](./images/image-33.png)
 
 Finally, we start the Protection Policy:
 
@@ -100,8 +100,8 @@ View the Latest Asset Jobs
 Get-PPDMactivities -PredefinedFilter ASSET_JOBS -pageSize 1
 ```
 
-![Alt text](image-34.png)
+![Alt text](./images/image-34.png)
 
-![Alt text](image-35.png)
+![Alt text](./images/image-35.png)
 
  [<<Module 3 Lesson 2](./Module_3_2.md) This Concludes Module 3 Lesson 3 [Module 3 Lesson 4 >>](./Module_3_4.md)

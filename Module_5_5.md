@@ -28,7 +28,7 @@ $Asset
 # $Asset=Get-PPDMassets -type ORACLE_DATABASE -filter 'details.database.clusterName eq "oracle01.demo.local" and name eq "orcl"'
 ```
 
-![Alt text](image-78.png)
+![Alt text](./images/image-78.png)
 
 ## Credentials
 
@@ -49,7 +49,7 @@ To get all Copies of an asset, or use custom filters, use *Get-PPDMassetcopies*
 $Asset | Get-PPDMassetcopies | ft
 ```
 
-![Alt text](image-79.png)
+![Alt text](./images/image-79.png)
 
 ## For the latest copy of an asset, use
 
@@ -57,7 +57,7 @@ $Asset | Get-PPDMassetcopies | ft
 $copyObject=$Asset | Get-PPDMlatest_copies
 ```
 
-![Alt text](image-90.png)
+![Alt text](./images/image-90.png)
 
 ## We need to read our Oracle Host
 
@@ -83,7 +83,7 @@ $Parameter = @{
 Restore-PPDMOracle_OIM_copies @Parameter
 ```
 
-![Alt text](image-89.png)
+![Alt text](./images/image-89.png)
 
 ## Get the Status of the Activity from Restore
 
@@ -97,7 +97,7 @@ Once you identified you activity, do
 (Get-PPDMactivities -ID <your activity id> ).steps
 ```
 
-![Alt text](image-88.png)
+![Alt text](./images/image-88.png)
 
 you may want to repeat the Command or create a loop that monitors the activities
 ( will be handled in an Advanced Session later)
@@ -109,7 +109,7 @@ To view the Restored Copy State (Instant Access Session), do
 ```
 
 
-![Alt text](image-91.png)
+![Alt text](./images/image-91.png)
 
 [<<Module 5 Lesson 4](./Module_5_4.md) This Concludes Module 5 Lesson 5 [Module 5 Lesson 3>>](./Module_5_3.md)
 

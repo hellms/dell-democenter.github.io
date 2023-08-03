@@ -26,7 +26,7 @@ Once we identified and created the Ressources alligned to the Policy, we create 
 New-PPDMVMBackupPolicy -Schedule $Schedule -Name "Linux VM" -Description "Protect Linux VM" -backupMode FSS -StorageSystemID $StorageSystem.id -SLAId $SLA.id
 ```
 
-![Alt text](image-23.png)
+![Alt text](./images/image-23.png)
 
 Now we need to Assign the Asset(s) to the Protection Policy. Therefore, we filter an asset query to the VM LINUX-01:
 
@@ -40,7 +40,7 @@ Copying the Policy Id from the Previously create Policy, we can run
 Add-PPDMProtection_policy_assignment -AssetID $Asset.id -ID 1c522005-ea7b-4309-8527-b02542bbd281
 ```
 
-![Alt text](image-19.png)
+![Alt text](./images/image-19.png)
 
 View the Running Jobs
 
@@ -48,19 +48,19 @@ View the Running Jobs
 Get-PPDMactivities -PredefinedFilter ASSET_JOBS -pagesize 2
 ```
 
-![Alt text](image-24.png)
+![Alt text](./images/image-24.png)
 
 ```Powershell
 Get-PPDMactivities -PredefinedFilter SYSTEM_JOBS -pageSize 2
 ```
 
-![Alt text](image-25.png)
+![Alt text](./images/image-25.png)
 
 ```Powershell
 Get-PPDMactivities -PredefinedFilter PROTECTION_JOBS -pageSize 2
 ```
 
-![Alt text](image-26.png)
+![Alt text](./images/image-26.png)
 
 There are Several ways to start a Protection Policy. For an AdHoc Protection, we would select  and individual Asset and start the Protection with the given Stage0 defaults of the Policy.
 
@@ -82,7 +82,7 @@ Finally, we start the Asset Protection for the Asset ID
 Start-PPDMprotection -PolicyObject $Policy -AssetIDs $Asset.id
 ```
 
-![Alt text](image-27.png)
+![Alt text](./images/image-27.png)
 
 View the Latest Asset Jobs
 
@@ -90,6 +90,6 @@ View the Latest Asset Jobs
 Get-PPDMactivities -PredefinedFilter ASSET_JOBS -pageSize 1
 ```
 
-![Alt text](image-28.png)
+![Alt text](./images/image-28.png)
 
  [<<Module 3 Lesson 1](./Module_3_1.md) This Concludes Module 3 Lesson 2 [Module 3 Lesson 3 >>](./Module_3_3.md)

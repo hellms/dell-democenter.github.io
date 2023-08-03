@@ -13,7 +13,7 @@ Get-PPDMinventory_sources -Type VCENTER -filter 'address eq "vcsa-7.demo.local"'
 
 You should see the vCenter configuration now:
 
-![Alt text](image-6.png)
+![Alt text](./images/image-6.png)
 
 ### The Normal Process of onboarding a vCenter from Powershell would be
 
@@ -29,14 +29,14 @@ $CREDS
 ```
 
 with the Credentials <administrator@vsphere.local> / Password123!
-![New Cred](image-9.png)
+![New Cred](./images/image-9.png)
 To approve tghe Certificate ( also good for refreshing Certs) use the following Powershell Code
 
 ```Powershell
 Get-PPDMcertificates -newhost vcsa-7.demo.local -port 443 | Approve-PPDMcertificates
 ```
 
-![Approve Certificates](image-7.png)
+![Approve Certificates](./images/image-7.png)
 
 Now we  would be ready to add the new vCenter
 
@@ -46,7 +46,7 @@ Add-PPDMinventory_sources -Hostname vcsa-7.demo.local -port 443 -Type VCENTER -i
 
 This command is expected to fail as the Inventory already exists
 
-![Alt text](image-10.png)
+![Alt text](./images/image-10.png)
 
 ### INCREMENTAL DISCOVERY
 
@@ -56,7 +56,7 @@ Start an icremental discovery using the function *Start-PPDMdiscoveries*
 Get-PPDMinventory_sources -Type VCENTER -filter 'address eq "vcsa-7.demo.local"' | Start-PPDMdiscoveries -level DataCopies -start inventory-sources
 ```
 
-![vCenter Discoveries](image-11.png)
+![vCenter Discoveries](./images/image-11.png)
 
 With the Knowledge from Module 1, we can now review the discovery activity:
 
@@ -65,7 +65,7 @@ With the Knowledge from Module 1, we can now review the discovery activity:
 Get-PPDMactivities -id 1ff60683-41e4-4389-8db7-38a549bc8ba4 
 ```
 
-![Get-PPDMactivities](image-12.png)
+![Get-PPDMactivities](./images/image-12.png)
 
 ### SET THRESHOLD LIMITS
 
@@ -75,7 +75,7 @@ Get the VM Backup Threshold Settings
 Get-PPDMvm_backup_setting
 ```
 
-![Alt text](image-14.png)
+![Alt text](./images/image-14.png)
 
 Review the Properties before we chage:
 
@@ -84,7 +84,7 @@ $VMsettings=Get-PPDMvm_backup_setting
 $VMsettings.properties
 ```
 
-![Alt text](image-13.png)
+![Alt text](./images/image-13.png)
 Adjust the Values and review
 
 ```Powershell
@@ -93,13 +93,13 @@ $VMsettings.properties[1].value=5
 $VMsettings.properties
 ```
 
-![Alt text](image-15.png)
+![Alt text](./images/image-15.png)
 Apply the Settings
 
 ```Powershell
 Set-PPDMvm_backup_setting -vm_backup_setting $VMsettings
 ```
 
-![Alt text](image-16.png)
+![Alt text](./images/image-16.png)
 
  [<<Module 2](./Module_2.md) This Concludes Module 3 Lesson 1 [Module 3 Lesson 2 >>](./Module_3_2.md)
