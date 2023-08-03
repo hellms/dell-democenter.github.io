@@ -25,3 +25,8 @@ Next, we are going to create the ProtectionPolicy:
 ```Powershell
 New-PPDMK8SBackupPolicy -Schedule $K8SSchedule -Name "Kubernetes-Crash Consistent" -Description "Protect Kubernetes Workload" -enabled -StorageSystemID $Storage.id
 ```
+
+![Alt text](image-3.png)
+
+once the Policy is created, we need to assign a Kubernetes Asset, the Namespace
+ 
