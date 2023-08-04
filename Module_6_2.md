@@ -13,6 +13,12 @@ now we create our Restore Job
 > namespace: test-namespace
 > restore-type: to_alternate
 
+we read the latest copy using:
+
+```Powershell
+$copyObject=$Asset | Get-PPDMlatest_copies
+```
+
 ```Powershell
 Restore-PPDMK8Scopies -CopyObject $Conpy -targetInventorySourceId $StorageSystem.id -TO_ALTERNATE -namespace test-namespace
 ```
