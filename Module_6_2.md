@@ -45,3 +45,6 @@ Get-PPDMactivities -filter 'category eq "RESTORE"' -pageSize 2
 ```
 
 ![Alt text](image-9.png)
+
+
+[<<Module 6 Lesson 1](./Module_6_1.md) This Concludes Module 6 Lesson 2 [Module 6 Lesson 1>>](./Module_6_1.md)
