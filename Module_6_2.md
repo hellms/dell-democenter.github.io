@@ -19,6 +19,12 @@ we read the latest copy using:
 $copyObject=$Asset | Get-PPDMlatest_copies
 ```
 
+An we need the Inventory Source ID of the Kubernetes Cluster we restore to:
+
 ```Powershell
-Restore-PPDMK8Scopies -CopyObject $copyObject -targetInventorySourceId $StorageSystem.id -TO_ALTERNATE -namespace test-namespace
+$K8S_Inventory=Get-PPDMinventory_sources -Type KUBERNETES -filter 'name eq "Cluster-01"'
+```
+
+```Powershell
+Restore-PPDMK8Scopies -CopyObject $copyObject -targetInventorySourceId $K8S_Inventory.ID -TO_ALTERNATE -namespace test-namespace
 ```
