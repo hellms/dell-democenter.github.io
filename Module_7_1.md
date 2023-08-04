@@ -4,7 +4,7 @@
 
 Revie the Exchange Infrastructure Sourec(es)
 
-
 ```Powershell
-Get-PPDMhosts -type APP_HOST -filter 'details.appHost.subTypes eq "MICROSOFT_ECHANGE_DATABASE_SYSTEM"'
+$ExchangeHost=Get-PPDMhosts -type APP_HOST -filter 'details.appHost.subTypes eq "MICROSOFT_EXCHANGE_DATABASE_SYSTEM" and name -eq "exchange.demo.local"'
 ```
+
