@@ -20,5 +20,5 @@ $copyObject=$Asset | Get-PPDMlatest_copies
 ```
 
 ```Powershell
-Restore-PPDMK8Scopies -CopyObject $Conpy -targetInventorySourceId $StorageSystem.id -TO_ALTERNATE -namespace test-namespace
+Restore-PPDMK8Scopies -CopyObject $copyObject -targetInventorySourceId $StorageSystem.id -TO_ALTERNATE -namespace test-namespace
 ```
