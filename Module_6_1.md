@@ -31,10 +31,25 @@ New-PPDMK8SBackupPolicy -Schedule $K8SSchedule -Name "Kubernetes-Crash Consisten
 once the Policy is created, we need to assign a Kubernetes Asset, the Namespace
 
 ```Powershell
-$K8SPolicy=
+$Policy=Get-PPDMprotection_policies -filter 'name eq "Kubernetes-Crash Consistent"'
+$Asset=Get-PPDMassets -type KUBERNETES -filter 'name eq "demo-ns"'
 ``` 
 
 
-
+```Powershell
+Add-PPDMProtection_policy_assignment -AssetID $Asset.id -PLC $Policy.id
+```
 
 ![Alt text](image-4.png)
+
+```Powershell
+Get-PPDMactivities -PredefinedFilter SYSTEM_JOBS -pageSize 2
+
+```
+
+
+```Powershell
+Start-PPDMprotection -PolicyObject $Policy -AssetIDs $Asset.id
+```
+
+
