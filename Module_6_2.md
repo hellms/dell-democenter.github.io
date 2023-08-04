@@ -41,7 +41,7 @@ Restore-PPDMK8Scopies -CopyObject $copyObject -targetInventorySourceId $K8S_Inve
 Monitor the Activity
 
 ```Powershell
-Get-PPDMactivities -filter 'type eq "RESTORE"' -pageSize 2
+Get-PPDMactivities -filter 'category eq "RESTORE"' -pageSize 2
 ```
 
 ![Alt text](image-9.png)
