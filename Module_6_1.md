@@ -4,6 +4,13 @@
 
 This lesson will help you create a Protection Policy to configure  backups for namespace discovered
 
+If not already done from Previous Module, read the Storage System
+
+```Powershell
+$StorageSystem=Get-PPDMStorage_systems -Type DATA_DOMAIN_SYSTEM -Filter {name eq "ddve-01.demo.local"}
+```
+
+
 As in previous section, we first create a Backup Schedule with the Helper Funktion
 
 >Recurrence : Hourly
@@ -21,6 +28,7 @@ Next, we are going to create the ProtectionPolicy:
 >Name: Kubernetes-Crash Consistent
 >Description : Protect Kubernetes Workload
 >Type : Kubernetes
+
 
 ```Powershell
 New-PPDMK8SBackupPolicy -Schedule $K8SSchedule -Name "Kubernetes-Crash Consistent" -Description "Protect Kubernetes Workload" -enabled -StorageSystemID $Storage.id
