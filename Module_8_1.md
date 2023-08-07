@@ -43,3 +43,16 @@ $FSSchedule=New-PPDMBackupSchedule -hourly -CreateCopyIntervalHrs 8 -RetentionUn
 ```Powershell
 $FSPolicy=New-PPDMFSBackupPolicy -Schedule $FSSchedule -Name "Windows Cluster Filesystem" -Description "Windows Cluster File System Backup" -StorageSystemID $StorageSystem.id -enabled -indexingEnabled -ignoreMissingSystemStateFiles
 ```
+
+
+Next we assign the Assets:
+
+```Powershell
+Add-PPDMProtection_policy_assignment -ID $FSPolicy.id -AssetID $fsAssets.id
+```
+
+And Monitor the Activities:
+
+```Powershell
+Get-PPDMactivities -PredefinedFilter SYSTEM_JOBS -filter 'name lk "%Windows Cluster%"' -pageSize 3 | ft
+```
