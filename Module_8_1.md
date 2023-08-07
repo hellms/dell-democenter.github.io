@@ -14,6 +14,8 @@ $fsAssets=Get-PPDMassets -filter 'details.fileSystem.appServerName eq "win-clus0
 $fsAssets | ft
 ```
 
+![Alt text](image-17.png)
+
 ## Create a new Protection Policy
 
 If not already done from Previous Module, read the Storage System
