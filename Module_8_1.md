@@ -9,8 +9,9 @@ In this lesson, we will create a protection policy to backup  Windows Clustered 
 View the Hosts:
 
 ```Powershell
-Get-PPDMhosts -type APP_HOST -filter 'name "lk win1%.demo.local"'
-Get-PPDMassets -type FILE_SYSTEM -filter
+Get-PPDMhosts -type APP_HOST -filter 'name lk "win-1%.demo.local"'
+$fsAssets=Get-PPDMassets -filter 'details.fileSystem.appServerName eq "win-clus01"'
+$fsAssets | ft
 ```
 
 ## Create a new Protection Policy
