@@ -58,3 +58,16 @@ Get-PPDMactivities -PredefinedFilter SYSTEM_JOBS -filter 'name lk "%Exchange Bac
 ```
 
 ![Alt text](image-15.png)
+
+And Finally start the Backup with:
+
+```Powershell
+$ExPolicy | Start-PPDMprotection_policies -BackupType FULL -RetentionUnit DAY -RetentionInterval 5
+```
+
+Monitor the Backups with:
+
+```Powershell
+Get-PPDMactivities -PredefinedFilter PROTECTION_JOBS -filter 'name lk "%Exchange Backups%"' -pageSize 3
+```
+
