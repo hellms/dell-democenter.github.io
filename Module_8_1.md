@@ -72,5 +72,6 @@ Monitor the Backups with:
 Get-PPDMactivities -PredefinedFilter PROTECTION_JOBS -filter 'name lk "%Windows Cluster%"' -pageSize 3
 ```
 
-![Alt text](image-16.png)
+![Alt text](image-20.png)
+
 [<<Module 7 Lesson 2](./Module_7_1.md) This Concludes Module 8 Lesson 1 [Module 8 Lesson 2>>](./Module_8_2.md)
