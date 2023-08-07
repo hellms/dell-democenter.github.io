@@ -35,9 +35,16 @@ $ExPolicy=New-PPDMExchangeBackupPolicy -Schedule $ExSchedule -Name "Exchange Bac
 $ExPolicy
 ```
 
+![Alt text](image-13.png)
+
 Next, we neet to read the Assets, "Test_DB_001" to "Test_DB_002". The example COde represents a Range
+
 ```Powershell
 $EXAssets=Get-PPDMassets -type MICROSOFT_EXCHANGE_DATABASE  -filter 'details.database.clusterName eq "exchange.demo.local" and (name ge "Test_DB_001" and name le "Test_DB_002")'
 ```
 
+And assign the Assets to the Policy:
 
+```Powershell
+Add-PPDMProtection_policy_assignment -AssetID $EXAsset.id -PLC $ExPolicy.id
+```
