@@ -1,1 +1,8 @@
 {"name":"fsdemo","description":"","assetType":"FILE_SYSTEM","type":"ACTIVE","encrypted":false,"enabled":true,"priority":1,"dataConsistency":"CRASH_CONSISTENT","passive":false,"forceFull":false,"details":null,"stages":[{"id":"908f3736-c65a-fd41-9650-e12908a122b5","type":"PROTECTION","passive":false,"attributes":{"fileSystem":{"troubleShootingOption":"debugEnabled=true"}},"target":{"storageSystemId":"6d1aaae3-cec5-4d1a-b71c-3cb93ec45c61","dataTargetId":null,"preferredInterfaceId":"ethV0"},"slaId":null,"sourceStageId":null,"operations":[{"id":"daffbbd5-bf01-1114-dbe6-be2f614607bd","backupType":"SYNTHETIC_FULL","schedule":{"frequency":"HOURLY","startTime":"2023-08-07T20:00:00.000Z","duration":"PT10H","interval":8}}],"retention":{"id":"a4240672-9a50-3a9d-83f1-36635d6216fb","unit":"DAY","storageSystemRetentionLock":false,"interval":8},"extendedRetentions":[{"selector":{"operationId":"daffbbd5-bf01-1114-dbe6-be2f614607bd","backupType":"SYNTHETIC_FULL"},"retention":{"id":"adbbed07-e357-0ecc-8887-ba66e6fd6aed","storageSystemRetentionLock":false,"unit":"DAY","interval":8}}],"options":{"indexingEnabled":true,"systemStateRecoveryOnly":true,"ignoreMissingSystemStateFiles":true,"excludeNonCriticalDynamicDisks":true,"ignoreThirdPartyServices":true}}],"filterIds":[],"credentials":null,"slaId":""}
+
+/file-instances
+
+pageSize: 25
+page: 1
+orderby: name ASC
+filter: objectType eq "FS" and name lk "file*" and type lk "%*.txt%" and updatedAt ge "2023-07-07T13:38:20Z" and itemType eq "file" and createdAt ge "2023-08-06T13:38:13Z" and size ge 1000000 and size le 200000000 and copyEndDate eq null and sourceServer lk "%win*%" and assetId eq "434ba5f0-3c5d-5bba-aba3-1d26684fcabe"
