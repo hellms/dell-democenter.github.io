@@ -46,5 +46,5 @@ $EXAssets=Get-PPDMassets -type MICROSOFT_EXCHANGE_DATABASE  -filter 'details.dat
 And assign the Assets to the Policy:
 
 ```Powershell
-Add-PPDMProtection_policy_assignment -AssetID $EXAsset.id -PLC $ExPolicy.id
+Add-PPDMProtection_policy_assignment -AssetID $EXAssets.id -PLC $ExPolicy.id
 ```
