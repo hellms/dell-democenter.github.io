@@ -8,3 +8,8 @@ Revie the Exchange Infrastructure Sourec(es)
 $ExchangeHost=Get-PPDMhosts -type APP_HOST -filter 'details.appHost.subTypes eq "MICROSOFT_EXCHANGE_DATABASE_SYSTEM" and name -eq "exchange.demo.local"'
 ```
 
+![Alt text](image-10.png)
+
+
+
+![Alt text](image-11.png)
