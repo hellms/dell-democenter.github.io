@@ -71,3 +71,4 @@ Monitor the Backups with:
 Get-PPDMactivities -PredefinedFilter PROTECTION_JOBS -filter 'name lk "%Exchange Backups%"' -pageSize 3
 ```
 
+![Alt text](image-16.png)
