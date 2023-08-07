@@ -33,3 +33,5 @@ Get-PPDMassets -type MICROSOFT_EXCHANGE_DATABASE  -filter 'details.database.clus
 ```
 
 ![Alt text](image-12.png)
+
+[<<Module 6 Lesson 2](./Module_6_2.md) This Concludes Module 7 Lesson 1 [Module 7 Lesson 2>>](./Module_7_2.md)

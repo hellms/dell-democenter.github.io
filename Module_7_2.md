@@ -72,3 +72,4 @@ Get-PPDMactivities -PredefinedFilter PROTECTION_JOBS -filter 'name lk "%Exchange
 ```
 
 ![Alt text](image-16.png)
+[<<Module 7 Lesson 1](./Module_7_1.md) This Concludes Module 7 Lesson 2 [Module 8 Lesson 1>>](./Module_8_1.md)
