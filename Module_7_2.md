@@ -31,10 +31,13 @@ Next, we crdeate a Policy with the following Parameters
 >Type: Microsoft Exchange Database
 
 ```Powershell
-$ExPolicy=New-PPDMExchangeBackupPolicy -Schedule $ExSchedule -Name "Exchange Backups" -StorageSystemID -StorageSystemID $StorageSystem.id -Description "Exchange Database Backups" -enabled
+$ExPolicy=New-PPDMExchangeBackupPolicy -Schedule $ExSchedule -Name "Exchange Backups" -StorageSystemID $StorageSystem.id -Description "Exchange Database Backups" -enabled
 $ExPolicy
 ```
 
-
+Next, we neet to read the Assets, "Test_DB_001" to "Test_DB_002". The example COde represents a Range
+```Powershell
+$EXAssets=Get-PPDMassets -type MICROSOFT_EXCHANGE_DATABASE  -filter 'details.database.clusterName eq "exchange.demo.local" and (name ge "Test_DB_001" and name le "Test_DB_002")'
+```
 
 
