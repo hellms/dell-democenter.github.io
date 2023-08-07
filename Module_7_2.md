@@ -48,3 +48,9 @@ And assign the Assets to the Policy:
 ```Powershell
 Add-PPDMProtection_policy_assignment -AssetID $EXAssets.id -PLC $ExPolicy.id
 ```
+
+## Monitor the Configuration Jobs:
+
+```Powershell
+Get-PPDMactivities -PredefinedFilter SYSTEM_JOBS -filter 'name lk "%Exchange Backups%"' -pageSize 3 | ft
+```
