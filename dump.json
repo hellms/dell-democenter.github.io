@@ -2,10 +2,10 @@
 
 /file-instances
 
-
 (( copyEndDate gt "2023-08-07T00:00:00Z" and copyEndDate le "2023-08-07T23:59:59Z" ) or ( copyStartDate le "2023-08-07T23:59:59Z" and ( copyEndDate eq null or copyEndDate gt "2023-08-07T23:59:59Z" )))
-
-
+(( copyEndDate gt "2023-08-07T00:00:00Z" and copyEndDate le "2023-08-07T23:59:59Z" ) or ( copyStartDate le "2023-08-07T23:59:59Z" and ( copyEndDate eq null or copyEndDate gt "2023-08-07T23:59:59Z" )))
+(( copyEndDate gt "2023-08-07T00:00:00Z" and copyEndDate le "2023-08-07T23:59:59Z" ) or ( copyStartDate le "2023-08-07T23:59:59Z" and ( copyEndDate eq null or copyEndDate gt "2023-08-07T23:59:59Z" )))
+( copyEndDate gt "2023-08-01T00:00:00Z" and copyEndDate le "2023-08-07T23:59:59Z" ) or ( copyStartDate le "2023-08-07T23:59:59Z" and ( copyEndDate eq null or copyEndDate gt "2023-08-07T23:59:59Z" )))
 
 
 pageSize: 25
