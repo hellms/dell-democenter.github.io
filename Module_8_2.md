@@ -20,8 +20,7 @@ $BMRAssets=Get-PPDMassets -filter 'details.fileSystem.hostName eq "win-01.demo.l
 $BMRAssets | ft
 ```
 
-![Alt text](image-17.png)
-
+![Alt text](image-21.png)
 ## Create a new Protection Policy
 
 If not already done from Previous Module, read the Storage System
@@ -48,9 +47,8 @@ $Description"Disaster Recovery Backup"
 $Type: File System
 ``````
 
-
 ```Powershell
-$BMRPolicy=New-PPDMFSBackupPolicy -Schedule $BMRSchedule -Name $NAME -Description $Description -StorageSystemID $StorageSystem.id -enabled -indexingEnabled -ignoreMissingSystemStateFiles
+$BMRPolicy=New-PPDMFSBackupPolicy -Schedule $BMRSchedule -Name $NAME -Description $Description -StorageSystemID $StorageSystem.id -enabled -ignoreMissingSystemStateFiles
 ```
 
 ![asset](image-18.png)
