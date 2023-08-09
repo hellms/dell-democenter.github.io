@@ -16,7 +16,7 @@ The Module will guide you to the Commands by Copy and Pasting them from the Page
 ## Index
 
 Module | Title | Link
-------:|---------------------|-----------
+------:|---------------------|---
 0 | Prerequisite | [Module 0](Module_0.md)
 1 | Overview of PowerProtect User Interface | [Module 1](Module_1.md)
 2 | MULTI FACTOR AUTHENTICATION USING RSA | [Module 2](Module_2.md)
@@ -42,5 +42,7 @@ Module | Title | Link
 
 
 ## Preview:
+Module | Title | Link
+------:|---------------------|---
 8 | LESSON 2 - PERFORM DISASTER RECOVERY BACKUPS, RESTORE SYSTEM STATE AND WINDOWS BARE METAL RECOVERY| [Module 8 Lesson 2](./Module_8_2.md)
 
