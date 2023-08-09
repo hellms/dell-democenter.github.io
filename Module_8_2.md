@@ -44,7 +44,7 @@ Next we create a Policy. This time we use name and description as Variables
 
 ```Powershell
 $Name="Windows BMR Backup"
-$Description"Disaster Recovery Backup"
+$Description="Disaster Recovery Backup"
 $BMRPolicy=New-PPDMFSBackupPolicy -Schedule $BMRSchedule -Name $NAME -Description $Description -StorageSystemID $StorageSystem.id -enabled -ignoreMissingSystemStateFiles
 ```
 
