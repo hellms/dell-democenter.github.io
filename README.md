@@ -42,6 +42,7 @@ Module | Title | Link
 
 
 ## Preview:
+
 Module | Title | Link
 ------:|---------------------|---
 8 | LESSON 2 - PERFORM DISASTER RECOVERY BACKUPS, RESTORE SYSTEM STATE AND WINDOWS BARE METAL RECOVERY| [Module 8 Lesson 2](./Module_8_2.md)
