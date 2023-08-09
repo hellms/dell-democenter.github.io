@@ -16,7 +16,7 @@ View the Hosts:
 
 ```Powershell
 Get-PPDMhosts -type APP_HOST -filter 'name lk "win-01.demo.local"'
-$fsAssets=Get-PPDMassets -filter 'details.fileSystem.appServerName eq "win-clus01"'
+$fsAssets=Get-PPDMassets -filter 'details.fileSystem.hostName eq "win-01.demo.local"'
 $fsAssets | ft
 ```
 
