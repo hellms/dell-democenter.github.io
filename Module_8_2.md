@@ -40,14 +40,11 @@ Next, we create a Schedule for the Filesystem Backup
 $BMRSchedule=New-PPDMBackupSchedule -hourly -CreateCopyIntervalHrs 8 -RetentionUnit DAY -RetentionInterval 5
 ```
 
+Next we create a Policy. This time we use name and description as Variables
 
 ```Powershell
 $Name="Windows BMR Backup"
 $Description"Disaster Recovery Backup"
-$Type: File System
-``````
-
-```Powershell
 $BMRPolicy=New-PPDMFSBackupPolicy -Schedule $BMRSchedule -Name $NAME -Description $Description -StorageSystemID $StorageSystem.id -enabled -ignoreMissingSystemStateFiles
 ```
 
