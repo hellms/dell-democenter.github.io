@@ -67,7 +67,7 @@ Get-PPDMactivities -PredefinedFilter SYSTEM_JOBS -filter "name lk `"%$Name%`"" -
 ## Starting the Backup
 
 ```Powershell
-Start-PPDMPLCstage -BackupType FULL -RetentionUnit DAY -RetentionInterval 5
+Start-PPDMPLCStage -PolicyObject $BMRPolicy -AssetIDs $BMRAssets.id
 ```
 
 Monitor the Backups with:
@@ -77,7 +77,7 @@ Get-PPDMactivities -filter "category eq `"protect" and name lk `"%$Name%`"" -pag
 ```
 
 ```Powershell
-do { Sleep 5; $Activity=Get-PPDMactivities -filter "category eq `"protect" and name lk `"%$Name%`""; write-host $Activity.progress } until ($Activity.state -eq "COMPLETED")
+do { Sleep 5; $Activity=Get-PPDMactivities -filter "category eq `"protect`" and name lk `"%$Name%`""; write-host $Activity.progress } until ($Activity.state -eq "COMPLETED")
 ```
 
 ![Alt text](image-24.png)
