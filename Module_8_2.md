@@ -67,7 +67,7 @@ Get-PPDMactivities -PredefinedFilter SYSTEM_JOBS -filter "name lk `"%$Name%`"" -
 ## Starting the Backup
 
 ```Powershell
-$BMPolicy | Start-PPDMprotection_policies -BackupType FULL -RetentionUnit DAY -RetentionInterval 5
+Start-PPDMPLCstage -BackupType FULL -RetentionUnit DAY -RetentionInterval 5
 ```
 
 Monitor the Backups with:
@@ -76,6 +76,5 @@ Monitor the Backups with:
 Get-PPDMactivities -PredefinedFilter PROTECTION_JOBS -filter "name lk `"%$Name%`"" -pageSize 3
 ```
 
-![Alt text](image-20.png)
-
+![Alt text](image-24.png)
 [<<Module 7 Lesson 2](./Module_7_1.md) This Concludes Module 8 Lesson 1 [Module 8 Lesson 2>>](./Module_8_2.md)
