@@ -46,14 +46,14 @@ Next we create a Policy. This time we use name and description as Variables
 $Name="Windows BMR Backup"
 $Description="Disaster Recovery Backup"
 $BMRPolicy=New-PPDMFSBackupPolicy -Schedule $BMRSchedule -Name $NAME -Description $Description -StorageSystemID $StorageSystem.id -enabled -ignoreMissingSystemStateFiles
+$BMRPolicy
 ```
 
-![asset](image-18.png)
-
+![Alt text](image-22.png)
 Next we assign the Assets:
 
 ```Powershell
-Add-PPDMProtection_policy_assignment -ID $FSPolicy.id -AssetID $fsAssets.id
+Add-PPDMProtection_policy_assignment -ID $BMRPolicy.id -AssetID $BMRAssets.id
 ```
 
 And Monitor the Activities:
