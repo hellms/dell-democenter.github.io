@@ -47,7 +47,7 @@ Then, we read the Storage System into a Variable
 $StorageSystem=Get-PPDMStorage_systems -Type DATA_DOMAIN_SYSTEM -Filter {name eq "ddve-01.demo.local"}
 ```
 
-As we are going to use the same OS Credentials we used in a Previous excersise, we do a 
+As we are going to use the same OS Credentials we used in a [Previous excersise](https://github.com/dell-democenter/dell-democenter.github.io/blob/main/Module_3_3.md#creating-sql-credentials) , we do a 
 
 ```Powershell
 $credentials=Get-PPDMcredentials -filter 'name eq "windows"'
