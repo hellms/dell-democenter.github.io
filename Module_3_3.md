@@ -14,7 +14,10 @@ The DataTarget is stored in *$Policy.stages[0].target.dataTargetId*
 $Policy.stages[0].target.dataTargetId
 ```
 ![Alt text](./images/image-29.png)
-We also need to create the following Credetials:
+
+## Creating SQL Credentials 
+
+We also need to create the following Credentials:
 
 >Credential Name: windows
 >User Name: demo\administrator
