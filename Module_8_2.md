@@ -73,7 +73,11 @@ Start-PPDMPLCstage -BackupType FULL -RetentionUnit DAY -RetentionInterval 5
 Monitor the Backups with:
 
 ```Powershell
-Get-PPDMactivities -PredefinedFilter PROTECTION_JOBS -filter "name lk `"%$Name%`"" -pageSize 3
+Get-PPDMactivities -filter "category eq `"protect" and name lk `"%$Name%`"" -pageSize 3
+```
+
+```Powershell
+do { Sleep 5; $Activity=Get-PPDMactivities -filter "category eq `"protect" and name lk `"%$Name%`""; write-host $Activity.progress } until ($Activity.state -eq "COMPLETED")
 ```
 
 ![Alt text](image-24.png)
