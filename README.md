@@ -16,7 +16,7 @@ The Module will guide you to the Commands by Copy and Pasting them from the Page
 ## Index
 
 Module | Title | Link
-------:|---------------------|---
+------:|---------------------|-----------
 0 | Prerequisite | [Module 0](Module_0.md)
 1 | Overview of PowerProtect User Interface | [Module 1](Module_1.md)
 2 | MULTI FACTOR AUTHENTICATION USING RSA | [Module 2](Module_2.md)
