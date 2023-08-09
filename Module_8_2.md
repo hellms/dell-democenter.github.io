@@ -16,7 +16,7 @@ View the Hosts:
 
 ```Powershell
 Get-PPDMhosts -type APP_HOST -filter 'name lk "win-01.demo.local"'
-$BMRAssets=Get-PPDMassets -filter 'details.fileSystem.hostName eq "win-01.demo.local" and name eq "DISASTER_RECOVERY:\"'
+$BMRAssets=Get-PPDMassets -filter 'details.fileSystem.hostName eq "win-01.demo.local" and name lk "DISASTER_RECOVERY%"'
 $BMRAssets | ft
 ```
 
