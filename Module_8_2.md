@@ -62,18 +62,18 @@ And Monitor the Activities:
 Get-PPDMactivities -PredefinedFilter SYSTEM_JOBS -filter "name lk `"%$Name%`"" -pageSize 3 | ft
 ```
 
-![Alt text](image-19.png)
+![Alt text](image-23.png)
 
 ## Starting the Backup
 
 ```Powershell
-$FSPolicy | Start-PPDMprotection_policies -BackupType FULL -RetentionUnit DAY -RetentionInterval 5
+$BMPolicy | Start-PPDMprotection_policies -BackupType FULL -RetentionUnit DAY -RetentionInterval 5
 ```
 
 Monitor the Backups with:
 
 ```Powershell
-Get-PPDMactivities -PredefinedFilter PROTECTION_JOBS -filter 'name lk "%Windows Cluster%"' -pageSize 3
+Get-PPDMactivities -PredefinedFilter PROTECTION_JOBS -filter "name lk `"%$Name%`"" -pageSize 3
 ```
 
 ![Alt text](image-20.png)
