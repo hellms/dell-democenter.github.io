@@ -79,7 +79,7 @@ Get-PPDMactivities -filter "category eq `"protect" and name lk `"%$Name%`"" -pag
 ```Powershell
 [datetime]$usedate=(get-date).AddMinutes(-1)
 [string]$startTime=get-date $usedate -Format yyyy-MM-ddThh:mm:ssZ
-do { Sleep 5; $Activity=Get-PPDMactivities -filter "startTime ge `"$startTime`" and category eq `"protect`" and name lk `"%$Name%`"" 6>$null; write-host -NoNewline "$($Activity.progress) > "} until ($Activity.state -eq "COMPLETED")
+do { Sleep 5; $$connection=Connect-PPDMsystem -fqdn ppdm-01.demo.local -trustCert 6>out-null;$Activity=Get-PPDMactivities -filter "startTime ge `"$startTime`" and category eq `"protect`" and name lk `"%$Name%`"" 6>$null; write-host -NoNewline "$($Activity.progress) > "} until ($Activity.state -eq "COMPLETED")
 ```
 
 ![Alt text](image-24.png)
