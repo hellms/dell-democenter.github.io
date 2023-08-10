@@ -78,7 +78,7 @@ Get-PPDMactivities -filter "category eq `"protect" and name lk `"%$Name%`"" -pag
 
 ```Powershell
 [datetime]$usedate=(get-date).AddMinutes(-5)
-$startTime=get-date $usedate -Format yyyy-MM-ddThh:mm:ssZ
+[string]$startTime=get-date $usedate -Format yyyy-MM-ddThh:mm:ssZ
 do { Sleep 5; $Activity=Get-PPDMactivities -filter "startTime ge `"$startTime`" and category eq `"protect`" and name lk `"%$Name%`"" 6>$null; write-host $Activity.progress } until ($Activity.state -eq "COMPLETED")
 ```
 
