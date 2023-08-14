@@ -82,5 +82,6 @@ Get-PPDMactivities -filter "category eq `"protect" and name lk `"%$Name%`"" -pag
 do { Sleep 5;$Activity=Get-PPDMactivities -filter "startTime ge `"$startTime`" and category eq `"protect`" and name lk `"%$Name%`"" 6>$null; write-host -NoNewline "$($Activity.progress) > "} until ($Activity.state -eq "COMPLETED")
 ```
 
-![Alt text](image-24.png)
+![Alt text](image-25.png)
+
 [<<Module 7 Lesson 2](./Module_7_1.md) This Concludes Module 8 Lesson 1 [Module 8 Lesson 2>>](./Module_8_2.md)
