@@ -4,11 +4,7 @@
 
 In this lesson, we will perform Disaster Recovery Backups, Restore System state and do a Windows Bare Metal Recovery 
 
-
-
-
 # This section is WiP
-
 
 ## Review The Assets and Asset Sources
 
@@ -83,5 +79,18 @@ do { Sleep 5;$Activity=Get-PPDMactivities -filter "startTime ge `"$startTime`" a
 ```
 
 ![Alt text](image-25.png)
+
+Once the Backup is done, we can Proceed with a System State restore
+
+```Powershell
+$BMRHost=Get-PPDMhosts -type APP_HOST -filter 'name lk "win-01.demo.local"'
+$BMRRestoreAssetCopy=$BMRAssets | Get-PPDMlatestCopies
+$BMRRestoredCopy = New-PPDMRestored_copies -ids $BMRRestoreAssetCopy.id -assetName $BMRRestoreAssetCopy.assetName -Hostid $BMRHost.id
+do {
+  Start-Sleep -Seconds 10
+  $MountedCopy = $BMRRestoredCopy | Get-PPDMRestored_copies
+}
+until ($MountedCopy.status -eq "SUCCESS") 
+```
 
 [<<Module 7 Lesson 2](./Module_7_1.md) This Concludes Module 8 Lesson 1 [Module 8 Lesson 2>>](./Module_8_2.md)
