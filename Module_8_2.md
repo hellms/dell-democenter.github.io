@@ -84,7 +84,7 @@ Once the Backup is done, we can Proceed with a System State restore
 
 ```Powershell
 $BMRHost=Get-PPDMhosts -type APP_HOST -filter 'name lk "win-01.demo.local"'
-$BMRRestoreAssetCopy=$BMRAssets | Get-PPDMlatestCopies
+$BMRRestoreAssetCopy=$BMRAssets | Get-PPDMlatest_Copies
 $BMRRestoredCopy = New-PPDMRestored_copies -ids $BMRRestoreAssetCopy.id -assetName $BMRRestoreAssetCopy.assetName -Hostid $BMRHost.id
 do {
   Start-Sleep -Seconds 10
