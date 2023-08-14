@@ -32,7 +32,7 @@ Powershell should now run with TLS 1.2
 Install the PPDM-pwsh Powershell Module from the Powershell Gallery using the Command *Install-Module*  
 
 ```Powershell
-Install-Module ppdm-pwsh -MinimumVersion 19.14.20.64 -Force
+Install-Module ppdm-pwsh -MinimumVersion 19.14.20.66 -Force
 ```
 
 Show the Module is installed using:
@@ -57,7 +57,7 @@ If you ever need to update the Module to a newer Version, run
 ```Powershell
 Remove-Module ppdm-pwsh
 Uninstall-Module ppdm-pwsh -AllVersions
-Install-Module ppdm-pwsh -MinimumVersion 19.14.20.64 -Force
+Install-Module ppdm-pwsh -MinimumVersion 19.14.20.66 -Force
 ```
 
 [<<Index](./README.md)This Concludes Module 0 [>>Module 1](./Module_1.md)
