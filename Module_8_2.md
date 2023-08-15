@@ -150,7 +150,7 @@ do {
   $Activity= $Restore | Get-PPDMActivities
   Write-host -noNewline "$($Activity.progress) > "
 }
-until ($Activity.status -eq "COMPLETED") 
+until ($Activity.state -eq "COMPLETED") 
 ```
 
 ![Alt text](image-29.png)
