@@ -93,4 +93,35 @@ do {
 until ($MountedCopy.status -eq "SUCCESS") 
 ```
 
+```Powershell
+$Parameters = @{
+  HostID               = $BMRHost.id
+  BackupTransactionID  = $BMRRestoreAssetCopy.backupTransactionId
+  Hostpath             = "DISASTER_RECOVERY:\\\\"
+  mountURL             = $MountedCopy.restoredCopiesDetails.targetFileSystemInfo.mountUrl
+  RestoreAssetHostname = $RestoreFromHost
+}
+$Browselist = Get-PPDMFSAgentFLRBrowselist @Parameters
+$Browselist.files
+
+
+$Parameters = @{
+  CopyObject           = $BMRRestoreAssetCopy
+  HostID               = $BMRHost.id 
+  #BackupTransactionID  = $RestoreAssetCopy.backupTransactionId
+  #ids                  = $RestoreAssetCopy.id
+  RestoreAssetHostname = $BMRHost.name
+  #assetName            = $RestoreAssetCopy.assetName
+  RestoreLocation      = "/tmp"
+  RetainFolderHierachy = $true
+  conflictStrategy     = "TO_ALTERNATE" 
+  CustomDescription    = "Restore from Powershell"
+  Verbose              = $false
+}
+
+$Restore = Restore-PPDMFileFLR_copies @Parameters
+Write-Host $Restore
+```
+
+
 [<<Module 7 Lesson 2](./Module_7_1.md) This Concludes Module 8 Lesson 1 [Module 8 Lesson 2>>](./Module_8_2.md)
