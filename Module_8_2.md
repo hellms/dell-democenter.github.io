@@ -114,7 +114,6 @@ $Parameters = @{
 $Parameters = @{
   CopyObject           = $BMRRestoreAssetCopy
   HostID               = $BMRHost.id 
-  RestoreAssetHostname = $BMRHost.name
   RestoreSources           = $Browselist.path
   RestoreLocation      = "DISASTER_RECOVERY:\\"
   RetainFolderHierachy = $true
