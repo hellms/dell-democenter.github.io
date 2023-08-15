@@ -1,8 +1,8 @@
 # MODULE 8 - FILESYSTEM BACKUP ENHANCEMENTS -DISASTER RECOVERY BACKUPS AND SUPPORT FOR CLUSTERED FILE SYSTEM -WINDOWS- MODULE OVERVIEW
 
-## LESSON 2 - PERFORM DISASTER RECOVERY BACKUPS, RESTORE SYSTEM STATE AND WINDOWS BARE METAL RECOVERY.
+## LESSON 2 - PERFORM DISASTER RECOVERY BACKUPS, RESTORE SYSTEM STATE AND WINDOWS BARE METAL RECOVERY
 
-In this lesson, we will perform Disaster Recovery Backups, Restore System state and do a Windows Bare Metal Recovery 
+In this lesson, we will perform Disaster Recovery Backups, Restore System state and do a Windows Bare Metal Recovery
 
 # This section is WiP
 
@@ -17,6 +17,7 @@ $BMRAssets | ft
 ```
 
 ![Alt text](image-21.png)
+
 ## Create a new Protection Policy
 
 If not already done from Previous Module, read the Storage System
@@ -93,31 +94,39 @@ do {
 until ($MountedCopy.status -eq "SUCCESS") 
 ```
 
+## Starting the Base Browse
+
+The Base browse will return the .basepath for the fLR Mount(s), a Subdirectory in the Installation Path of DPSAPPS
+
 ```Powershell
 $Parameters = @{
     HostID               = $BMRHost.id
     BackupTransactionID  = $BMRRestoreAssetCopy.backupTransactionId
     mountURL             = $MountedCopy.restoredCopiesDetails.targetFileSystemInfo.mountUrl
 }
-$Browselist = Get-PPDMFSAgentFLRBrowselist @Parameters
-$Browselist
+$BaseBrowselist = Get-PPDMFSAgentFLRBrowselist @Parameters
+$BaseBrowselist
 ```
+
+With the basePath and the Volumes ( .Sources[]) we can start a Browse for Directories, in this case selected System States
 
 ```Powershell
 $Parameters = @{
     HostID               = $BMRHost.id
     BackupTransactionID  = $BMRRestoreAssetCopy.backupTransactionId
-    mountURL             = "$($Browselist.basePath)/$($Browselist.sources[0])"
+    mountURL             = "$($BaseBrowselist.basePath)/$($BaseBrowselist.sources[0])"
 }
 $Browselist = Get-PPDMFSAgentFLRBrowselist @Parameters
 $Browselist
 ```
 
+# We start the Restore of the Complete System State with just the Browselist.Path for complete recover
+
 ```Powershell
 $Parameters = @{
   CopyObject           = $BMRRestoreAssetCopy
   HostID               = $BMRHost.id 
-  RestoreSources           = $Browselist.path
+  RestoreSources       = $Browselist.path
   RestoreLocation      = "DISASTER_RECOVERY:\\"
   RetainFolderHierachy = $true
   conflictStrategy     = "TO_ALTERNATE" 
@@ -128,6 +137,5 @@ $Parameters = @{
 $Restore = Restore-PPDMFileFLR_copies @Parameters
 $Restore | Get-PPDMActivities
 ```
-
 
 [<<Module 7 Lesson 2](./Module_7_1.md) This Concludes Module 8 Lesson 1 [Module 8 Lesson 2>>](./Module_8_2.md)
