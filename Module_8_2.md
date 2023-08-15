@@ -99,7 +99,7 @@ $Parameters = @{
   BackupTransactionID  = $BMRRestoreAssetCopy.backupTransactionId
   Hostpath             = "DISASTER_RECOVERY:\\\\"
   mountURL             = $MountedCopy.restoredCopiesDetails.targetFileSystemInfo.mountUrl
-  RestoreAssetHostname = $BMRHost.name
+  RestoreAssetHostname = $BMRAssets.details.fileSystem.hostName
 }
 $Browselist = Get-PPDMFSAgentFLRBrowselist @Parameters
 $Browselist.files
