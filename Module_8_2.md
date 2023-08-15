@@ -144,4 +144,14 @@ $Restore | Get-PPDMActivities
 
 ![Alt text](image-28.png)
 
+```Powershell
+do {
+  Start-Sleep -Seconds 10    
+  $Activity= $Restore | Get-PPDMActivities
+  Write-host -noNewline $Activity.progress
+}
+until ($Activity.status -eq "SUCCESS") 
+```
+
+
 [<<Module 7 Lesson 2](./Module_7_1.md) This Concludes Module 8 Lesson 1 [Module 8 Lesson 2>>](./Module_8_2.md)
