@@ -92,36 +92,25 @@ do {
 }
 until ($MountedCopy.status -eq "SUCCESS") 
 ```
-PS C:\Users\Administrator> $Parameters = @{
->>   HostID               = $BMRHost.id
->>   BackupTransactionID  = $BMRRestoreAssetCopy.backupTransactionId
->>   # Hostpath             = "DISASTER_RECOVERY:\\\\"
->>    mountURL             = $MountedCopy.restoredCopiesDetails.targetFileSystemInfo.mountUrl
->>   }
-
 
 ```Powershell
 $Parameters = @{
-  HostID               = $BMRHost.id
-  BackupTransactionID  = $BMRRestoreAssetCopy.backupTransactionId
-  Hostpath             = "/"
-  HostOS = "WINDOWS"
-  mountURL             = $MountedCopy.restoredCopiesDetails.targetFileSystemInfo.mountUrl
-  RestoreAssetHostname = $BMRAssets.details.fileSystem.hostName
+    HostID               = $BMRHost.id
+    BackupTransactionID  = $BMRRestoreAssetCopy.backupTransactionId
+    mountURL             = $MountedCopy.restoredCopiesDetails.targetFileSystemInfo.mountUrl
 }
 $Browselist = Get-PPDMFSAgentFLRBrowselist @Parameters
 $Browselist.files
+```
 
+```Powershell
+$Parameters = @{
+    HostID               = $BMRHost.id
+    BackupTransactionID  = $BMRRestoreAssetCopy.backupTransactionId
+    mountURL             = "$($Browselist.basePath)/$($Browselist.sources[0])"
+```
 
-
-PS C:\Users\Administrator> $Parameters = @{
->>   HostID               = $BMRHost.id
->>   BackupTransactionID  = $BMRRestoreAssetCopy.backupTransactionId
->>   # Hostpath             = "DISASTER_RECOVERY:\\\\"
->>    mountURL             = "$($Browselist.basePath)/$($Browselist.sources[0])"
-
-
-
+```Powershell
 $Parameters = @{
   CopyObject           = $BMRRestoreAssetCopy
   HostID               = $BMRHost.id 
