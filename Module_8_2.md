@@ -92,17 +92,34 @@ do {
 }
 until ($MountedCopy.status -eq "SUCCESS") 
 ```
+PS C:\Users\Administrator> $Parameters = @{
+>>   HostID               = $BMRHost.id
+>>   BackupTransactionID  = $BMRRestoreAssetCopy.backupTransactionId
+>>   # Hostpath             = "DISASTER_RECOVERY:\\\\"
+>>    mountURL             = $MountedCopy.restoredCopiesDetails.targetFileSystemInfo.mountUrl
+>>   }
+
 
 ```Powershell
 $Parameters = @{
   HostID               = $BMRHost.id
   BackupTransactionID  = $BMRRestoreAssetCopy.backupTransactionId
-  Hostpath             = "DISASTER_RECOVERY:\\\\"
+  Hostpath             = "/"
+  HostOS = "WINDOWS"
   mountURL             = $MountedCopy.restoredCopiesDetails.targetFileSystemInfo.mountUrl
   RestoreAssetHostname = $BMRAssets.details.fileSystem.hostName
 }
 $Browselist = Get-PPDMFSAgentFLRBrowselist @Parameters
 $Browselist.files
+
+
+
+PS C:\Users\Administrator> $Parameters = @{
+>>   HostID               = $BMRHost.id
+>>   BackupTransactionID  = $BMRRestoreAssetCopy.backupTransactionId
+>>   # Hostpath             = "DISASTER_RECOVERY:\\\\"
+>>    mountURL             = "$($Browselist.basePath)/$($Browselist.sources[0])"
+
 
 
 $Parameters = @{
@@ -112,7 +129,7 @@ $Parameters = @{
   #ids                  = $RestoreAssetCopy.id
   RestoreAssetHostname = $BMRHost.name
   #assetName            = $RestoreAssetCopy.assetName
-  RestoreLocation      = "/tmp"
+  RestoreLocation      = "DISASTER_RECOVERY:\\"
   RetainFolderHierachy = $true
   conflictStrategy     = "TO_ALTERNATE" 
   CustomDescription    = "Restore from Powershell"
