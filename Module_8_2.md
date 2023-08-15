@@ -108,6 +108,9 @@ $Parameters = @{
     HostID               = $BMRHost.id
     BackupTransactionID  = $BMRRestoreAssetCopy.backupTransactionId
     mountURL             = "$($Browselist.basePath)/$($Browselist.sources[0])"
+}
+$Browselist = Get-PPDMFSAgentFLRBrowselist @Parameters
+$Browselist
 ```
 
 ```Powershell
