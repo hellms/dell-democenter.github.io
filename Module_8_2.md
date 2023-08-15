@@ -70,7 +70,7 @@ Start-PPDMPLCStage -PolicyObject $BMRPolicy -AssetIDs $BMRAssets.id
 Monitor the Backups with:
 
 ```Powershell
-Get-PPDMactivities -filter "category eq `"protect" and name lk `"%$Name%`"" -pageSize 3
+Get-PPDMactivities -filter "category eq `"protect`" and name lk `"%$Name%`"" -pageSize 3
 ```
 
 ```Powershell
