@@ -100,7 +100,7 @@ $Parameters = @{
     mountURL             = $MountedCopy.restoredCopiesDetails.targetFileSystemInfo.mountUrl
 }
 $Browselist = Get-PPDMFSAgentFLRBrowselist @Parameters
-$Browselist.files
+$Browselist
 ```
 
 ```Powershell
