@@ -148,7 +148,7 @@ $Restore | Get-PPDMActivities
 do {
   Start-Sleep -Seconds 10    
   $Activity= $Restore | Get-PPDMActivities
-  Write-host -noNewline $Activity.progress
+  Write-host -noNewline "$($Activity.progress) > "
 }
 until ($Activity.status -eq "SUCCESS") 
 ```
