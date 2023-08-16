@@ -111,6 +111,7 @@ As with category protect, we can use the category indexing to Mounitor:
 Get-PPDMactivities -filter "category eq `"index`" and name lk `"%$PolicyName%`"" -pageSize 3 6> out-null
 Get-PPDMactivities -filter "category eq `"index`" and name lk `"%$PolicyName%`"" -pageSize 3 6> out-null | ft state, progress, name
 ```
+
 Or in a loop:
 
 ```Powershell
