@@ -16,7 +16,7 @@ The Bearer Token we use for subsequent Authentication will expire in 900seconds.
 ![image](https://github.com/dell-democenter/dell-democenter.github.io/assets/8255007/5ecef70a-fc33-42ba-b8e5-0000242d4551)
 
 
-The refresh token will expire after 24hrs, so after 24 Hoours your session will be disconnected and you have to connect again :
+The refresh token will expire after 24hrs, so after 24 Hours your session will be disconnected and you have to connect again :
 
 If you get disconnected from PPDM, just re-run *Connect-PPDMsystem -fqdn ppdm-01.demo.local -trustCert* without getting asked for Credential  
 *Hint: use ctrl-R to get the Command from search
