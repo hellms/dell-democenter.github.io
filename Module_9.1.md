@@ -94,12 +94,29 @@ Monitor the Backups with:
 Get-PPDMactivities -filter "category eq `"protect`" and name lk `"%$PolicyName%`"" -pageSize 3 6> out-null | ft state, progress, name
 ```
 
-![Alt text](image-32.png)
-
 Or in a loop:
 
 ```Powershell
 do { Sleep 5;$Activity=Get-PPDMactivities -filter "category eq `"protect`" and name lk `"%$PolicyName%`"" 6>$null; write-host -NoNewline "$($Activity.progress)% "} until ($Activity.state -eq "COMPLETED")
 ```
+
+![Alt text](image-44.png)
+
+## Monitor Intexing
+
+Indexing will start right after the Backup.
+As with category protect, we can use the category indexing to Mounitor:  
+
+```Powershell
+Get-PPDMactivities -filter "category eq `"index`" and name lk `"%$PolicyName%`"" -pageSize 3 6> out-null
+Get-PPDMactivities -filter "category eq `"index`" and name lk `"%$PolicyName%`"" -pageSize 3 6> out-null | ft state, progress, name
+```
+Or in a loop:
+
+```Powershell
+do { Sleep 5;$Activity=Get-PPDMactivities -filter "category eq `"index`" and name lk `"%$PolicyName%`"" 6>$null; write-host -NoNewline "$($Activity.progress)% "} until ($Activity.state -eq "COMPLETED")
+```
+
+![Alt text](image-45.png)
 
  [<<Module 3 Lesson 1](./Module_3_1.md) This Concludes Module 3 Lesson 2 [Module 3 Lesson 3 >>](./Module_3_3.md)
