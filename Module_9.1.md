@@ -119,4 +119,10 @@ do { Sleep 5;$Activity=Get-PPDMactivities -filter "category eq `"index`" and nam
 
 ![Alt text](image-45.png)
 
+## Search
+
+```Powershell
+Get-PPDMfile_instances -name file1 -VirtualMachine -SourceServer vcsa-7.demo.local -AssetID $Asset.id
+
+
  [<<Module 3 Lesson 1](./Module_3_1.md) This Concludes Module 3 Lesson 2 [Module 3 Lesson 3 >>](./Module_3_3.md)
