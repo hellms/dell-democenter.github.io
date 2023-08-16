@@ -120,10 +120,27 @@ do { Sleep 5;$Activity=Get-PPDMactivities -filter "category eq `"index`" and nam
 
 ![Alt text](image-45.png)
 
-## Search
+## Search for files in VM´s
+
+The *Get-PPDMfile_instances* can search VM Indexes for Specific Files.
+
+The Command can Construct Complex Search queries as in the UI. For VM´s the Following syntax ios available:
+
+```Powershell
+Get-PPDMfile_instances -VirtualMachine [-GuestOS {LINUX | WINDOWS}] [-name <Object>] [-location <Object>] [-filesonly] [-filetype <Object>] [-minsize <Object>] [-minsizeUnit {KB | MB | GB | TB}] [-maxsizeUnit {KB | MB | GB | TB}] [-CreatedAtStart
+    <datetime>] [-CreatedAtEnd <datetime>] [-modifiedAtStart <datetime>] [-modifiedAtEnd <datetime>] [-LastBackupOnly] [-BackupAtStart <datetime>] [-BackupAtEnd <datetime>] [-SourceServer <string>] [-AssetID <string>] [-page <Object>] [-body <hashtable>]
+    [-PPDM_API_BaseUri <Object>] [-apiver <Object>] [<CommonParameters>]
+```
+
+As ber Lab Guide, we need to search the following Spec:
+
+> Key in "file1" in the File/Folder Name
+> Select the vCenter - vcsa-7.demo.local
 
 ```Powershell
 Get-PPDMfile_instances -name file1 -VirtualMachine -SourceServer vcsa-7.demo.local -AssetID $Asset.id
+```
 
+![Alt text](image-47.png)
 
- [<<Module 3 Lesson 1](./Module_3_1.md) This Concludes Module 3 Lesson 2 [Module 3 Lesson 3 >>](./Module_3_3.md)
+[<<Module 8 Lesson 2](./Module_8_2.md) This Concludes Module 9 Lesson 1 [Module 10 Lesson 1 >>](./Module_10_1.md)
