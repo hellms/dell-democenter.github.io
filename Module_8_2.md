@@ -121,9 +121,11 @@ $BaseBrowselist = Get-PPDMFSAgentFLRBrowselist @Parameters
 $BaseBrowselist
 ```
 
-![Alt text](image-26.png)
+![Alt text](image-36.png)
 
-## With the basePath and the Volumes ( .Sources[]) we can start a Browse for Directories, in this case selected System States
+## Browse the Available "Sources" in the Browsekist ( e.g. Directories, or, SSR Writers)
+
+With the basePath and the Volumes ( .Sources[]) we can start a Browse for Directories, in this case selected System State Writers
 
 ```Powershell
 $Parameters = @{
