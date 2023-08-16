@@ -4,11 +4,11 @@
 
 We use a Helper Fuction *New-PPDMBackupSchedule* to Create a Stage0 Backup Schedule Object that we will use in the Protection Policy
 
->Recurrence: Hourly
->Create Copy: 8 Hours
->Keep For: 5 Days
->Start Time: 08:00 PM
->End Time: 06:00 AM
+>Recurrence: Hourly  
+>Create Copy: 8 Hours  
+>Keep For: 5 Days  
+>Start Time: 08:00 PM  
+>End Time: 06:00 AM  
 
 ```Powershell
 $Schedule=New-PPDMBackupSchedule -hourly -CreateCopyIntervalHrs 8 -RetentionUnit DAY -RetentionInterval 5
@@ -22,9 +22,9 @@ $StorageSystem=Get-PPDMStorage_systems -Type DATA_DOMAIN_SYSTEM -Filter {name eq
 
 Once we identified and created the Ressources aligned to the Policy, we create the Policy with
 
->Name: Search-Test
->Description: VM Backups with Indexing enabled
->Type: Virtual Machine
+>Name: Search-Test  
+>Description: VM Backups with Indexing enabled  
+>Type: Virtual Machine  
 
 ```Powershell
 $PolicyName="Search-Test"
