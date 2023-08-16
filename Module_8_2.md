@@ -168,6 +168,14 @@ do {
 until ($Activity.state -eq "COMPLETED") 
 ```
 
-![Alt text](image-29.png)
+![Alt text](image-39.png)
+
+Note: The Activity has 2 subtasks ( Jobs) , one is a FLR Mount, and the Second the SSR itself, hence the Activity will return Progress of both Jobs individually   
+The recovery will take a long time.  
+Once the Recovery Activity is completed, reboot the Host:
+
+```Powershell
+Restart-Computer -ComputerName win-01.demo.local
+```
 
 [<<Module 8 Lesson 1](./Module_8_1.md) This Concludes Module 8 Lesson 2 [Module 8 Lesson 2>>](./Module_8_2.md)
