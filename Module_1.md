@@ -10,7 +10,17 @@ use *admin* and *Password123!* for connection
 
 ![image](https://github.com/dell-democenter/dell-democenter.github.io/assets/8255007/29fc50fe-4b30-459d-9644-7e8f4434b125)
 
-The Credentialös are now stored in your Powershell session.  If you get disconnected from PPDM, just re-run *Connect-PPDMsystem -fqdn ppdm-01.demo.local -trustCert* without getting asked for Credential. *Hint: use ctrl-R to get the Command from search
+The Credentialös are now stored in your Powershell session.  
+The Bearer Token we use for subsequent Authentication will expire in 900seconds. However, PPDM-pwsh wil calculate the Token Lifespan upon API Calls, and use the Refresh token to genearte a new Token
+
+![image](https://github.com/dell-democenter/dell-democenter.github.io/assets/8255007/5ecef70a-fc33-42ba-b8e5-0000242d4551)
+
+
+The refresh token will expire after 24hrs, so after 24 Hoours your session will be disconnected and you have to connect again :
+
+If you get disconnected from PPDM, just re-run *Connect-PPDMsystem -fqdn ppdm-01.demo.local -trustCert* without getting asked for Credential  
+*Hint: use ctrl-R to get the Command from search
+
 
 ## Review the Job State
 
