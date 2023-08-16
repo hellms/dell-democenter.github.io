@@ -86,7 +86,10 @@ do { Sleep 5;$Activity=Get-PPDMactivities -filter "category eq `"protect`" and n
 
 ![Alt text](image-34.png)
 
-Once the Backup is done, we can Proceed with a System State restore
+## Once the Backup is done, we can Proceed with a System State restore
+
+For the System State Restore (SSR), we will need to mount the "Restored Copies" to our Production host.  
+We use the latest copy of the "DISASTER_RECOVERY:\\" Asset, that is still scoped to $BMRAssets
 
 ```Powershell
 $BMRHost=Get-PPDMhosts -type APP_HOST -filter 'name lk "win-01.demo.local"'
@@ -97,11 +100,16 @@ do {
   $MountedCopy = $BMRRestoredCopy | Get-PPDMRestored_copies
 }
 until ($MountedCopy.status -eq "SUCCESS") 
+$MountedCopy
 ```
+
+![Alt text](image-35.png)
 
 ## Starting the Base Browse
 
-The Base browse will return the .basepath for the fLR Mount(s), a Subdirectory in the Installation Path of DPSAPPS
+To identify the Mountpoint for the Restored Copy on the Hopst, we need to Browse teh basePath.
+The Basepath is a tmp directory in the DPSAPPS install Directory, with the PiT Date in unix EPOCH time
+The Base browse will return the .basepath for the FLR Mount(s). 
 
 ```Powershell
 $Parameters = @{
