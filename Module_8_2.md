@@ -137,7 +137,7 @@ $Browselist = Get-PPDMFSAgentFLRBrowselist @Parameters
 $Browselist
 ```
 
-![Alt text](image-27.png)
+![Alt text](image-37.png)
 
 ## We start the Restore of the Complete System State with just the Browselist.Path for complete recover
 
@@ -157,7 +157,7 @@ $Restore = Restore-PPDMFileFLR_copies @Parameters
 $Restore | Get-PPDMActivities
 ```
 
-![Alt text](image-28.png)
+![Alt text](image-38.png)
 
 ```Powershell
 do {
@@ -170,4 +170,4 @@ until ($Activity.state -eq "COMPLETED")
 
 ![Alt text](image-29.png)
 
-[<<Module 7 Lesson 2](./Module_7_1.md) This Concludes Module 8 Lesson 1 [Module 8 Lesson 2>>](./Module_8_2.md)
+[<<Module 8 Lesson 1](./Module_8_1.md) This Concludes Module 8 Lesson 2 [Module 8 Lesson 2>>](./Module_8_2.md)

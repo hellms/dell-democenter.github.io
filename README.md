@@ -39,9 +39,9 @@ Module | Title | Link
 7 | LESSON 1 - REVIEW AND DISCOVER EXCHANGE DATABASES | [Module 7 Lesson 1](./Module_7_1.md)
 7 | LESSON 2 - PROTECT EXCHANGE DATABASES | [Module 7 Lesson 2](./Module_7_2.md)
 8 | LESSON 1 - PROTECT WINDOWS CLUSTERED FILE SYSTEM AND RESTORE FILES | [Module 8 Lesson 1](./Module_8_1.md)
+8 | LESSON 2 - PERFORM DISASTER RECOVERY BACKUPS, RESTORE SYSTEM STATE | [Module 8 Lesson 2](./Module_8_2.md)
 
 ## Preview':'  
 
 Module | Title | Link
 ------:|---------------------|---
-8 | LESSON 2 - PERFORM DISASTER RECOVERY BACKUPS, RESTORE SYSTEM STATE AND WINDOWS BARE METAL RECOVERY| [Module 8 Lesson 2](./Module_8_2.md)
