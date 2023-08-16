@@ -73,16 +73,18 @@ Start-PPDMPLCStage -PolicyObject $BMRPolicy -AssetIDs $BMRAssets.id
 Monitor the Backups with:
 
 ```Powershell
-Get-PPDMactivities -filter "category eq `"protect`" and name lk `"%$Name%`"" -pageSize 3
+Get-PPDMactivities -filter "category eq `"protect`" and name lk `"%$Name%`"" -pageSize 3 6> out-null | ft state, progress, name
 ```
+
+![Alt text](image-32.png)
+
+Or in a loop:
 
 ```Powershell
-[datetime]$usedate=(get-date).AddMinutes(-1)
-[string]$startTime=get-date $usedate -Format yyyy-MM-ddThh:mm:ssZ
-do { Sleep 5;$Activity=Get-PPDMactivities -filter "startTime ge `"$startTime`" and category eq `"protect`" and name lk `"%$Name%`"" 6>$null; write-host -NoNewline "$($Activity.progress) > "} until ($Activity.state -eq "COMPLETED")
+do { Sleep 5;$Activity=Get-PPDMactivities -filter "category eq `"protect`" and name lk `"%$Name%`"" 6>$null; write-host -NoNewline "$($Activity.progress)% "} until ($Activity.state -eq "COMPLETED")
 ```
 
-![Alt text](image-25.png)
+![Alt text](image-33.png)
 
 Once the Backup is done, we can Proceed with a System State restore
 
