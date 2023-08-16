@@ -46,7 +46,8 @@ $BMRPolicy=New-PPDMFSBackupPolicy -Schedule $BMRSchedule -Name $NAME -Descriptio
 $BMRPolicy
 ```
 
-![Alt text](image-22.png)
+![Alt text](image-31.png)
+
 Next we assign the Assets:
 
 ```Powershell
@@ -59,7 +60,9 @@ And Monitor the Activities:
 Get-PPDMactivities -PredefinedFilter SYSTEM_JOBS -filter "name lk `"%$Name%`"" -pageSize 3 6> out-null | ft progress, name
 ```
 
-![Alt text](image-23.png)
+![Alt text](image-30.png)
+
+Wait until all Activities reach 100%
 
 ## Starting the Backup
 
