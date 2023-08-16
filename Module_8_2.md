@@ -84,7 +84,7 @@ Or in a loop:
 do { Sleep 5;$Activity=Get-PPDMactivities -filter "category eq `"protect`" and name lk `"%$Name%`"" 6>$null; write-host -NoNewline "$($Activity.progress)% "} until ($Activity.state -eq "COMPLETED")
 ```
 
-![Alt text](image-33.png)
+![Alt text](image-34.png)
 
 Once the Backup is done, we can Proceed with a System State restore
 
