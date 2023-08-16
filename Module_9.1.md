@@ -2,6 +2,8 @@
 
 ## LESSON 1 - Index Virtual Machine Backups and Validate Search
 
+## Create a Policy
+
 We use a Helper Fuction *New-PPDMBackupSchedule* to Create a Stage0 Backup Schedule Object that we will use in the Protection Policy
 
 >Recurrence: Hourly  
@@ -42,17 +44,21 @@ $Policy
 
 ![Alt text](image-40.png)
 
+## Assign VM to the Policy
+
 Now we need to Assign the Asset(s) to the Protection Policy. Therefore, we filter an asset query to the VM LINUX-01:
 
 ```Powershell
 $Asset=Get-PPDMassets -type VMWARE_VIRTUAL_MACHINE -filter 'name eq "win-02"'
 ```
 
-Copying the Policy Id from the Previously create Policy, we can run
+Using the Policy Object from the Previously create Policy, we can run
 
 ```Powershell
 $Policy | Add-PPDMProtection_policy_assignment -AssetID $Asset.id
 ```
+
+## Monitoring the Activities
 
 View the Running Jobs
 
@@ -73,6 +79,8 @@ Get-PPDMactivities -PredefinedFilter PROTECTION_JOBS -pageSize 2
 ```
 
 ![Alt text](image-43.png)
+
+## Start an AdHoc protection
 
 There are Several ways to start a Protection Policy. For an AdHoc Protection, we would select  and individual AssetId and start the Protection with the given Stage0 defaults of the Policy.
 
