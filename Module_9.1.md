@@ -40,6 +40,7 @@ $Policy
 
 ```
 
+![Alt text](image-40.png)
 
 Now we need to Assign the Asset(s) to the Protection Policy. Therefore, we filter an asset query to the VM LINUX-01:
 
@@ -53,42 +54,27 @@ Copying the Policy Id from the Previously create Policy, we can run
 $Policy | Add-PPDMProtection_policy_assignment -AssetID $Asset.id
 ```
 
-
 View the Running Jobs
 
 ```Powershell
 Get-PPDMactivities -PredefinedFilter ASSET_JOBS -pagesize 2
 ```
 
-![Alt text](./images/image-24.png)
+![Alt text](image-41.png)
 
 ```Powershell
 Get-PPDMactivities -PredefinedFilter SYSTEM_JOBS -pageSize 2
 ```
 
-![Alt text](./images/image-25.png)
+![Alt text](image-42.png)
 
 ```Powershell
 Get-PPDMactivities -PredefinedFilter PROTECTION_JOBS -pageSize 2
 ```
 
-![Alt text](./images/image-26.png)
+![Alt text](image-43.png)
 
-There are Several ways to start a Protection Policy. For an AdHoc Protection, we would select  and individual Asset and start the Protection with the given Stage0 defaults of the Policy.
-
-So first, we re-read the existing $Asset, as it now contains the Protection policy after Assignment
-
-```Powershell
-$Asset=$Asset | Get-PPDMassets
-```
-
-Next, we get the Protection Policy Object, whicht includes the Details of Stage0
-
-```Powershell
-$Policy=Get-PPDMprotection_policies -id $Asset.protectionPolicy.id
-```
-
-Finally, we start the Asset Protection for the Asset ID
+There are Several ways to start a Protection Policy. For an AdHoc Protection, we would select  and individual AssetId and start the Protection with the given Stage0 defaults of the Policy.
 
 ```Powershell
 Start-PPDMprotection -PolicyObject $Policy -AssetIDs $Asset.id
