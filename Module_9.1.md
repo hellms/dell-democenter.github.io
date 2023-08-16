@@ -88,14 +88,18 @@ There are Several ways to start a Protection Policy. For an AdHoc Protection, we
 Start-PPDMprotection -PolicyObject $Policy -AssetIDs $Asset.id
 ```
 
-![Alt text](./images/image-27.png)
-
-View the Latest Asset Jobs
+Monitor the Backups with:
 
 ```Powershell
-Get-PPDMactivities -PredefinedFilter ASSET_JOBS -pageSize 1
+Get-PPDMactivities -filter "category eq `"protect`" and name lk `"%$PolicyName%`"" -pageSize 3 6> out-null | ft state, progress, name
 ```
 
-![Alt text](./images/image-28.png)
+![Alt text](image-32.png)
+
+Or in a loop:
+
+```Powershell
+do { Sleep 5;$Activity=Get-PPDMactivities -filter "category eq `"protect`" and name lk `"%$PolicyName%`"" 6>$null; write-host -NoNewline "$($Activity.progress)% "} until ($Activity.state -eq "COMPLETED")
+```
 
  [<<Module 3 Lesson 1](./Module_3_1.md) This Concludes Module 3 Lesson 2 [Module 3 Lesson 3 >>](./Module_3_3.md)
