@@ -1,9 +1,8 @@
-# MODULE 10 - DYNAMIC NAS PROTECTION (DURATION - 15 MINS)
+# MODULE 10 - DYNAMIC NAS PROTECTION
 
 ## LESSON 1 - REVIEW NAS PROXY AND ASSETS
 
 ## Viewing NAS Assets and Asset Sources
-
 
 View explicit Powerstore NAS system with Name isilon.demo.local:
 
