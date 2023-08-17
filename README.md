@@ -40,8 +40,10 @@ Module | Title | Link
 7 | LESSON 2 - PROTECT EXCHANGE DATABASES | [Module 7 Lesson 2](./Module_7_2.md)
 8 | LESSON 1 - PROTECT WINDOWS CLUSTERED FILE SYSTEM AND RESTORE FILES | [Module 8 Lesson 1](./Module_8_1.md)
 8 | LESSON 2 - PERFORM DISASTER RECOVERY BACKUPS, RESTORE SYSTEM STATE | [Module 8 Lesson 2](./Module_8_2.md)
+9 | LESSON 1 - INDEX & SEARCH FOR VMWARE BACKUPS | [Module 9 Lesson 1](./Module_9_1.md)
+10 | LESSON 1 - REVIEW NAS PROXY AND ASSETS | [Module 10 Lesson 1](./Module_10_1.md)
 
-## Preview':'  
+## Modules in Preview  
 
 Module | Title | Link
 ------:|---------------------|---
