@@ -49,7 +49,11 @@ $Policy
 
 ```
 
-Now we need to Assign the Asset(s) to the Protection Policy. Therefore, we filter an asset query to the VM LINUX-01:
+![Alt text](image-54.png)
+
+## Assigning Assets top the Policy
+
+Now we need to Assign the Asset(s) to the Protection Policy. Therefore, we filter an asset query to the Share win-share01:
 
 ```Powershell
 $Asset=Get-PPDMassets -type NAS_SHARE -filter 'name eq "win-share01"'
@@ -61,12 +65,15 @@ Using the Policy Object from the Previously create Policy, we can run
 $Policy | Add-PPDMProtection_policy_assignment -AssetID $Asset.id
 ```
 
+![Alt text](image-55.png)
+
 ## Monitoring the Activities
 
 ```Powershell
- Get-PPDMactivities -filter "name lk `"%$PolicyName%`"" -Verbose
+ Get-PPDMactivities -filter "name lk `"%$PolicyName%`"" 
 ```
 
+![Alt text](image-56.png)
 
 ## Start an AdHoc protection
 
@@ -88,6 +95,7 @@ Or in a loop:
 do { Sleep 5;$Activity=Get-PPDMactivities -filter "category eq `"protect`" and name lk `"%$PolicyName%`"" 6>$null; write-host -NoNewline "$($Activity.progress)% "} until ($Activity.state -eq "COMPLETED")
 ```
 
+![Alt text](image-57.png)
 
 ## Monitor Intexing
 
@@ -105,7 +113,6 @@ Or in a loop:
 do { Sleep 5;$Activity=Get-PPDMactivities -filter "category eq `"index`" and name lk `"%$PolicyName%`"" 6>$null; write-host -NoNewline "$($Activity.progress)% "} until ($Activity.state -eq "COMPLETED")
 ```
 
+![Alt text](image-58.png)
 
-
-
-[<<Module 9 Lesson 1](./Module_9_1.md) This Concludes Module 10 Lesson 1 [Module 10 Lesson 1 >>](./Module_10_2.md)
+[<<Module 10 Lesson 1](./Module_10_1.md) This Concludes Module 10 Lesson 2 [Module 10 Lesson 3 >>](./Module_10_3.md)
