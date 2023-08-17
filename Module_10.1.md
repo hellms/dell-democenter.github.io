@@ -5,18 +5,19 @@
 ## Viewing NAS Assets and Asset Sources
 
 
-View explicit Powerstore Nas system with Name isilon.demo.local:
+View explicit Powerstore NAS system with Name isilon.demo.local:
 
 ```Powershell
-
-``
-
-
+Get-PPDMAssetSource -Type POWERSCALEMANAGEMENTSERVER -filter 'name eq "isilon.demo.local"'
+```
 
 ![Alt text](image-49.png)
 
-
 View all NAS Assets
+
+```Powershell
+Get-PPDMassets -type NAS_SHARE | ft name, id, status, protectionStatus
+```
 
 ![Alt text](image-50.png)
 
@@ -25,18 +26,33 @@ View all NAS Assets
 The Provies are managed via the embedded Protection Engine, the VPE
 First, we get the VPE with its ID:
 
-![Alt text](image-51.png)
+```Powershell
+$VPE=Get-PPDMprotection_engines
+$VPE
+```
 
+![Alt text](image-51.png)
 
 Next, we get the NAS Protection Engine Proxies  with:
 
+```Powershell
+$Proxies=Get-PPDMprotectionEngineProxies -VPE $VPE.id -ProtectionTypes NAS
+```
 
 View the Status of the Proxies(s)
 
+```Powershell
+$Proxies.Status
+```
+
 ![Alt text](image-52.png)
+
 View the Configuration of the Proxies(s)
 
+```Powershell
+$Proxies.Config
+```
 
 ![Alt text](image-53.png)
 
-[<<Module 8 Lesson 2](./Module_8_2.md) This Concludes Module 9 Lesson 1 [Module 10 Lesson 1 >>](./Module_10_1.md)
+[<<Module 10 Lesson 1](./Module_8_2.md) This Concludes Module 9 Lesson 1 [Module 10 Lesson 1 >>](./Module_10_1.md)
