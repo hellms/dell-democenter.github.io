@@ -39,7 +39,7 @@ $Policy=New-PPDMNASBackupPolicy -Schedule $Schedule `
 -StorageSystemID $StorageSystem.id `
 -indexingEnabled `
 -enabled `
--
+-ContinueOn ACL_ACCESS_DENIED,DATA_ACCESS_DENIED
 $Policy
 
 ```
