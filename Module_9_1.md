@@ -124,7 +124,7 @@ do { Sleep 5;$Activity=Get-PPDMactivities -filter "category eq `"index`" and nam
 
 The *Get-PPDMfile_instances* can search VM Indexes for Specific Files.
 
-The Command can Construct Complex Search queries as in the UI. For VM´s the Following syntax ios available:
+The Command can Construct Complex Search queries as in the UI. For VM´s the Following syntax is available:
 
 ```Powershell
 Get-PPDMfile_instances -VirtualMachine [-GuestOS {LINUX | WINDOWS}] [-name <Object>] [-location <Object>] [-filesonly] [-filetype <Object>] [-minsize <Object>] [-minsizeUnit {KB | MB | GB | TB}] [-maxsizeUnit {KB | MB | GB | TB}] [-CreatedAtStart
