@@ -63,20 +63,8 @@ $Policy | Add-PPDMProtection_policy_assignment -AssetID $Asset.id
 
 ## Monitoring the Activities
 
-View the Running Jobs
-
 ```Powershell
-Get-PPDMactivities -PredefinedFilter ASSET_JOBS -pagesize 2
-```
-
-
-```Powershell
-Get-PPDMactivities -PredefinedFilter SYSTEM_JOBS -pageSize 2
-```
-
-
-```Powershell
-Get-PPDMactivities -PredefinedFilter PROTECTION_JOBS -pageSize 2
+ Get-PPDMactivities -filter "name lk `"%$PolicyName%`"" -Verbose
 ```
 
 
