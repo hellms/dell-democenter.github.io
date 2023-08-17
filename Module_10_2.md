@@ -49,5 +49,75 @@ $Policy
 
 ```
 
+Now we need to Assign the Asset(s) to the Protection Policy. Therefore, we filter an asset query to the VM LINUX-01:
+
+```Powershell
+$Asset=Get-PPDMassets -type NAS_SHARE -filter 'name eq "win-share01"'
+```
+
+Using the Policy Object from the Previously create Policy, we can run
+
+```Powershell
+$Policy | Add-PPDMProtection_policy_assignment -AssetID $Asset.id
+```
+
+## Monitoring the Activities
+
+View the Running Jobs
+
+```Powershell
+Get-PPDMactivities -PredefinedFilter ASSET_JOBS -pagesize 2
+```
+
+
+```Powershell
+Get-PPDMactivities -PredefinedFilter SYSTEM_JOBS -pageSize 2
+```
+
+
+```Powershell
+Get-PPDMactivities -PredefinedFilter PROTECTION_JOBS -pageSize 2
+```
+
+
+## Start an AdHoc protection
+
+There are Several ways to start a Protection Policy. For an AdHoc Protection, we would select  and individual AssetId and start the Protection with the given Stage0 defaults of the Policy.
+
+```Powershell
+Start-PPDMprotection -PolicyObject $Policy -AssetIDs $Asset.id
+```
+
+Monitor the Backups with:
+
+```Powershell
+Get-PPDMactivities -filter "category eq `"protect`" and name lk `"%$PolicyName%`"" -pageSize 3 6> out-null | ft state, progress, name
+```
+
+Or in a loop:
+
+```Powershell
+do { Sleep 5;$Activity=Get-PPDMactivities -filter "category eq `"protect`" and name lk `"%$PolicyName%`"" 6>$null; write-host -NoNewline "$($Activity.progress)% "} until ($Activity.state -eq "COMPLETED")
+```
+
+
+## Monitor Intexing
+
+Indexing will start right after the Backup.
+As with category protect, we can use the category indexing to Mounitor:  
+
+```Powershell
+Get-PPDMactivities -filter "category eq `"index`" and name lk `"%$PolicyName%`"" -pageSize 3 6> out-null
+Get-PPDMactivities -filter "category eq `"index`" and name lk `"%$PolicyName%`"" -pageSize 3 6> out-null | ft state, progress, name
+```
+
+Or in a loop:
+
+```Powershell
+do { Sleep 5;$Activity=Get-PPDMactivities -filter "category eq `"index`" and name lk `"%$PolicyName%`"" 6>$null; write-host -NoNewline "$($Activity.progress)% "} until ($Activity.state -eq "COMPLETED")
+```
+
+
+
 
 [<<Module 9 Lesson 1](./Module_9_1.md) This Concludes Module 10 Lesson 1 [Module 10 Lesson 1 >>](./Module_10_2.md)
