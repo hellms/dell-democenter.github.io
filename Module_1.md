@@ -17,9 +17,10 @@ The Bearer Token we use for subsequent Authentication will expire in 900 seconds
 
 The refresh token will expire after 24hrs, so after 24 Hours your session will be disconnected and you have to connect again :
 
+![Alt text](image-48.png)
+
 If you get disconnected from PPDM, just re-run *Connect-PPDMsystem -fqdn ppdm-01.demo.local -trustCert* without getting asked for Credential  
 *Hint: use ctrl-R to get the Command from search
-
 
 ## Review the Job State
 
