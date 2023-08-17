@@ -5,7 +5,11 @@
 ## Viewing NAS Assets and Asset Sources
 
 
-View expliocit Powerstore Nas system with Name isilon.demo.local:
+View explicit Powerstore Nas system with Name isilon.demo.local:
+
+```Powershell
+
+``
 
 
 
