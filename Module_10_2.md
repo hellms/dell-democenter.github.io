@@ -24,6 +24,10 @@ In addition, we need to identify the StorageSystem to backup to.
 $StorageSystem=Get-PPDMStorage_systems -Type DATA_DOMAIN_SYSTEM -Filter {name eq "ddve-01.demo.local"}
 ```
 
+And also, we need the already existing Credentials:
+
+$Creds=Get-PPDMcredentials -type nas -filter 'name eq"Isilon"'
+
 Once we identified and created the Ressources aligned to the Policy, we create the Policy with
 
 >Name: NAS Backup
@@ -39,6 +43,7 @@ $Policy=New-PPDMNASBackupPolicy -Schedule $Schedule `
 -StorageSystemID $StorageSystem.id `
 -indexingEnabled `
 -enabled `
+-NASCid $Creds.id `
 -ContinueOn ACL_ACCESS_DENIED,DATA_ACCESS_DENIED
 $Policy
 
