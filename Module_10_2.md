@@ -97,7 +97,7 @@ do { Sleep 5;$Activity=Get-PPDMactivities -filter "category eq `"protect`" and n
 
 ![Alt text](image-57.png)
 
-## Monitor Intexing
+## Monitor Indexing
 
 Indexing will start right after the Backup.
 As with category protect, we can use the category indexing to Mounitor:  
