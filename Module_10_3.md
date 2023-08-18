@@ -24,15 +24,32 @@ As per Lab Guide, we need to search the following Spec:
 > Key in "file0" in the File/Folder Name
 
 ```Powershell
-Get-PPDMfile_instances -name file1 -VirtualMachine -SourceServer vcsa-7.demo.local -AssetID $Asset.id
+$files=@()
+$files=$files + (Get-PPDMfile_instances  -name "file02" -ShareProtocol CIFS -NAS -AssetID $Asset.id -BackupState BackedUp)
+$files=$files + (Get-PPDMfile_instances  -name "file01" -ShareProtocol CIFS -NAS -AssetID $Asset.id -BackupState BackedUp)
 ```
 
+
+```Powershell
+
+$RestoreAsset=Get-PPDMassets -type NAS_SHARE -filter 'name eq "ifs"'
+```
+
+
+```Powershell
+$FileBackups=Request-PPDMfile_backups -fileinstance $files
+$BackupID=$FileBackups[0].backups[0].backupId
+```
+
+
+
+PS C:\Users\Administrator> Restore-PPDMNasFiles -copyID $BackupID -Fileobject $files -AssetID $RestoreAsset.id -Verbose -targetdirectory "ifs" -
+credentials $credential
+
+PS C:\Users\Administrator> Restore-PPDMNasFiles -copyID $BackupID -Fileobject $files -AssetID $RestoreAsset.id -Verbose -targetdirectory "ifs" -
+credentials $credential  -restoreTopLevelACLs
+
 ![Alt text](image-47.png)
-
-[<<Module 8 Lesson 2](./Module_8_2.md) This Concludes Module 9 Lesson 1 [Module 10 Lesson 1 >>](./Module_10_1.md)
-
-
-
 
 
 [<<Module 9 Lesson 1](./Module_9_1.md) This Concludes Module 10 Lesson 1 [Module 10 Lesson 1 >>](./Module_10_2.md)
