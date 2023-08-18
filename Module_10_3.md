@@ -20,13 +20,11 @@ As per Lab Guide, we need to search the following Spec:
 
 > Key in "file0" in the File/Folder Name
 
-We will Ulimit our search to the Asset win-share01:. If not done from the previous Session, do  
-
+We will limit our search to the Asset win-share01:. If not done from the previous Session, do  
 
 ```Powershell
 $Asset=Get-PPDMassets -type NAS_SHARE -filter 'name eq "win-share01"'
 ```
-
 
 The lab Guide wants to select 2 Files, file01 and file02. We will Scope them into a Powershell Array for subsequent Commands:
 
@@ -34,7 +32,7 @@ The lab Guide wants to select 2 Files, file01 and file02. We will Scope them int
 $files=@()
 $files=$files + (Get-PPDMfile_instances  -name "file02" -ShareProtocol CIFS -NAS -AssetID $Asset.id -BackupState BackedUp)
 $files=$files + (Get-PPDMfile_instances  -name "file01" -ShareProtocol CIFS -NAS -AssetID $Asset.id -BackupState BackedUp)
-$files
+$files | ft
 ```
 
 We need to getThe Backup/CopyID from the selected files:
