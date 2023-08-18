@@ -20,6 +20,14 @@ As per Lab Guide, we need to search the following Spec:
 
 > Key in "file0" in the File/Folder Name
 
+We will Ulimit our search to the Asset win-share01:. If not done from the previous Session, do  
+
+
+```Powershell
+$Asset=Get-PPDMassets -type NAS_SHARE -filter 'name eq "win-share01"'
+```
+
+
 The lab Guide wants to select 2 Files, file01 and file02. We will Scope them into a Powershell Array for subsequent Commands:
 
 ```Powershell
@@ -43,7 +51,7 @@ And read the Asset ID of teh Target Share
 $RestoreAsset=Get-PPDMassets -type NAS_SHARE -filter 'name eq "ifs"'
 ```
 
-Also, we need to Provide the Crential for the Target share.  
+Also, we need to Provide the Credential for the Target share.  
 Therefore, create a Credential:
 
 ```Powershell
