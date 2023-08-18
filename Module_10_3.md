@@ -35,19 +35,27 @@ $files=$files + (Get-PPDMfile_instances  -name "file01" -ShareProtocol CIFS -NAS
 $files | ft
 ```
 
+![Alt text](image-59.png)
+
 We need to getThe Backup/CopyID from the selected files:
 
 ```Powershell
 $FileBackups=Request-PPDMfile_backups -fileinstance $files
-$FileBackups
+$FileBackups | ft
 $BackupID=$FileBackups[0].backups[0].backupId
 ```
 
-And read the Asset ID of teh Target Share
+## Define Restore Target Objects
+![Alt text](image-60.png)
+
+ARread the Asset ID of the Target Share, ifs
 
 ```Powershell
 $RestoreAsset=Get-PPDMassets -type NAS_SHARE -filter 'name eq "ifs"'
+$RestoreAsset | ft
 ```
+
+![Alt text](image-61.png)
 
 Also, we need to Provide the Credential for the Target share.  
 Therefore, create a Credential:
@@ -58,11 +66,14 @@ $username="root"
 $Credentials = New-Object System.Management.Automation.PSCredential($username, $Securestring)
 ```
 
+## Start the Restore
+
 ```Powershell
-Restore-PPDMNasFiles -copyID $BackupID -Fileobject $files -AssetID $RestoreAsset.id -Verbose -targetdirectory "ifs" -credential $credential  -restoreTopLevelACLs
+Restore-PPDMNasFiles -copyID $BackupID -Fileobject $files -AssetID $RestoreAsset.id -targetdirectory "ifs" -credential $credential  -restoreTopLevelACLs
 ```
 
 Monitor the Activity:
+
 ```Powershell
 Get-PPDMactivities -filter "category eq `"RESTORE`" and name lk `"%Recovering NAS File/Folder%`""
 ```
