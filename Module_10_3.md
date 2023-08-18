@@ -26,6 +26,7 @@ The lab Guide wants to select 2 Files, file01 and file02. We will Scope them int
 $files=@()
 $files=$files + (Get-PPDMfile_instances  -name "file02" -ShareProtocol CIFS -NAS -AssetID $Asset.id -BackupState BackedUp)
 $files=$files + (Get-PPDMfile_instances  -name "file01" -ShareProtocol CIFS -NAS -AssetID $Asset.id -BackupState BackedUp)
+$files
 ```
 
 We need to getThe Backup/CopyID from the selected files:
