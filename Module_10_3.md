@@ -1,9 +1,6 @@
 # MODULE 10 - DYNAMIC NAS PROTECTION
 
-## LESSON 2 - PROTECT CIFS SHARE USING POWERPROTECT DATA MANAGER WITH INDEXING ENABLED
-
-
-
+## LESSON 3 -PERFORM A FILE SEARCH AND RESTORE FILES TO ALTERNATE SHARE
 
 ## Search for files in on NAS
 
@@ -23,33 +20,39 @@ As per Lab Guide, we need to search the following Spec:
 
 > Key in "file0" in the File/Folder Name
 
+The lab Guide wants to select 2 Files, file01 and file02. We will Scope them into a Powershell Array for subsequent Commands:
+
 ```Powershell
 $files=@()
 $files=$files + (Get-PPDMfile_instances  -name "file02" -ShareProtocol CIFS -NAS -AssetID $Asset.id -BackupState BackedUp)
 $files=$files + (Get-PPDMfile_instances  -name "file01" -ShareProtocol CIFS -NAS -AssetID $Asset.id -BackupState BackedUp)
 ```
 
-
-```Powershell
-
-$RestoreAsset=Get-PPDMassets -type NAS_SHARE -filter 'name eq "ifs"'
-```
-
+We need to getThe Backup/CopyID from the selected files:
 
 ```Powershell
 $FileBackups=Request-PPDMfile_backups -fileinstance $files
+$FileBackups
 $BackupID=$FileBackups[0].backups[0].backupId
 ```
 
+And read the Asset ID of teh Target Share
 
+```Powershell
+$RestoreAsset=Get-PPDMassets -type NAS_SHARE -filter 'name eq "ifs"'
+```
 
-PS C:\Users\Administrator> Restore-PPDMNasFiles -copyID $BackupID -Fileobject $files -AssetID $RestoreAsset.id -Verbose -targetdirectory "ifs" -
-credentials $credential
+Also, we need to Provide the Crential for the Target share.  
+Therefore, create a Credential:
 
-PS C:\Users\Administrator> Restore-PPDMNasFiles -copyID $BackupID -Fileobject $files -AssetID $RestoreAsset.id -Verbose -targetdirectory "ifs" -
-credentials $credential  -restoreTopLevelACLs
+```Powershell
+$Securestring=ConvertTo-SecureString -AsPlainText -String "Password123!" -Force
+$username="root"
+$Credentials = New-Object System.Management.Automation.PSCredential($username, $Securestring)
+```
 
-![Alt text](image-47.png)
+```Powershell
+Restore-PPDMNasFiles -copyID $BackupID -Fileobject $files -AssetID $RestoreAsset.id -Verbose -targetdirectory "ifs" -credential $credential  -restoreTopLevelACLs
+```
 
-
-[<<Module 9 Lesson 1](./Module_9_1.md) This Concludes Module 10 Lesson 1 [Module 10 Lesson 1 >>](./Module_10_2.md)
+[<<Module 10 Lesson 2](./Module_10_2.md) This Concludes Module 10 Lesson 3 [Module 11 Lesson 1 >>](./Module_11_1.md)
