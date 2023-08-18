@@ -55,4 +55,9 @@ $Credentials = New-Object System.Management.Automation.PSCredential($username, $
 Restore-PPDMNasFiles -copyID $BackupID -Fileobject $files -AssetID $RestoreAsset.id -Verbose -targetdirectory "ifs" -credential $credential  -restoreTopLevelACLs
 ```
 
+Monitor the Activity:
+```Powershell
+Get-PPDMactivities -filter "category eq `"RESTORE`" and name lk `"%Recovering NAS File/Folder%`""
+```
+
 [<<Module 10 Lesson 2](./Module_10_2.md) This Concludes Module 10 Lesson 3 [Module 11 Lesson 1 >>](./Module_11_1.md)
