@@ -78,4 +78,6 @@ Monitor the Activity:
 Get-PPDMactivities -filter "category eq `"RESTORE`" and name lk `"%Recovering NAS File/Folder%`""
 ```
 
+![Alt text](image-62.png)
+
 [<<Module 10 Lesson 2](./Module_10_2.md) This Concludes Module 10 Lesson 3 [Module 11 Lesson 1 >>](./Module_11_1.md)
