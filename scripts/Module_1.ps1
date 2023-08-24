@@ -1,6 +1,3 @@
-Remove-Module ppdm-pwsh -force | out-null
-Uninstall-Module ppdm-pwsh -AllVersions | out-null
-Install-Module ppdm-pwsh -MinimumVersion 19.14.20.76 -Force | out-null
 $PPDM_FQDN="ppdm-01.demo.local"
 $Securestring=ConvertTo-SecureString -AsPlainText -String "Password123!" -Force
 $username="admin"
