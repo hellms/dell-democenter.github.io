@@ -60,4 +60,8 @@ Uninstall-Module ppdm-pwsh -AllVersions
 Install-Module ppdm-pwsh -MinimumVersion 19.14.20.76 -Force
 ```
 
+## TLDR
+
+[TLDR](./scripts/Module_0.ps1)
+
 [<<Index](./README.md)This Concludes Module 0 [>>Module 1](./Module_1.md)
