@@ -107,4 +107,6 @@ Get-PPDMactivities -PredefinedFilter ASSET_JOBS -pageSize 1
 
 ![Alt text](./images/image-35.png)
 
- [<<Module 3 Lesson 2](./Module_3_2.md) This Concludes Module 3 Lesson 3 [Module 3 Lesson 4 >>](./Module_3_4.md)
+[TLDR](./scripts/Module_3_3.ps1)
+
+[<<Module 3 Lesson 2](./Module_3_2.md) This Concludes Module 3 Lesson 3 [Module 3 Lesson 4 >>](./Module_3_4.md)
