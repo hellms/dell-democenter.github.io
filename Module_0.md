@@ -55,9 +55,9 @@ Get-Command -Module PPDM-pwsh
 If you ever need to update the Module to a newer Version, run
 
 ```Powershell
-Remove-Module ppdm-pwsh
+Remove-Module ppdm-pwsh -force 
 Uninstall-Module ppdm-pwsh -AllVersions
-Install-Module ppdm-pwsh -MinimumVersion 19.14.20.74 -Force
+Install-Module ppdm-pwsh -MinimumVersion 19.14.20.76 -Force
 ```
 
 [<<Index](./README.md)This Concludes Module 0 [>>Module 1](./Module_1.md)
