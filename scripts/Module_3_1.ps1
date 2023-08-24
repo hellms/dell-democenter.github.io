@@ -2,7 +2,6 @@ $VCENTER_HOST="vcsa-7.demo.local"
 $Securestring=ConvertTo-SecureString -AsPlainText -String "Password123!" -Force
 $username="administrator@vsphere.local"
 $Credential = New-Object System.Management.Automation.PSCredential($username, $Securestring)
-$CREDS=New-PPDMcredentials
 $CREDS=New-PPDMcredentials -type VCENTER -name $username -credentials $CREDS
 Get-PPDMcertificates -newhost $VCENTER_HOST -port 443 | Approve-PPDMcertificates | out-string
 Write-Host "Adding Inventory Source $VCENTER_HOST"
