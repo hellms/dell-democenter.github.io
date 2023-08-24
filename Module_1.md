@@ -84,6 +84,6 @@ Get-PPDMactivity_metrics -states
 
 ## TLDR
 
-![TLDR](./scripts/Module_1.ps1)
+[TLDR](./scripts/Module_1.ps1)
 
 [<<Module 0](./Module_0.md) This Concludes Module 1 [Module 2](./Module_2.md)
