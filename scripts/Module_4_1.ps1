@@ -1,7 +1,7 @@
 # MODULE 4 - PROTECT SQL DATABASES
 # Scripted Version
 ## LESSON 1 - DISCOVER SQL DATABASES
-$SQLHST="sql-02.demo.local"
+$SQLHOST="sql-02.demo.local"
 Write-Host "Reviewing the Agent Regitration Status."
 
 
