@@ -2,26 +2,21 @@
 # Script Version
 ## LESSON 2 - PROTECT SQL DATABASES
 
+$SQL_HOSTNAME="sql-02.demo.local"
+Write-Host "Getting discovered Databases for Host $SQL_HOSTNAME"
+$Assets=Get-PPDMassets -type MICROSOFT_SQL_DATABASE -filter "details.database.clusterName eq `"$SQL_HOSTNAME`""  6>$null
+Write-Host "Checkiung Stream Count for SQL Assets on  $SQL_HOSTNAME"
 
-
-Get-PPDMassets -type MICROSOFT_SQL_DATABASE -filter 'details.database.clusterName eq "sql-02.demo.local"' | ft
-
+$Assets.backupDetails | out-string
 
 As we can see, Stream Counts are set to 4 for Full and Differential, and to 1 for logs.  
 We change this with
 
+Write-Host "Setting Stream Count for SQL Assets on  $SQL_HOSTNAME"
 
-Get-PPDMassets -type MICROSOFT_SQL_DATABASE -filter 'details.database.clusterName eq "sql-02.demo.local" and name lk "SQLPROD%"' | Set-PPDMMSSQLassetStreamcount -LogStreamCount 10 -FullStreamCount 10 -DifferentialStreamCount 10
-
-
-And then have a Look at the Result:
-
-(Get-PPDMassets -type MICROSOFT_SQL_DATABASE -filter 'details.database.clusterName eq "sql-02.demo.local" and name lk "SQLPROD%"').backupDetails
-
-
-
-We create a Schdeule using the Schedule Helper for Databases:
-
+$Assets | Set-PPDMMSSQLassetStreamcount -LogStreamCount 10 -FullStreamCount 10 -DifferentialStreamCount 10
+($Assets | Get-PPDMassets).backupDetails | out-string
+Write-Host "Creating a Backup Schedule"
 
 $Schedule=New-PPDMDatabaseBackupSchedule -hourly -CreateCopyIntervalHrs 1 -DifferentialBackupUnit MINUTELY -DifferentialBackupInterval 30 -RetentionUnit DAY -RetentionInterval 5
 
@@ -70,17 +65,12 @@ Add-PPDMProtection_policy_assignment -id $Policy.id -AssetID $Assets.id
 $Policy | Get-PPDMprotection_policies
 
 
-![Alt text](./images/image-56.png)
-
-This will Trigger some Configuration Activities.
 
 Review them with
 
 
 Get-PPDMactivities -PredefinedFilter SYSTEM_JOBS -pageSize 3
 
-
-![Alt text](./images/image-57.png)
 
 And now we are good to start the Policy AdHoc:
 
@@ -92,18 +82,8 @@ Now, we can Monitory the Protection Job
 
 
 Get-PPDMactivities -PredefinedFilter PROTECTION_JOBS -pageSize 1
-
-
-![Alt text](./images/image-58.png)
-
 And the Asset Activities
 
 
 Get-PPDMactivities -PredefinedFilter ASSET_JOBS -pageSize 4
 
-
-![Alt text](./images/image-59.png)
-
-[TLDR](./scripts/Module_4_2.ps1)
-
-[<<Module 4 Lesson 1](./Module_4_1.md) This Concludes Module 4 Lesson 2 [Module 4 Lesson 3>>](./Module_4_3.md)
