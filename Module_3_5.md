@@ -14,7 +14,7 @@ $OriginalVM="LINUX-01"
 Next, we read out the Target Datacenter Inventory Source
 
 ```Powershell
-$InventorySource=Get-PPDMinventory_sources -Type VCENTER -filter "`'name eq `"$vcenterName`"`'"
+$InventorySource=Get-PPDMinventory_sources -Type VCENTER -filter "`'address eq `"$vcenterName`"`'"
 ```
 
 Read the Datacenter Moref
