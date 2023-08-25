@@ -75,4 +75,6 @@ Get-PPDMRestoredCopies -pagesize 1
 
 ![Alt text](./images/image-44.png)
 
+[TLDR](./scripts/Module_3_5.ps1)
+
 [<<Module 3 Lesson 4](./Module_3_4.md) This Concludes Module 3 [Module 4 Lesson 1>>](./Module_4_1.md)
