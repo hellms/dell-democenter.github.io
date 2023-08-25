@@ -8,16 +8,16 @@ $DataBaseName = "SQLDB_01"
 ## Read our Restore Host
 $RestoreHostFilter = 'attributes.appHost.applicationsOfInterest.type eq "MSSQL" and not (lastDiscoveryStatus eq "DELETED") and details.appHost.os eq "WINDOWS" and hostname eq "' + $RestoreToHost_Name + '"'
 $RestoreToHost = Get-PPDMhosts -filter $RestoreHostFilter
-$RestoreToHost | out-string
+$RestoreToHost | Out-String
 ## Read the Asset to restore to identify the Asset Copies
-$RestoreAssetFilter = 'type eq "MICROSOFT_SQL_DATABASE" and protectionStatus eq "PROTECTED" and details.database.clusterName eq "' + $RestoreFromHost + '"' + ' and details.database.appServerName eq "' + $AppServerName + '"'
+$RestoreAssetFilter = 'type eq "MICROSOFT_SQL_DATABASE" and protectionStatus eq "PROTECTED" and details.database.clusterName eq "' + $RestoreFromHost + '"' + ' and details.database.appServerName eq "' + $AppServerName + '"' + ' and name eq "' + $DataBaseName + '"'
 $RestoreAssets = Get-PPDMAssets -Filter $RestoreAssetFilter
-$RestoreAssets = $RestoreAssets | Where-Object name -Match $DataBaseName
 # Optionally, look at the CopyMap
 ## Selecting the Asset Copy to Restore
 ### Using the latest copy
-write-host "Selecting Latest Asse Copyopy for $DataBaseName"
-RestoreAssetCopy=Get-PPDMlatest_copies -assetID $RestoreAssets.id
+$RestoreAssetCopy = $RestoreAssets | Get-PPDMlatest_copies
+write-host "Selecting Latest Asset Copy for $DataBaseName"
+$RestoreAssetCopy | Out-String
 ### by Filering for a Date Range ...
 <#
 $myDate = (get-date).AddDays(-1)
