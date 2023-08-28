@@ -17,8 +17,8 @@ $Assets | Set-PPDMMSSQLassetStreamcount -LogStreamCount 10 -FullStreamCount 10 -
 Write-Host "Creating a Backup Schedule"
 $Schedule=New-PPDMDatabaseBackupSchedule -hourly -CreateCopyIntervalHrs 1 -DifferentialBackupUnit MINUTELY -DifferentialBackupInterval 30 -RetentionUnit DAY -RetentionInterval 5
 
-$StorageSystem=Get-PPDMStorage_systems -Type DATA_DOMAIN_SYSTEM -Filter "name eq `"$StorageName`""
-$CREDS=Get-PPDMcredentials -filter 'name eq "windows"'
+$StorageSystem=Get-PPDMStorage_systems -Type DATA_DOMAIN_SYSTEM -Filter "name eq `"$StorageName`"" 6>$null
+$CREDS=Get-PPDMcredentials -filter 'name eq "windows"' 6>$null
 if (!$CREDS) {
     $Securestring=ConvertTo-SecureString -AsPlainText -String "Password123!" -Force
     $Credential = New-Object System.Management.Automation.PSCredential($username, $Securestring)
@@ -27,8 +27,8 @@ if (!$CREDS) {
 
 }
 $Policy=New-PPDMSQLBackupPolicy -Schedule $Schedule -Name $PolicyName -Description $PolicyDescription -skipUnprotectableState -dbCID $CREDS.id -StorageSystemID $StorageSystem.id -enabled
-$Assets=Get-PPDMassets -type MICROSOFT_SQL_DATABASE -filter 'details.database.clusterName eq "sql-02.demo.local" and name lk "SQLPROD%"'
-$Assets+=Get-PPDMassets -type MICROSOFT_SQL_DATABASE -filter 'details.database.clusterName eq "sqlaag-01.demo.local" and name lk "DemoDB-0%"'
+$Assets=Get-PPDMassets -type MICROSOFT_SQL_DATABASE -filter 'details.database.clusterName eq "sql-02.demo.local" and name lk "SQLPROD%"'  6>$null
+$Assets+=Get-PPDMassets -type MICROSOFT_SQL_DATABASE -filter 'details.database.clusterName eq "sqlaag-01.demo.local" and name lk "DemoDB-0%"'  6>$null
 Add-PPDMProtection_policy_assignment -id $Policy.id -AssetID $Assets.id | out-string
 # $Policy | Get-PPDMprotection_policies
 
@@ -44,7 +44,7 @@ until ($Activity.state -eq "COMPLETED")
 
 Start-PPDMprotection_policies -id $Policy.id -BackupType FULL -RetentionUnit DAY -RetentionInterval 5
 
-Get-PPDMactivities -pageSize 1 -filter 'name eq "Manually Protecting SQL Databases - SQL PROD DATABASE - PROTECTION - Full"' | out-string
+Get-PPDMactivities -pageSize 1 -filter 'name eq "Manually Protecting SQL Databases - SQL PROD DATABASE - PROTECTION - Full"' 6>$null | out-string
 do { 
     Sleep 5;
     $Activity=Get-PPDMactivities -pageSize 1 -filter 'name eq "Manually Protecting SQL Databases - SQL PROD DATABASE - PROTECTION - Full"' 6>$null
