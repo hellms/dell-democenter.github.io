@@ -7,7 +7,7 @@ $AppServerName = "MSSQLSERVER"
 $DataBaseName = "SQLDB_01"
 ## Read our Restore Host
 $RestoreHostFilter = 'attributes.appHost.applicationsOfInterest.type eq "MSSQL" and not (lastDiscoveryStatus eq "DELETED") and details.appHost.os eq "WINDOWS" and hostname eq "' + $RestoreToHost_Name + '"'
-$RestoreToHost = Get-PPDMhosts -filter $RestoreHostFilter
+$RestoreToHost = Get-PPDMhosts -filter $RestoreHostFilter 6>$null
 $RestoreToHost | Out-String
 ## Read the Asset to restore to identify the Asset Copies
 $RestoreAssetFilter = 'type eq "MICROSOFT_SQL_DATABASE" and protectionStatus eq "PROTECTED" and details.database.clusterName eq "' + $RestoreFromHost + '"' + ' and details.database.appServerName eq "' + $AppServerName + '"' + ' and name eq "' + $DataBaseName + '"'

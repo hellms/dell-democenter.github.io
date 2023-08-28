@@ -1,7 +1,7 @@
 # MODULE 3 - PROTECT VMWARE VIRTUAL MACHINES
 ## LESSON 3 - PROTECT SQL VIRTUAL MACHINES USING PRE-CREATED/EXISTING STORAGE UNIT(APPLICATION AWARE)
 
-$Policy=Get-PPDMprotection_policies -filter 'name eq "Linux VM"'
+$Policy=Get-PPDMprotection_policies -filter 'name eq "Linux VM"' 6> $null
 $Policy.stages[0].target.dataTargetId | out-string
 $StorageUnitID=$Policy.stages[0].target.dataTargetId
 $StorageSystemID=$Policy.stages[0].target.storageSystemId

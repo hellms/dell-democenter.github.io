@@ -11,4 +11,3 @@ Get-PPDMmfa_bypass_accounts -filter 'selector eq "local" and subject eq "admin"'
 Get-PPDMidentity_providers -type local | Set-PPDMmfa_bypass_accounts -accountname admin | out-string
 # List the Account bypass for local user admin  
 Get-PPDMmfa_bypass_accounts -filter 'selector eq "local" and subject eq "admin"' | ft | out-string
-
