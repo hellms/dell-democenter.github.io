@@ -1,6 +1,7 @@
 [Net.ServicePointManager]::SecurityProtocol =
     [Net.ServicePointManager]::SecurityProtocol -bor
     [Net.SecurityProtocolType]::Tls12
+Set-Item -Path WSMan:\localhost\Client\TrustedHosts -Value '*.github.com' -force    
 Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force
 Remove-Module ppdm-pwsh -force -ErrorAction SilentlyContinue | out-null
 Uninstall-Module ppdm-pwsh -AllVersions -ErrorAction SilentlyContinue | out-null
