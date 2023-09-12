@@ -16,13 +16,17 @@ Powershell windows should open.
 ![image](https://github.com/dell-democenter/dell-democenter.github.io/assets/8255007/5746bdca-92c4-4dd0-bc23-5a76f0fa2b4e)
 
 To access the PowerShell Gallery, you must use Transport Layer Security (TLS) 1.2 or higher. Use the following command to enable TLS 1.2 in your PowerShell session.  
-
+We also set the dell-democenter repository on github as trusted, s we can download and run scripts in an adavaced session later. 
 Paste the following into the powershell window:  
 
 ```Powershell
 [Net.ServicePointManager]::SecurityProtocol =
     [Net.ServicePointManager]::SecurityProtocol -bor
     [Net.SecurityProtocolType]::Tls12
+$Zonemaps = ("HKCU:\Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Domains")
+$DOMAIN=New-Item -Path $Zonemaps -Name "github.io\dell-democenter" -Force
+$DOMAIN | New-ItemProperty -Name "https" -PropertyType DWORD -Value  "2"
+Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force
 ```
 
 And hit enter  
@@ -32,7 +36,7 @@ Powershell should now run with TLS 1.2
 Install the PPDM-pwsh Powershell Module from the Powershell Gallery using the Command *Install-Module*  
 
 ```Powershell
-Install-Module ppdm-pwsh -MinimumVersion 19.14.20.74 -Force
+Install-Module ppdm-pwsh -MinimumVersion 19.14.20.76 -Force
 ```
 
 Show the Module is installed using:
