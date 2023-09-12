@@ -35,4 +35,6 @@ $Asset | Get-PPDMlatest_copies
 
 ![Alt text](./images/image-80.png)
 
+[TLDR](./scripts/Module_5_2.ps1)
+
 [<<Module 5 Lesson 1](./Module_5_1.md) This Concludes Module 5 Lesson 2 [Module 5 Lesson 3>>](./Module_5_3.md)
