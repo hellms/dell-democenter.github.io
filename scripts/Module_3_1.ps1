@@ -1,4 +1,4 @@
-#$username="administrator@vsphere.local"
+#$username="admin@vsphere.local"
 #$Credential = New-Object System.Management.Automation.PSCredential($username, $Securestring)
 #$CREDS=New-PPDMcredentials -type VCENTER -name $username -credentials $Credential
 #Get-PPDMcertificates -newhost $VCENTER_HOST -port 443 | Approve-PPDMcertificates | out-string
