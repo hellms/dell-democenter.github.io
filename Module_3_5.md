@@ -70,7 +70,7 @@ Get-PPDMRestoredCopies
 Now See the Status of the Instant Access Sewssion
 
 ```Powershell
-$Restore | Get-PPDMRestoredCopies
+$Restore | Get-PPDMRestored_Copies
 ```
 
 ![Alt text](./images/image-44.png)
