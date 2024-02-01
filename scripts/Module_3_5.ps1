@@ -26,11 +26,11 @@ $Restore=Restore-PPDMVMAsset -INSTANT_ACCESS -CopyObject $LatestCopy `
 -Description "from Powershell"
 
 
-$Restore | Get-PPDMactivities -filter $Filter -pageSize 1 6>$null
+$Restore | Get-PPDMactivities 
 Write-Host "Monitoring Restore Progress"
 do { 
     Sleep 5;
-    $Activity=$Restore | Get-PPDMactivities -filter $Filter -pageSize 1 6>$null
+    $Activity=$Restore | Get-PPDMactivities 
     write-host -NoNewline "$($Activity.progress)% "
     }
 until ($Activity.state -eq "COMPLETED")
