@@ -79,7 +79,7 @@ $Policy=Get-PPDMprotection_policies -id $Asset.protectionPolicy.id
 Finally, we start the Asset Protection for the Asset ID
 
 ```Powershell
-Start-PPDMprotection -PolicyObject $Policy -AssetIDs $Asset.id
+$Protection=Start-PPDMprotection -PolicyObject $Policy -AssetIDs $Asset.id
 ```
 
 ![Alt text](./images/image-27.png)
@@ -87,7 +87,7 @@ Start-PPDMprotection -PolicyObject $Policy -AssetIDs $Asset.id
 View the Latest Asset Jobs
 
 ```Powershell
-Get-PPDMactivities -PredefinedFilter ASSET_JOBS -pageSize 1
+$Protection.results | Get-PPDMactivities 
 ```
 
 ![Alt text](./images/image-28.png)
