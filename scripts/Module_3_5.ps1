@@ -18,19 +18,19 @@ Write-Host "Reading the Original Asset for $OriginalVM"
 $Asset=Get-PPDMassets -filter "`'name eq `"$OriginalVM`"`'" 6>$null
 Write-Host "Get the latest Copy for the Asset $($Asset.name)"
 $LatestCopy=Get-PPDMlatest_copies -assetID $Asset.id
-Restore-PPDMVMAsset -INSTANT_ACCESS -CopyObject $LatestCopy `
+$Restore=Restore-PPDMVMAsset -INSTANT_ACCESS -CopyObject $LatestCopy `
 -NewVMName INSTANT_1 `
 -InventorySourceId $InventorySource.id `
 -dataCenterMoref $Datacenter.moref `
 -hostMoref $HostMorefs.moref `
 -Description "from Powershell"
 
-$Filter='category eq "RESTORE" and subcategory eq "INSTANT_ACCESS" and name lk "%' + $LatestCopy.id + '%"' 
-Get-PPDMactivities -filter $Filter -pageSize 1 6>$null
+
+$Restore | Get-PPDMactivities -filter $Filter -pageSize 1 6>$null
 Write-Host "Monitoring Restore Progress"
 do { 
     Sleep 5;
-    $Activity=Get-PPDMactivities -filter $Filter -pageSize 1 6>$null
+    $Activity=$Restore | Get-PPDMactivities -filter $Filter -pageSize 1 6>$null
     write-host -NoNewline "$($Activity.progress)% "
     }
 until ($Activity.state -eq "COMPLETED")
