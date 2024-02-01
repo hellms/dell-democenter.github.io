@@ -56,7 +56,7 @@ $LatestCopy=Get-PPDMlatest_copies -assetID $Asset.id
 And finally run the Restore
 
 ```Powershell
-Restore-PPDMVMAsset -INSTANT_ACCESS -CopyObject $LatestCopy `
+$Restore=Restore-PPDMVMAsset -INSTANT_ACCESS -CopyObject $LatestCopy `
 -NewVMName INSTANT_1 `
 -InventorySourceId $InventorySource.id `
 -dataCenterMoref $Datacenter.moref `
@@ -70,7 +70,7 @@ Get-PPDMRestoredCopies
 Now See the Status of the Instant Access Sewssion
 
 ```Powershell
-Get-PPDMRestoredCopies -pagesize 1
+$Restore | Get-PPDMRestoredCopies
 ```
 
 ![Alt text](./images/image-44.png)
