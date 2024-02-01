@@ -28,7 +28,7 @@ $CREDS=New-PPDMcredentials -type VCENTER -name testcreds
 $CREDS
 ```
 
-with the Credentials <administrator@vsphere.local> / Password123!
+with the Credentials <admin@vsphere.local> / Password123!
 ![New Cred](./images/image-9.png)
 To approve tghe Certificate ( also good for refreshing Certs) use the following Powershell Code
 
