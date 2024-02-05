@@ -12,10 +12,10 @@ The Command will output all Agents Registrations
 
 ![Alt text](./images/image-45.png)
 
-Agents cann be approved via the *Set-PPDMWhitelist* Function, eiter from ID or from Pipeline
+Agents can be approved via the *Update-PPDMWhitelist* Function, either from ID or from Pipeline
 
 ```Powershell
-Get-PPDMWhitelist | Set-PPDMWhitelist -state APPROVED
+Get-PPDMWhitelist | Update-PPDMWhitelist -state APPROVED
 ```
 
 ![Alt text](./images/image-46.png)

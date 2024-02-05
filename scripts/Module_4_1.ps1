@@ -4,7 +4,7 @@
 $SQL_HOSTNAME="sql-02.demo.local"
 Write-Host "Reviewing the Agent Regitration Status."
 Get-PPDMagent_registration_status  6>$null | out-string
-Get-PPDMWhitelist  6>$null| Set-PPDMWhitelist -state APPROVED | out-string
+Get-PPDMWhitelist  6>$null| Update-PPDMWhitelist -state APPROVED | out-string
 Write-Host "Starting a discover for host $SQL_HOSTNAME"
 $Discoveries=Get-PPDMhosts -filter "name eq `"$SQL_HOSTNAME`""  6>$null | Start-PPDMdiscoveries -level HOSTFULL -start hosts
 do { 

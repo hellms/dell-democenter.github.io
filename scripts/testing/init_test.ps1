@@ -10,6 +10,7 @@ Install-Script -Name install-gitscm -Force
 Install-gitscm
 git clone https://github.com/bottkars/ppdm-pwsh.git
 set-location ppdm-pwsh
+git checkout 19.15
 ipmo ./PPDM-pwsh -force 
 Write-Host "Testing Module 1"
 $DownloadScript="https://dell-democenter.github.io/scripts/Module_1.ps1"
@@ -37,4 +38,12 @@ Invoke-Expression ((New-Object System.Net.WebClient).DownloadString($DownloadScr
 
 Write-Host "Testing Module 3 4"
 $DownloadScript="https://dell-democenter.github.io/scripts/Module_3_4.ps1"
+Invoke-Expression ((New-Object System.Net.WebClient).DownloadString($DownloadScript))
+
+Write-Host "Testing Module 3 5"
+$DownloadScript="https://dell-democenter.github.io/scripts/Module_3_5.ps1"
+Invoke-Expression ((New-Object System.Net.WebClient).DownloadString($DownloadScript))
+
+Write-Host "Testing Module 4 1"
+$DownloadScript="https://dell-democenter.github.io/scripts/Module_4_1.ps1"
 Invoke-Expression ((New-Object System.Net.WebClient).DownloadString($DownloadScript))
