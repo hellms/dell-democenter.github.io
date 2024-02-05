@@ -34,3 +34,7 @@ Invoke-Expression ((New-Object System.Net.WebClient).DownloadString($DownloadScr
 Write-Host "Testing Module 3 3"
 $DownloadScript="https://dell-democenter.github.io/scripts/Module_3_3.ps1"
 Invoke-Expression ((New-Object System.Net.WebClient).DownloadString($DownloadScript))
+
+Write-Host "Testing Module 3 4"
+$DownloadScript="https://dell-democenter.github.io/scripts/Module_3_4.ps1"
+Invoke-Expression ((New-Object System.Net.WebClient).DownloadString($DownloadScript))
