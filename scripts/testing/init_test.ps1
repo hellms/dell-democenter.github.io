@@ -15,7 +15,8 @@ Write-Host "Testing Module 1"
 $DownloadScript="https://dell-democenter.github.io/scripts/Module_1.ps1"
 Invoke-Expression ((New-Object System.Net.WebClient).DownloadString($DownloadScript))
 Write-Host "Turning On strict API Validation"
-Set-PPDMcommon_settings -id REST_API_SETTING -Properties  "@(@{name=enableStrictValidation; value=true; type=BOOLEAN})"
+$Settings=Get-PPDMcommon_settings -id REST_API_SETTING
+Set-PPDMcommon_settings -id REST_API_SETTING -Properties $Settings
 Invoke-Expression ((New-Object System.Net.WebClient).DownloadString($DownloadScript))
 
 Write-Host "Testing Module 2"
