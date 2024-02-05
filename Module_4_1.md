@@ -2,7 +2,7 @@
 
 ## LESSON 1 - DISCOVER SQL DATABASES
 
-Review the Agent Regitration Status.
+Review the Agent Registration Status.
 
 ```Powershell
 Get-PPDMagent_registration_status
