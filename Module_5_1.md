@@ -102,4 +102,6 @@ Get-PPDMactivities -PredefinedFilter PROTECTION_JOBS -pageSize 2
 
 ![Alt text](./images/image-76.png)
 
+[TLDR](./scripts/Module_5_1.ps1)
+
 [<<Module 4 Lesson 4](./Module_4_4.md) This Concludes Module 5 Lesson 1 [Module 5 Lesson 2>>](./Module_5_2.md)

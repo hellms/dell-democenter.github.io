@@ -3,87 +3,53 @@
 ## LESSON 2 - PROTECT SQL DATABASES
 
 $SQL_HOSTNAME="sql-02.demo.local"
+$PolicyName="SQL PROD DATABASE"
+$PolicyDescription="SQL DB Backups"
+$StorageName="ddve-01.demo.local"
 Write-Host "Getting discovered Databases for Host $SQL_HOSTNAME"
 $Assets=Get-PPDMassets -type MICROSOFT_SQL_DATABASE -filter "details.database.clusterName eq `"$SQL_HOSTNAME`""  6>$null
-Write-Host "Checkiung Stream Count for SQL Assets on  $SQL_HOSTNAME"
+Write-Host "Checking Stream Count for SQL Assets on  $SQL_HOSTNAME"
 
 $Assets.backupDetails | out-string
-
-As we can see, Stream Counts are set to 4 for Full and Differential, and to 1 for logs.  
-We change this with
-
 Write-Host "Setting Stream Count for SQL Assets on  $SQL_HOSTNAME"
-
 $Assets | Set-PPDMMSSQLassetStreamcount -LogStreamCount 10 -FullStreamCount 10 -DifferentialStreamCount 10
 ($Assets | Get-PPDMassets).backupDetails | out-string
 Write-Host "Creating a Backup Schedule"
-
 $Schedule=New-PPDMDatabaseBackupSchedule -hourly -CreateCopyIntervalHrs 1 -DifferentialBackupUnit MINUTELY -DifferentialBackupInterval 30 -RetentionUnit DAY -RetentionInterval 5
 
+$StorageSystem=Get-PPDMStorage_systems -Type DATA_DOMAIN_SYSTEM -Filter "name eq `"$StorageName`"" 6>$null
+$CREDS=Get-PPDMcredentials -filter 'name eq "windows"' 6>$null
+if (!$CREDS) {
+    $Securestring=ConvertTo-SecureString -AsPlainText -String "Password123!" -Force
+    $Credential = New-Object System.Management.Automation.PSCredential($username, $Securestring)
+    Write-Host "Creating Credentials for SQL user"
+    $CREDS=New-PPDMcredentials -type OS -name $Credential_Name -authmethod BASIC -credentials $Credential
 
+}
+$Policy=New-PPDMSQLBackupPolicy -Schedule $Schedule -Name $PolicyName -Description $PolicyDescription -skipUnprotectableState -dbCID $CREDS.id -StorageSystemID $StorageSystem.id -enabled
+$Assets=Get-PPDMassets -type MICROSOFT_SQL_DATABASE -filter 'details.database.clusterName eq "sql-02.demo.local" and name lk "SQLPROD%"'  6>$null
+$Assets+=Get-PPDMassets -type MICROSOFT_SQL_DATABASE -filter 'details.database.clusterName eq "sqlaag-01.demo.local" and name lk "DemoDB-0%"'  6>$null
+Add-PPDMProtection_policy_assignment -id $Policy.id -AssetID $Assets.id | out-string
+# $Policy | Get-PPDMprotection_policies
 
-
-$StorageSystem=Get-PPDMStorage_systems -Type DATA_DOMAIN_SYSTEM -Filter {name eq "ddve-01.demo.local"}
-
-
-if not create !!!
-
-$credentials=Get-PPDMcredentials -filter 'name eq "windows"'
-
-
-And Create a new Protection Policy from the 3 Variables
-
-
-New-PPDMSQLBackupPolicy -Schedule $Schedule -Name "SQL PROD DATABASE" -Description "SQL DB Backups" -skipUnprotectableState -dbCID $credentials.id -StorageSystemID $StorageSystem.id
-
-
-![Alt text](./images/image-55.png)
-
-For output reasons we did not assign the result of the command  to a Variable. But we an leverage the filter api do do so. We Always use Filters to query for Human Readable Entities, otherwise we would select by id:
-
-
-$Policy=Get-PPDMprotection_policies -filter 'name eq "SQL PROD DATABASE"'
-
-
-Lets to the same with the SQL Assets we are going to assign to the Policy:
-
-
-$Assets=Get-PPDMassets -type MICROSOFT_SQL_DATABASE -filter 'details.database.clusterName eq "sql-02.demo.local" and name lk "SQLPROD%"'
-
-
-Do Similar  for the Always On Databases
-
-
-$Assets+=Get-PPDMassets -type MICROSOFT_SQL_DATABASE -filter 'details.database.clusterName eq "sqlaag-01.demo.local" and name lk "DemoDB-0%"'
-
-
-Now assign the Assets to the Policy. The Policy Assignment Alows a List of Assets to be assigned. Multiple Asset IDS can be called from Assets.id
-We the Pipe the $Policy to *Get-PPDMprotection_policies* to get a refresed list of the Policy
-
-
-Add-PPDMProtection_policy_assignment -id $Policy.id -AssetID $Assets.id
-$Policy | Get-PPDMprotection_policies
-
-
-
-Review them with
-
-
-Get-PPDMactivities -PredefinedFilter SYSTEM_JOBS -pageSize 3
-
-
-And now we are good to start the Policy AdHoc:
+Get-PPDMactivities -PredefinedFilter SYSTEM_JOBS -filter 'name eq "Configuring SQL Databases - SQL PROD DATABASE - PROTECTION"' -pageSize 3 6>$null | out-string
+Write-Host "Waiting for activity to complete"
+do { 
+    Sleep 5;
+    $Activity=Get-PPDMactivities -PredefinedFilter SYSTEM_JOBS -filter 'name eq "Configuring SQL Databases - SQL PROD DATABASE - PROTECTION"' -pageSize 3 6>$null
+    write-host -NoNewline "$($Activity.progress)% "
+    }
+until ($Activity.state -eq "COMPLETED")
 
 
 Start-PPDMprotection_policies -id $Policy.id -BackupType FULL -RetentionUnit DAY -RetentionInterval 5
 
+Get-PPDMactivities -pageSize 1 -filter 'name eq "Manually Protecting SQL Databases - SQL PROD DATABASE - PROTECTION - Full"' 6>$null | out-string
+do { 
+    Sleep 5;
+    $Activity=Get-PPDMactivities -pageSize 1 -filter 'name eq "Manually Protecting SQL Databases - SQL PROD DATABASE - PROTECTION - Full"' 6>$null
+    write-host -NoNewline "$($Activity.progress)% "
+    }
+until ($Activity.state -eq "COMPLETED")
 
-Now, we can Monitory the Protection Job 
-
-
-Get-PPDMactivities -PredefinedFilter PROTECTION_JOBS -pageSize 1
-And the Asset Activities
-
-
-Get-PPDMactivities -PredefinedFilter ASSET_JOBS -pageSize 4
 
