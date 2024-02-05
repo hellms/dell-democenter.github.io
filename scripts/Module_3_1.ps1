@@ -1,3 +1,4 @@
+$VCENTER_HOST="vcsa-7.demo.local"
 #$username="admin@vsphere.local"
 #$Credential = New-Object System.Management.Automation.PSCredential($username, $Securestring)
 #$CREDS=New-PPDMcredentials -type VCENTER -name $username -credentials $Credential
