@@ -12,4 +12,7 @@ git clone https://github.com/bottkars/ppdm-pwsh.git
 set-location ppdm-pwsh
 ipmo ./PPDM-pwsh -force 
 $DownloadString="https://dell-democenter.github.io/scripts/Module_1.ps1"
-Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('$DownloadString'))
+Invoke-Expression ((New-Object System.Net.WebClient).DownloadString($DownloadString))
+Write-Host "Testing Module 1"
+$DownloadString="https://dell-democenter.github.io/scripts/Module_2.ps1"
+Invoke-Expression ((New-Object System.Net.WebClient).DownloadString($DownloadString))
