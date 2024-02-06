@@ -16,7 +16,7 @@ $Assets | Set-PPDMMSSQLassetStreamcount -LogStreamCount 10 -FullStreamCount 10 -
 ($Assets | Get-PPDMassets).backupDetails | out-string
 Write-Host "Creating a Backup Schedule"
 $Schedule=New-PPDMDatabaseBackupSchedule -hourly -CreateCopyIntervalHrs 1 -DifferentialBackupUnit MINUTELY -DifferentialBackupInterval 30 -RetentionUnit DAY -RetentionInterval 5
-Write-Host "Getting Storage System"
+
 
 $StorageSystem=Get-PPDMStorage_systems -Type DATA_DOMAIN_SYSTEM -Filter "name eq `"$StorageName`"" 6>$null
 $CREDS=Get-PPDMcredentials -filter 'name eq "windows"' 6>$null

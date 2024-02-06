@@ -2,7 +2,7 @@
 
 ## LESSON 1 - PROTECT ORACLE DATABASES
 
-In this Lesson we Create a Protectin Policy for Oracle Centralized Protection
+In this Lesson we Create a Protection Policy for Oracle Centralized Protection
 We alo need to create the following Credentials:
 
 >Credential Name: oracle  

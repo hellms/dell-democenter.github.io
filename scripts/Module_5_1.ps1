@@ -1,6 +1,6 @@
-# MODULE 5 - PROTECT & RESTORE ORACLE DATABASE FROM POWERSHELL
+Write-Host "# MODULE 5 - PROTECT & RESTORE ORACLE DATABASE FROM POWERSHELL
 # Scripted Version
-## LESSON 1 - PROTECT ORACLE DATABASES
+## LESSON 1 - PROTECT ORACLE DATABASES"
 
 
 $username="oracle"
@@ -13,6 +13,7 @@ $Securestring=ConvertTo-SecureString -AsPlainText -String $Password -Force
 $Credentials = New-Object System.Management.Automation.PSCredential($username, $Securestring)
 $OraCreds=New-PPDMcredentials -type OS -name $credentialname -authmethod BASIC -credentials $Credentials
 $OraCreds | Out-String
+Write-Host "Getting Storage System"
 $StorageSystem=Get-PPDMStorage_systems -Type DATA_DOMAIN_SYSTEM -Filter {name eq "ddve-01.demo.local"}
 $StorageSystem | Out-String
 Write-Host "Creating Backup Schedule"
