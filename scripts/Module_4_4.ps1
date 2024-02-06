@@ -1,6 +1,6 @@
-# MODULE 4 - PROTECT SQL DATABASES
+Write-Host "# MODULE 4 - PROTECT SQL DATABASES
 # Scripted Version
-## LESSON 4 - RECOVER SQL DATABASES TO AAG ( TO ALL REPLICAS )
+## LESSON 4 - RECOVER SQL DATABASES TO AAG ( TO ALL REPLICAS )"
 Write-Host "This will perform a Centralized Restore of SQL DATABASES TO AAG ( TO ALL REPLICAS )"
 $RestoreFromHost = "sqlaag-01.demo.local"
 $RestoreToHost_Name = "sqlaag-01.demo.local"
@@ -33,6 +33,8 @@ $Parameters = @{
 $Restore = Restore-PPDMMSSQL_copies @Parameters
 $Restore | Get-PPDMRestored_copies
 $Restore | Get-PPDMactivities
+Write-Host "Waiting for Restore Activity to complete"
+
 do { 
     Sleep 5
     $Activity=$Restore | Get-PPDMactivities

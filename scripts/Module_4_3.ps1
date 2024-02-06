@@ -40,7 +40,7 @@ Write-Host "starting the Restore Job:"
 $Restore = Restore-PPDMMSSQL_copies @Parameters
 $Restore | Get-PPDMRestored_copies
 $Restore | Get-PPDMactivities
-Write-Host "Waiting for Activity to complete"
+Write-Host "Waiting for Restore Activity to complete"
 do { 
     Sleep 5
     $Activity=$Restore | Get-PPDMactivities
