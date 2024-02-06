@@ -32,6 +32,7 @@ Write-Host "Creating PLC $PolicyName"
 $Policy=New-PPDMSQLBackupPolicy -Schedule $Schedule -Name $PolicyName -Description $PolicyDescription -skipUnprotectableState -dbCID $CREDS.id -StorageSystemID $StorageSystem.id -enabled
 $Assets=Get-PPDMassets -type MICROSOFT_SQL_DATABASE -filter 'details.database.clusterName eq "sql-02.demo.local" and name lk "SQLPROD%"'  6>$null
 $Assets+=Get-PPDMassets -type MICROSOFT_SQL_DATABASE -filter 'details.database.clusterName eq "sqlaag-01.demo.local" and name lk "DemoDB-0%"'  6>$null
+Write-Host "Assigning  $PolicyName"
 Add-PPDMProtection_policy_assignment -id $Policy.id -AssetID $Assets.id | out-string
 # $Policy | Get-PPDMprotection_policies
 
@@ -44,6 +45,7 @@ do {
     }
 until ($Activity.state -eq "COMPLETED")
 
+Write-Host "Starting PLC $PolicyName"
 
 Start-PPDMprotection_policies -id $Policy.id -BackupType FULL -RetentionUnit DAY -RetentionInterval 5
 
