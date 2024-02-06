@@ -4,6 +4,10 @@ Write-Host "# MODULE 5 - PROTECT & RESTORE ORACLE DATABASE FROM POWERSHELL
 
 $Asset=Get-PPDMassets -type ORACLE_DATABASE -filter 'details.database.clusterName eq "oracle01.demo.local" and name eq "orcl"'
 $StorageSystem=Get-PPDMStorage_systems -Type DATA_DOMAIN_SYSTEM -Filter {name eq "ddve-01.demo.local"}
+$Policy=Get-PPDMassets -type ORACLE_DATABASE -filter 'name eq "orcl"'
+
+
+$OraCreds=Get-PPDMcredentials -filter 'name eq "oracle"'
 
 
 Write-Host "## Step 1 Remove the Asset Assignment using (Only Required after Lesson 5.3)"
