@@ -1,3 +1,6 @@
+Write-Host "# MODULE 3 - PROTECT VMWARE VIRTUAL MACHINES 
+
+## LESSON 1 - DISCOVER VIRTUAL MACHINES"
 $VCENTER_HOST="vcsa-7.demo.local"
 #$username="admin@vsphere.local"
 #$Credential = New-Object System.Management.Automation.PSCredential($username, $Securestring)

@@ -1,3 +1,5 @@
+write-host "# Module 1 Connect to PPDM and Explore the Status
+## Connect to the System"
 $PPDM_FQDN="ppdm-01.demo.local"
 $Securestring=ConvertTo-SecureString -AsPlainText -String "Password123!" -Force
 $username="admin"

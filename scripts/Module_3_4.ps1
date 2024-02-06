@@ -1,6 +1,7 @@
+Write-Host "
 # MODULE 3 - PROTECT VMWARE VIRTUAL MACHINES
 # Scripted Version
-## LESSON 4 - CENTRALIZED RESTORE- SQL DATABASE
+## LESSON 4 - CENTRALIZED RESTORE- SQL DATABASE"
 $RestoreFromHost = "sql-03.demo.local"
 $RestoreToHost_Name = "sql-03.demo.local"
 $AppServerName = "MSSQLSERVER"
