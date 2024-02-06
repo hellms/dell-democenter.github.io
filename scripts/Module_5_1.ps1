@@ -40,11 +40,11 @@ until ($Activity.state -eq "COMPLETED")
 $Protection=Start-PPDMprotection -AssetIDs $Asset.id -StageID $Policy.stages[0].id -PolicyID $Policy.id
 
 
-Get-PPDMactivities -filter 'name eq "Manually Protecting Oracle Databases - Oracle DEV - PROTECTION - Full"' -pageSize 3 6>$null | Out-String
+$Protection.Results | Get-PPDMactivities 
 
 do { 
     Sleep 5;
-    $Activity=Get-PPDMactivities -filter 'name lk "%Manually Protecting Oracle Databases - Oracle DEV - PROTECTION - Full"' -pageSize 3 6>$null 
+    $Activity=$Protection.Results | Get-PPDMactivities 
     write-host -NoNewline "$($Activity.progress)% "
     }
 until ($Activity.state -eq "COMPLETED")
