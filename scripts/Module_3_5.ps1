@@ -10,12 +10,12 @@ Write-Host "Reading the Datacenter Moref for $vcenterName"
 $Datacenter=$InventorySource | Get-PPDMvcenterDatacenters
 $Datacenter | Out-String
 Write-Host "Reading Host Information for $RestoreHost"
-$ESXHOST=Get-PPDMhosts -type ESX_HOST -filter "`'name eq `"$RestoreHost`"`'" 6>$null
+$ESXHOST=Get-PPDMhosts -type ESX_HOST -filter "name eq `"$RestoreHost`"" 6>$null
 Write-Host "Get the Moref´s of the Host $RestoreHost"
 $HostMorefs=Get-PPDMvcenterMorefs -ID $InventorySource.ID -hostMoref $ESXHOST.details.esxHost.hostMoref
 $HostMorefs | Out-String 
 Write-Host "Reading the Original Asset for $OriginalVM"
-$Asset=Get-PPDMassets -filter "`'name eq `"$OriginalVM`"`'" 6>$null
+$Asset=Get-PPDMassets -filter "name eq `"$OriginalVM`"" 6>$null
 Write-Host "Get the latest Copy for the Asset $($Asset.name)"
 $LatestCopy=Get-PPDMlatest_copies -assetID $Asset.id
 $Restore=Restore-PPDMVMAsset -INSTANT_ACCESS -CopyObject $LatestCopy `
@@ -23,7 +23,7 @@ $Restore=Restore-PPDMVMAsset -INSTANT_ACCESS -CopyObject $LatestCopy `
 -InventorySourceId $InventorySource.id `
 -dataCenterMoref $Datacenter.moref `
 -hostMoref $HostMorefs.moref `
--Description "from Powershell" 
+-Description "from Powershell" -
 
 
 $Restore | Get-PPDMactivities 
