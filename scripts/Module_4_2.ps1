@@ -1,6 +1,6 @@
-# MODULE 4 - PROTECT SQL DATABASES
+Write-Host "# MODULE 4 - PROTECT SQL DATABASES
 # Script Version
-## LESSON 2 - PROTECT SQL DATABASES
+## LESSON 2 - PROTECT SQL DATABASES"
 
 $SQL_HOSTNAME="sql-02.demo.local"
 $PolicyName="SQL PROD DATABASE"
@@ -16,6 +16,7 @@ $Assets | Set-PPDMMSSQLassetStreamcount -LogStreamCount 10 -FullStreamCount 10 -
 ($Assets | Get-PPDMassets).backupDetails | out-string
 Write-Host "Creating a Backup Schedule"
 $Schedule=New-PPDMDatabaseBackupSchedule -hourly -CreateCopyIntervalHrs 1 -DifferentialBackupUnit MINUTELY -DifferentialBackupInterval 30 -RetentionUnit DAY -RetentionInterval 5
+Write-Host "Getting Storage System"
 
 $StorageSystem=Get-PPDMStorage_systems -Type DATA_DOMAIN_SYSTEM -Filter "name eq `"$StorageName`"" 6>$null
 $CREDS=Get-PPDMcredentials -filter 'name eq "windows"' 6>$null
@@ -26,6 +27,8 @@ if (!$CREDS) {
     $CREDS=New-PPDMcredentials -type OS -name $Credential_Name -authmethod BASIC -credentials $Credential
 
 }
+Write-Host "Creating PLC $PolicyName"
+
 $Policy=New-PPDMSQLBackupPolicy -Schedule $Schedule -Name $PolicyName -Description $PolicyDescription -skipUnprotectableState -dbCID $CREDS.id -StorageSystemID $StorageSystem.id -enabled
 $Assets=Get-PPDMassets -type MICROSOFT_SQL_DATABASE -filter 'details.database.clusterName eq "sql-02.demo.local" and name lk "SQLPROD%"'  6>$null
 $Assets+=Get-PPDMassets -type MICROSOFT_SQL_DATABASE -filter 'details.database.clusterName eq "sqlaag-01.demo.local" and name lk "DemoDB-0%"'  6>$null
