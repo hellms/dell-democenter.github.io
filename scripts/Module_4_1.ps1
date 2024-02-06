@@ -1,6 +1,6 @@
-# MODULE 4 - PROTECT SQL DATABASES
+Write-Host "# MODULE 4 - PROTECT SQL DATABASES
 # Scripted Version
-## LESSON 1 - DISCOVER SQL DATABASES
+## LESSON 1 - DISCOVER SQL DATABASES"
 $SQL_HOSTNAME="sql-02.demo.local"
 Write-Host "Reviewing the Agent Regitration Status."
 Get-PPDMagent_registration_status  6>$null | out-string
