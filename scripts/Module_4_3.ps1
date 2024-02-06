@@ -1,7 +1,7 @@
-# MODULE 4 - PROTECT SQL DATABASES
+Write-Host "# MODULE 4 - PROTECT SQL DATABASES
 # Scripted Version
-## LESSON 3 - RECOVER SQL DATABASES
-Write-Host "Preparing ro perform a Centralized Restore"
+## LESSON 3 - RECOVER SQL DATABASES"
+Write-Host "Preparing to perform a Centralized Restore"
 $RestoreFromHost = "sql-02.demo.local"
 $RestoreToHost_Name = "sql-02.demo.local"
 $AppServerName = "MSSQLSERVER"
@@ -40,6 +40,7 @@ Write-Host "starting the Restore Job:"
 $Restore = Restore-PPDMMSSQL_copies @Parameters
 $Restore | Get-PPDMRestored_copies
 $Restore | Get-PPDMactivities
+Write-Host "Waiting for Activity to complete"
 do { 
     Sleep 5
     $Activity=$Restore | Get-PPDMactivities
