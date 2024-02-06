@@ -23,7 +23,7 @@ $Restore=Restore-PPDMVMAsset -INSTANT_ACCESS -CopyObject $LatestCopy `
 -InventorySourceId $InventorySource.id `
 -dataCenterMoref $Datacenter.moref `
 -hostMoref $HostMorefs.moref `
--Description "from Powershell" -
+-Description "from Powershell"
 
 
 $Restore | Get-PPDMactivities 
