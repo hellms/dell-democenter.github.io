@@ -30,7 +30,7 @@ Get-PPDMactivities -PredefinedFilter SYSTEM_JOBS -filter 'name lk "%Configuring 
 Write-Host "Waiting for activity to complete"
 do { 
     Sleep 5;
-    $Activity=Get-PPDMactivities -PredefinedFilter SYSTEM_JOBS -filter '%name lk "%Configuring Oracle Databases - Oracle DEV%"' -pageSize 3 6>$null
+    $Activity=Get-PPDMactivities -PredefinedFilter SYSTEM_JOBS -filter 'name lk "%Configuring Oracle Databases - Oracle DEV%"' -pageSize 3 6>$null
     write-host -NoNewline "$($Activity.progress)% "
     }
 until ($Activity.state -eq "COMPLETED")
