@@ -26,25 +26,25 @@ $Asset | Out-String
 Add-PPDMProtection_policy_assignment -id $Policy.id -AssetID $Asset.id
 $Policy | Get-PPDMprotection_policies | Out-String
 
-Get-PPDMactivities -PredefinedFilter SYSTEM_JOBS -filter 'name eq "Configuring Oracle Databases - Oracle DEV"' -pageSize 3 6>$null | out-string
+Get-PPDMactivities -PredefinedFilter SYSTEM_JOBS -filter 'name lk "%Configuring Oracle Databases - Oracle DEV%"' -pageSize 3 6>$null | out-string
 Write-Host "Waiting for activity to complete"
 do { 
     Sleep 5;
-    $Activity=Get-PPDMactivities -PredefinedFilter SYSTEM_JOBS -filter 'name eq "Configuring Oracle Databases - Oracle DEV"' -pageSize 3 6>$null
+    $Activity=Get-PPDMactivities -PredefinedFilter SYSTEM_JOBS -filter '%name lk "Configuring Oracle Databases - Oracle DEV%"' -pageSize 3 6>$null
     write-host -NoNewline "$($Activity.progress)% "
     }
 until ($Activity.state -eq "COMPLETED")
 
 
 
-Start-PPDMprotection -AssetIDs $Asset.id -StageID $Policy.stages[0].id -PolicyID $Policy.id
+$Protection=Start-PPDMprotection -AssetIDs $Asset.id -StageID $Policy.stages[0].id -PolicyID $Policy.id
 
 
 Get-PPDMactivities -filter 'name eq "Manually Protecting Oracle Databases - Oracle DEV - PROTECTION - Full"' -pageSize 3 6>$null | Out-String
 
 do { 
     Sleep 5;
-    $Activity=Get-PPDMactivities -filter 'name eq "Manually Protecting Oracle Databases - Oracle DEV - PROTECTION - Full"' -pageSize 3 6>$null 
+    $Activity=Get-PPDMactivities -filter 'name lk "%Manually Protecting Oracle Databases - Oracle DEV - PROTECTION - Full"' -pageSize 3 6>$null 
     write-host -NoNewline "$($Activity.progress)% "
     }
 until ($Activity.state -eq "COMPLETED")
