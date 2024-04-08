@@ -1,5 +1,6 @@
 # Header
 das ist ein text  
+![bild eines super DAU](https://github.com/dell-democenter/dell-democenter.github.io/assets/8255007/0b02e904-75b7-425c-8c37-abb107578023)
 
 das ist ein neuer text
 
